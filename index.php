@@ -91,7 +91,7 @@
                                             </a>
                                         </div>
                                         <div class="col-sm-4 plan price yellow wow fadeInDown">
-                                            <a href="produto.php">
+                                        <a data-toggle="modal" data-target="#modal-frequencia">
                                                 <ul class="list-group">
                                                     <li class="list-group-item heading box-content" data-bs-hover-animate="pulse" style="height: 257px;">
                                                         <img src="assets/img/test.png" alt="Idosos" class="box-img">
@@ -112,6 +112,7 @@
                                             </a>
                                         </div>
                                         <div class="col-sm-6 col-md-3 plan price default wow fadeInDown">
+                                            
                                             <ul class="list-group">
                                                 <li class="list-group-item heading" data-bs-hover-animate="pulse" style="height: 245px;">
                                                     <img src="assets/img/calendar.png" alt="Idosos" class="box-img">
@@ -180,17 +181,57 @@
 
                                             
                                           </select>
-                                        </div>
-                                        
-                                        
-                                    
-                                
-
-
-
+                                        </div>    
                             </div>
                             <div class="modal-footer">
                                  <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="gerarFicha()">Gerar</button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="modal fade" id="modal-frequencia">
+                    <div class="modal-dialog" >
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">
+                                    Fazer Frequência
+                                </h4>
+                                <button type="button" class="close" data-dismiss="modal"><b>x</b></button>
+                            </div>
+                            <form>
+                            <div class="modal-body"> 
+                            <?php
+                                    include 'includes/conexao.php';
+
+                                    $sth = $conexao->prepare("SELECT * FROM tb_idoso ORDER BY nome ASC");
+                                    $sth->execute();
+                        
+                                    $result = $sth->fetchAll();
+
+                                ?>
+                                    
+                                        <div class="form-group">
+                                          <label for="">Presença em:</label>
+                                          <select class="form-control" id="pacienteFreq">
+                                            <option value="vazio">selecione...</option>
+                                            <?php
+                                                foreach($result as $cadastro){ ?>
+
+                                                    <option value="<?php echo $cadastro[0];?>"><?php echo $cadastro[1];?></option>
+                                            <?php
+                                                }
+                                            ?>
+
+                                            
+                                          </select>
+                                        </div>                            
+                                
+                            </div>
+                            <div class="modal-footer">
+                                 <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="darPresenca()">Presença</button>
                             </div>
                             </form>
                         </div>
@@ -211,6 +252,36 @@
 
                         window.open("gerarpdfficha.php?id="+idPaciente);
                        
+                    }
+
+                    function darPresenca(){
+
+                        var data = new Date();
+                        const idPaciente = $('#pacienteFreq').val();
+
+
+                        $.ajax({
+                        url : "valida/validaFrequencia.php",
+                        type : 'post',
+                        data : {
+                            id : idPaciente,
+                            hora: data.getHours(),
+                            minutos: data.getMinutes()
+
+                            
+                        },
+                        beforeSend : function(){
+                            //alert('Enviando');
+                            $("#resultado").html("ENVIANDO...");
+                        }
+                        })
+                        .done(function(msg){
+                            alert(msg);
+                            $("#resultado").html(msg);
+                        })
+                        .fail(function(jqXHR, textStatus, msg){
+                            alert(msg);
+                        }); 
                     }
                 
                 </script>

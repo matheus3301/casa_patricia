@@ -112,7 +112,7 @@
                     <th>Nome</th>
                     <th>Sexo</th>
                     <th>Contato</th>
-                    <th>Data de Nasc.</th>
+                    <th>Data Nasc.</th>
                     <th>RG</th>
                     <th>CPF</th>
                     <th>NIS</th>

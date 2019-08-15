@@ -135,7 +135,7 @@
                         <div class="col-sm-12 col-md-4">
                         <div class="form-group">
                             <label style="color: #0a0a0a;">Contato</label>
-                            <input class="form-control form-control-lg telefone" type="text" inputmode="numeric" name="contato" required="">
+                            <input placeholder="(00) 00000-0000" class="form-control form-control-lg telefone" type="text" inputmode="numeric" name="contato" required="">
                         
                         </div>
                         </div>
@@ -206,7 +206,7 @@ MEDICAÇÕES:
                         </div>
                         <div class="col-sm-12 col-md-6">
                             <div class="form-group"><label style="color: #0a0a0a;">Contato Familiar</label><br>
-                            <input class="form-control form-control-lg telefone" type="text" required="" name="contato_familiar"></div>
+                            <input placeholder="(00) 00000-0000" class="form-control form-control-lg telefone" type="text" required="" name="contato_familiar"></div>
                         
                         </div>
                     </div>
@@ -237,8 +237,7 @@ MEDICAÇÕES:
         var $campoCPF = $("#CPF");
         $campoCPF.mask('000.000.000-00', {reverse: true});
 
-        var $campoRG = $("#RG");
-        $campoRG.mask('00.000.000-0');
+        
 
         var $campoTELEFONE = $('.telefone');
         $campoTELEFONE.mask('(00) 00000-0000');

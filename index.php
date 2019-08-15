@@ -219,7 +219,10 @@
 
                                             
                                           </select>
-                                        </div>    
+                                        </div>
+
+                                       
+
                             </div>
                             <div class="modal-footer">
                                  <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="gerarFicha()">Gerar</button>
@@ -265,7 +268,15 @@
 
                                             
                                           </select>
-                                        </div>                            
+                                        </div>
+
+                                        <div class="form-group">
+                                          <label for="date">Data:</label>
+                                          <input type="date"
+                                            class="form-control" name="date" id="dataFreq" aria-describedby="helpId" placeholder="Selecione">
+                                          <small id="helpId" class="form-text text-muted">OBS: Caso não coloque a data, será definida a data atual.</small>
+                                        </div>
+                                                                    
                                 
                             </div>
                             <div class="modal-footer">
@@ -293,33 +304,51 @@
                     }
 
                     function darPresenca(){
-
+                        
                         var data = new Date();
                         const idPaciente = $('#pacienteFreq').val();
 
+                        if(idPaciente != "vazio"){
 
-                        $.ajax({
-                        url : "valida/validaFrequencia.php",
-                        type : 'post',
-                        data : {
-                            id : idPaciente,
-                            hora: data.getHours(),
-                            minutos: data.getMinutes()
+                            var iptData = $('#dataFreq').val();
 
                             
-                        },
-                        beforeSend : function(){
-                            //alert('Enviando');
-                            $("#resultado").html("ENVIANDO...");
+
+                            if(iptData == ""){
+                                iptData = "atual"
+                            }
+
+                            
+
+                            $.ajax({
+                            url : "valida/validaFrequencia.php",
+                            type : 'post',
+                            data : {
+                                id : idPaciente,
+                                hora: data.getHours(),
+                                minutos: data.getMinutes(),
+                                data:iptData,
+
+                                
+                            },
+                            beforeSend : function(){
+                                //alert('Enviando');
+                                $("#resultado").html("ENVIANDO...");
+                            }
+                            })
+                            .done(function(msg){
+                                alert(msg);
+                                $("#resultado").html(msg);
+                            })
+                            .fail(function(jqXHR, textStatus, msg){
+                                alert(msg);
+                            });        
+                        }else{
+                            alert("Selecione um paciente para dar presença");
                         }
-                        })
-                        .done(function(msg){
-                            alert(msg);
-                            $("#resultado").html(msg);
-                        })
-                        .fail(function(jqXHR, textStatus, msg){
-                            alert(msg);
-                        }); 
+
+
+                       
                     }
                 
                 </script>

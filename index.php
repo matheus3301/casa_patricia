@@ -75,11 +75,49 @@
                             <strong>Sucesso!</strong> Paciente cadastrado com sucesso no sistema! :)
                         </div>
 
+                       
 
-                        <div id="#RESULTADO">
-                            
-                        
-                        </div>
+
+                <?php
+                }
+                
+
+                if(isset($_GET['op']) && $_GET['op'] == 'alterar'){?>
+
+                <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <strong>Sucesso!</strong> As informações do paciente foram atualizadas! :)
+                </div>
+
+
+                <div id="#RESULTADO">
+                    
+
+                </div>
+
+
+                <?php
+                }
+                ?>
+                <?php
+                if(isset($_GET['op']) && $_GET['op'] == 'excluir'){?>
+
+                <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <strong>Sucesso!</strong> O paciente foi excluído do sistema :'(
+                </div>
+
+
+                <div id="#RESULTADO">
+                    
+
+                </div>
 
 
                 <?php

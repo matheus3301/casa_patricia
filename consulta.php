@@ -129,7 +129,7 @@
                         
                     ?>
                     <tr>
-                        <td scope="row"><img class="img-perfil" src="includes/verimagem.php?id=<?php echo $cadastro[0];?>" alt="Imagem"></td>
+                        <?php if($cadastro['img'] != null){?> <td scope="row"><img class="img-perfil" src="includes/verimagem.php?id=<?php echo $cadastro[0];?>" alt="Imagem"></td> <?php }else{ ?> <td scope="row"><img class="img-perfil" src="assets/img/man.png" alt="Imagem"></td> <?php } ?>
                         <td><?php echo $cadastro[1]; ?></td>
                         <td><?php echo $cadastro[3]; ?></td>
                         <td><?php echo $cadastro[10]; ?></td>
@@ -157,12 +157,12 @@
                             <div class="modal-body"> 
 
                             <p>Tem certeza que deseja excluir <?php echo $cadastro[1]?>?</p>
-
+                            <strong>Todas as informações e frequência serão deletadas</strong>
 
 
                             </div>
                             <div class="modal-footer">
-                                <a href="excluir.php?id=<?php echo $cadastro[0]?>" class="btn btn btn-primary text-white ml-3">Excluir</a>
+                                <a href="valida/validaExcluir.php?id=<?php echo $cadastro[0]?>" class="btn btn btn-primary text-white ml-3">Excluir</a>
                             </div>
                             </div>
                         </div>

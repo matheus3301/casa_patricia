@@ -168,32 +168,8 @@
                                                 </ul>
                                             </a>
                                         </div>
-                                        <div class="col-sm-6 col-md-3 plan price default wow fadeInDown">
-                                            <a href="gerarpdfcadastros.php">
-                                                <ul class="list-group">
-                                                    <li class="list-group-item heading" data-bs-hover-animate="pulse" style="height: 245px;">
-                                                        <img src="assets/img/pdf.png" alt="Idosos" class="box-img">
-                                                        <h1 class="box-txt">Relatório</h1><span class="price">Idosos Cadastrados</span>
-                                                    </li>
-                                                </ul>
-                                            </a>
-                                        </div>
-                                        <div class="col-sm-6 col-md-3 plan price default wow fadeInDown">
-                                            <?php 
-                                                $fuso = new DateTimeZone('America/Fortaleza');
-                                                $data = new DateTime();
-                                                $data->setTimezone($fuso);
-                                                $mesAtual =  $data->format('m');
-                                            
-                                            ?>
-                                            <a href="consultafrequencia.php?mes=<?php echo $mesAtual;?>">
-                                            <ul class="list-group">
-                                                <li class="list-group-item heading" data-bs-hover-animate="pulse" style="height: 245px;">
-                                                    <img src="assets/img/calendar.png" alt="Idosos" class="box-img">
-                                                    <h1 class="box-txt">Relatório</h1><span class="price">Frequência no Mês</span>
-                                                </ul>
-                                                </a>
-                                            </div>
+                                        
+                                        
 
                                             <div class="col-sm-6 col-md-3 plan price default wow fadeInDown" style="cursor:pointer">
                                                 <a data-toggle="modal" data-target="#modal-ficha">
@@ -204,12 +180,43 @@
                                                         </ul>
                                                     </a>
                                                 </div>
-                                                <div class="col-sm-6 col-md-3 plan price default wow fadeInDown" style="cursor:not-allowed">
+
+
+                                                <div class="col-sm-6 col-md-3 plan price default wow fadeInDown">
+                                                    <a href="gerarpdfcadastros.php">
+                                                        <ul class="list-group">
+                                                            <li class="list-group-item heading" data-bs-hover-animate="pulse" style="height: 245px;">
+                                                                <img src="assets/img/pdf.png" alt="Idosos" class="box-img">
+                                                                <h1 class="box-txt">Relatório</h1><span class="price">Idosos Cadastrados</span>
+                                                            </li>
+                                                        </ul>
+                                                    </a>
+                                                </div>
+
+                                                <div class="col-sm-6 col-md-3 plan price default wow fadeInDown">
+                                                <?php 
+                                                    $fuso = new DateTimeZone('America/Fortaleza');
+                                                    $data = new DateTime();
+                                                    $data->setTimezone($fuso);
+                                                    $mesAtual =  $data->format('m');
+                                                
+                                                ?>
+                                                <a href="consultafrequencia.php?mes=<?php echo $mesAtual;?>">
+                                                <ul class="list-group">
+                                                    <li class="list-group-item heading" data-bs-hover-animate="pulse" style="height: 245px;">
+                                                        <img src="assets/img/calendar.png" alt="Idosos" class="box-img">
+                                                        <h1 class="box-txt">Relatório</h1><span class="price">Frequência no Mês</span>
+                                                    </ul>
+                                                    </a>
+                                                </div>
+                                                <div class="col-sm-6 col-md-3 plan price default wow fadeInDown" style="cursor:pointer">
+                                                <a data-toggle="modal" data-target="#modal-mais">
                                                     <ul class="list-group">
                                                         <li class="list-group-item heading" data-bs-hover-animate="pulse" style="height: 245px;">
                                                             <img src="assets/img/plus.png" alt="Idosos" class="box-img">
                                                             <h1 class="box-txt">Mais...</h1><span class="price">Em breve</span>
                                                         </ul>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -220,6 +227,45 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="modal fade" id="modal-mais">
+                    <div class="modal-dialog" >
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">
+                                   Mais Opções...
+                                </h4>
+                                <button type="button" class="close" data-dismiss="modal"><b>x</b></button>
+                            </div>
+                            <form>
+                            <div class="modal-body"> 
+                            <div class="container-hero">
+                                <div class="col-sm-6 col-md-6 plan price default wow fadeInDown">
+                                    <a href="gerarpdfcadastros.php">
+                                        <ul class="list-group">
+                                            <li class="list-group-item heading" data-bs-hover-animate="pulse" style="height: 245px;">
+                                                <img src="assets/img/pdf.png" alt="Idosos" class="box-img">
+                                                <h1 class="box-txt">Relatório</h1><span class="price">Idosos Cadastrados</span>
+                                            </li>
+                                        </ul>
+                                    </a>
+                                </div>
+                            
+                            </div>
+                            
+
+                                
+
+                            </div>
+                            <div class="modal-footer">
+                                 <button type="button" class="btn btn-primary" data-dismiss="modal" >Fechar</button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
 
                 <div class="modal fade" id="modal-ficha">
                     <div class="modal-dialog" >

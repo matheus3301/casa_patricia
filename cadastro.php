@@ -88,7 +88,7 @@
                 <div class="container">
                     <a href="index.php"><img src="assets/img/logo.png" alt="Casa de Patrícia" class="header-img"></a>
                     
-                    <a class="navbar-brand" href="#">Cadastro</a>
+                    <span class="navbar-brand" > <a href="index.php" class="text-white">Início </a> / Cadastro</span>
                     
                 </div>
             </nav>
@@ -216,8 +216,8 @@ MEDICAÇÕES:
                     <hr>
                     <div class="form-row">
                         <div class="col-md-12 content-right">
-                            <button class="btn btn-primary form-btn" type="submit" onClick="document.formCad.submit()">CADASTRAR</button>
-                            <input class="btn btn-warning text-white form-btn" type="reset" value="LIMPAR TUDO"><br><br><br><br>
+                            <button class="btn btn-primary form-btn" type="submit" >CADASTRAR</button>
+                            <br><br><br><br>
                         </div>
                     </div>
                 </div>
@@ -229,11 +229,17 @@ MEDICAÇÕES:
     <script src="assets/js/bs-animation.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
     <script src="assets/js/Pricing-Tables.js"></script>
-    <script src="assets/js/Profile-Edit-Form.js"></script>
+   
     <script src="assets/js/jquery.mask.min.js"></script>
 
 
     <script>
+        function verificarCampos(){
+
+            //if()
+            //document.formCad.submit();
+        }
+
         var $campoCPF = $("#CPF");
         $campoCPF.mask('000.000.000-00', {reverse: true});
 

@@ -107,7 +107,7 @@
                 <div class="container">
                     <a href="index.php"><img src="assets/img/logo.png" alt="Casa de Patrícia" class="header-img"></a>
                     
-                    <a class="navbar-brand" href="#">Alteração</a>
+                    <span class="navbar-brand" > <a href="consulta.php" class="text-white">Consulta </a> / Alteração</span>
                     
                 </div>
             </nav>

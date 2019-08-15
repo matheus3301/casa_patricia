@@ -95,6 +95,7 @@
         </div>
     </div>
     <div class="container profile profile-view" data-aos="zoom-in" data-aos-once="true" id="profile">
+        
         <div class="row">
             <div class="col-md-12 alert-col relative">
                 <div class="alert alert-info absolue center" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><span>Pedido salvo com sucesso</span></div>

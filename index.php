@@ -60,6 +60,35 @@
                 </div>
             </nav>
             <div class="container hero">
+
+
+                <?php
+                // CONFIGURAÇÃO DOS ALERTS
+
+                if(isset($_GET['op']) && $_GET['op'] == 'cadastro'){?>
+
+                        <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                <span class="sr-only">Close</span>
+                            </button>
+                            <strong>Sucesso!</strong> Paciente cadastrado com sucesso no sistema! :)
+                        </div>
+
+
+                        <div id="#RESULTADO">
+                            
+                        
+                        </div>
+
+
+                <?php
+                }
+                ?>
+
+
+
+
                 <div class="row">
                     <div class="col">
                         <section class="pricing-table" style="padding: -15px;">
@@ -90,7 +119,7 @@
                                                 </ul>
                                             </a>
                                         </div>
-                                        <div class="col-sm-4 plan price yellow wow fadeInDown">
+                                        <div class="col-sm-4 plan price yellow wow fadeInDown" style="cursor:pointer">
                                         <a data-toggle="modal" data-target="#modal-frequencia">
                                                 <ul class="list-group">
                                                     <li class="list-group-item heading box-content" data-bs-hover-animate="pulse" style="height: 257px;">
@@ -112,13 +141,22 @@
                                             </a>
                                         </div>
                                         <div class="col-sm-6 col-md-3 plan price default wow fadeInDown">
+                                            <?php 
+                                                $fuso = new DateTimeZone('America/Fortaleza');
+                                                $data = new DateTime();
+                                                $data->setTimezone($fuso);
+                                                $mesAtual =  $data->format('m');
                                             
+                                            ?>
+                                            <a href="consultafrequencia.php?mes=<?php echo $mesAtual;?>">
                                             <ul class="list-group">
                                                 <li class="list-group-item heading" data-bs-hover-animate="pulse" style="height: 245px;">
                                                     <img src="assets/img/calendar.png" alt="Idosos" class="box-img">
                                                     <h1 class="box-txt">Relatório</h1><span class="price">Frequência no Mês</span>
                                                 </ul>
+                                                </a>
                                             </div>
+
                                             <div class="col-sm-6 col-md-3 plan price default wow fadeInDown" style="cursor:pointer">
                                                 <a data-toggle="modal" data-target="#modal-ficha">
                                                     <ul class="list-group">

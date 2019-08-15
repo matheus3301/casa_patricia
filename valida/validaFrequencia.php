@@ -11,7 +11,7 @@
         
     try {
         $conexao->query("INSERT INTO tb_frequencia VALUES(0, $id, '$data', '$hora') ");
-        echo "Presença Marcada com Sucesso";
+        echo '"Presença Marcada com Sucesso"';
 
     } catch (Exception $ex) {
         echo "Erro ao Preencher Frequência";

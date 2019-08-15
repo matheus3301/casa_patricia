@@ -120,10 +120,17 @@
             if(isset($_GET['mes'])){
                 $mesAtual = $_GET['mes'];
             }
+
+            if(isset($_GET['ano'])){
+                $anoAtual = $_GET['ano'];
+            }
         ?>
 
         <form class="form-inline">
         <div class="form-group sm-6">
+        <label for="">Ano:</label>
+        <input type="number" class="form-control" name="" id="ano" value="<?php echo $anoAtual; ?>">
+        
         <label for="">Mês:</label>
                 <select class="form-control" id="meses" >
                     <option>selecione...</option>
@@ -141,6 +148,9 @@
                     <option value="12" <?php if($mesAtual == '12'){ echo 'selected';} ?>>Dezembro</option>
                 </select>
         </div>
+        
+          
+          
         <div class="form-group sm-6">
             <button name="" onClick="trocaMes()" class="btn btn-primary" role="button">Consultar</button>
         </div>
@@ -148,8 +158,9 @@
         <script>
             function trocaMes(){
                const mes = $('#meses').val();
+               const ano = $('#ano').val();
 
-               window.location.href = "consultafrequencia.php?mes="+mes;
+               window.location.href = "consultafrequencia.php?mes="+mes+"&ano="+ano;
             }
         </script>
         
@@ -164,7 +175,7 @@
             <thead class="thead-inverse">
                 <tr>
                     <th colspan="2" clas="text-center">Paciente</th>
-                    <th colspan="31" class="text-center">Dias do Mês</th>
+                    <th colspan="31" class="text-center"> <?php echo $mesAtual."/".$anoAtual ?> - Dias do Mês </th>
                 </tr>
                 <tr>
                     <th>#</th>
@@ -189,7 +200,7 @@
                                   
                         <?php
                             for($i = 1; $i <= 31; $i++ ){
-                                $dataIterada =  $data->format('Y');
+                                $dataIterada =  $anoAtual;
                                 $dataIterada = $dataIterada."-".$mesAtual;
                                 $dataIterada = $dataIterada."-".$i;
 

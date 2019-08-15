@@ -199,9 +199,10 @@
                                                     $data = new DateTime();
                                                     $data->setTimezone($fuso);
                                                     $mesAtual =  $data->format('m');
+                                                    $anoAtual =  $data->format('Y');
                                                 
                                                 ?>
-                                                <a href="consultafrequencia.php?mes=<?php echo $mesAtual;?>">
+                                                <a href="consultafrequencia.php?mes=<?php echo $mesAtual;?>&ano=<?php echo $anoAtual;?>">
                                                 <ul class="list-group">
                                                     <li class="list-group-item heading" data-bs-hover-animate="pulse" style="height: 245px;">
                                                         <img src="assets/img/calendar.png" alt="Idosos" class="box-img">

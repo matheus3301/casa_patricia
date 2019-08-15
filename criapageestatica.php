@@ -70,31 +70,33 @@
 				height:80px;
 			}
 			
-			.text-header{
-				font-weight:bold;
-				font-size:30px;
-				width:80%;
-				height: 100%;
-				vertical-align: middle;
-				align-self:center;
-				margin-left:50px;
+			.header-text{
+				font-size: 1em;
+				text-align: center;
+				
+				position:absolute;
+				top:0;
+				left:100px;
+				right:100px;
 				
 			}
-			.img-header{
-				height:80%;
-				
-				
-				
+	
+			.logo{
+				height: 80px;
 			}
 			.table{
 				width:100%;
+			}
+			footer{
+				position:absolute;
+				bottom:0;
 			}
 			
 			
 		</style>
 		<div class="header">
-			<img class="img-header" src="assets/img/logo.png"> 
-			<span class="text-header">CADASTROS</span>
+		<img src="assets/img/logo.png" class="logo">
+		<center><span class="header-text" >ASSOCIAÇÃO SALÃO DE LEITURA ANTONIO SALES <br> -SALAS- <br> SÃO GONÇALO DO AMARANTE - CEARÁ</span></center>
 			
 		</div>
 		
@@ -114,7 +116,14 @@
 			</thead>
 			<tbody>'.$dadosConsulta.'</tbody>
 			</table>
-			
+			<footer>
+						<center>
+						_________________________________________________________________________<br>
+						RUA SANTOS DUMONT, S/N CENTRO - SÃO GONÇALO DO AMARANTE - CEARÁ <br>
+						CEP:62670-0000 - CONTATOS: (85) 999616816 - 989225141
+						
+						</center>
+						</footer>
 			
 			</body>
 			</html>'

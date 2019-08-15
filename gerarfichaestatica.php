@@ -71,9 +71,14 @@
 		
 		
 				.header-text{
-					font-size: 2em;
-					text-align: right;
-					margin-left: 25%;
+					font-size: 1em;
+					text-align: center;
+					
+					position:absolute;
+					top:0;
+					left:100px;
+					right:100px;
+					
 				}
 		
 		
@@ -110,12 +115,16 @@
 				.table tr td {
 					font-size: 20px;
 				}
+				footer{
+					position:absolute;
+					bottom:0;
+				}
 			</style>
 			<div class="container">
 				<div class="header">
 		
-					<img src="assets/img/logo.png" class="logo">	
-					<span class="header-text" >Ficha de Paciente</span>
+					<img src="assets/img/logo.png" class="logo">
+					<center><span class="header-text" >ASSOCIAÇÃO SALÃO DE LEITURA ANTONIO SALES <br> -SALAS- <br> SÃO GONÇALO DO AMARANTE - CEARÁ</span></center>
 				
 				
 		
@@ -159,6 +168,15 @@
 							<span>___________________________________</span><br>
 							<span>Assinatura</span>
 						</center>
+						
+						<footer>
+						<center>
+						_________________________________________________________________________<br>
+						RUA SANTOS DUMONT, S/N CENTRO - SÃO GONÇALO DO AMARANTE - CEARÁ <br>
+						CEP:62670-0000 - CONTATOS: (85) 999616816 - 989225141
+						
+						</center>
+						</footer>
 					</div>
 					<div class="right">
 						

@@ -106,20 +106,23 @@
 			$result = $sth->fetchAll();
         ?>
 
-        <table class="table table-striped table-inverse table-responsive">
+        <table class="table table-striped table-inverse table-responsive w-auto">
             <thead class="thead-inverse">
                 <tr>
-                    <th>#</th>
-                    <th>Nome</th>
-                    <th>Sexo</th>
-                    <th>Contato</th>
-                    <th>Data Nasc.</th>
-                    <th>RG</th>
-                    <th>CPF</th>
-                    <th>NIS</th>
-                    <th>Nome Familiar</th>
-                    <th>Contato Familiar</th>
-                    <th>Ações</th>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Sexo</th>
+                    <th scope="col">Contato</th>
+                    <th scope="col">Data Nasc.</th>
+                    <th scope="col">RG</th>
+                    <th scope="col">CPF</th>
+                    <th scope="col">NIS</th>
+                    <th scope="col">Nome Familiar</th>
+                    <th scope="col">Contato Familiar</th>                    
+                    <th scope="col">Status</th>
+                    <th scope="col">Ações</th>
+
                 </tr>
                 </thead>
 
@@ -131,18 +134,33 @@
                     ?>
                     <tr>
                         <?php if($cadastro['img'] != null){?> <td scope="row"><img class="img-perfil" src="includes/verimagem.php?id=<?php echo $cadastro[0];?>" alt="Imagem"></td> <?php }else{ ?> <td scope="row"><img class="img-perfil" src="assets/img/man.png" alt="Imagem"></td> <?php } ?>
-                        <td><?php echo $cadastro[1]; ?></td>
-                        <td><?php echo $cadastro[3]; ?></td>
-                        <td><?php echo $cadastro[10]; ?></td>
-                        <td><?php echo $cadastro[2]; ?></td>
-                        <td><?php echo $cadastro[8]; ?></td>
-                        <td><?php echo $cadastro[9]; ?></td>
-                        <td><?php echo $cadastro[7]; ?></td>
-                        <td><?php echo $cadastro[13]; ?></td>
-                        <td><?php echo $cadastro[12]; ?></td>
+                        <td><?php echo $cadastro['nome']; ?></td>
+                        <td><?php echo $cadastro['tipo']; ?></td>
+                        <td><?php echo $cadastro['sexo']; ?></td>
+                        <td><?php echo $cadastro['contato']; ?></td>
+                        <td><?php echo $cadastro['data_nasc']; ?></td>
+                        <td><?php echo $cadastro['rg']; ?></td>
+                        <td><?php echo $cadastro['cpf']; ?></td>
+                        <td><?php echo $cadastro['nis']; ?></td>
+                        <td><?php echo $cadastro['nome_familiar']; ?></td>
+                        <td><?php echo $cadastro['contato_familiar']; ?></td>
+                        <td><?php echo $cadastro['status']; ?></td>
                         <td>
+                            <button  class="btn btn-success text-white"data-toggle="modal" data-target="#modal-documento<?php echo $cadastro[0]?>" role="button">Documentos</button>
                             <a  class="btn btn-warning text-white" href="alterar.php?id=<?php echo $cadastro[0]?>" role="button">Alterar</a>
-                            <a  class="btn btn-danger text-white"data-toggle="modal" data-target="#modal-excluir<?php echo $cadastro[0]?>" role="button">Excluir</a>
+                            <?php
+                                if($cadastro['status'] == 'ATIVO'){?>
+                                    <a  class="btn btn-danger text-white"data-toggle="modal" data-target="#modal-excluir<?php echo $cadastro[0]?>" role="button">Desvincular</a>
+                                <?php }else{ ?>
+
+                                    <a  class="btn btn-primary text-white"data-toggle="modal" data-target="#modal-vincular<?php echo $cadastro[0]?>" role="button">Revincular</a>
+
+                                    
+                            <?php    }
+
+                            ?>
+                            
+                            
                         </td>
                     </tr>
 
@@ -157,8 +175,8 @@
                             </div>
                             <div class="modal-body"> 
 
-                            <p>Tem certeza que deseja excluir <?php echo $cadastro[1]?>?</p>
-                            <strong>Todas as informações e frequência serão deletadas</strong>
+                            <p>Tem certeza que deseja desvincular <?php echo $cadastro[1]?>?</p>
+                            <strong>O Associado não será aparecerá nos relatórios</strong>
 
 
                             </div>
@@ -169,6 +187,33 @@
                         </div>
                     </div>
 
+                    <div class="modal fade" id="modal-vincular<?php echo $cadastro[0];?>">
+                        <div class="modal-dialog" >
+                            <div class="modal-content">
+                            <div class="modal-header">
+                            <h4 class="modal-title">
+                                Tem certeza?
+                            </h4>
+                            <button type="button" class="close" data-dismiss="modal"><b>x</b></button>
+                            </div>
+                            <div class="modal-body"> 
+
+                            <p>Tem certeza que deseja revincular <?php echo $cadastro[1]?>?</p>
+                            <strong>O Associado tornará a aparecer nos relatórios</strong>
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <a href="valida/validaVincular.php?id=<?php echo $cadastro[0]?>" class="btn btn btn-primary text-white ml-3">Excluir</a>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    
+
                             
                     <?php
                         }
@@ -178,6 +223,39 @@
         </table>
 
     </div>
+
+
+    <?php
+         foreach($result as $cadastro){?>
+
+                <div class="modal fade" id="modal-documento<?php echo $cadastro[0];?>">
+                        <div class="modal-dialog" >
+                            <div class="modal-content">
+                            <div class="modal-header">
+                            <h4 class="modal-title">
+                                Documentos
+                            </h4>
+                            <button type="button" class="close" data-dismiss="modal"><b>x</b></button>
+                            </div>
+                            <div class="modal-body"> 
+
+                            <img src="includes/verxerox.php?id=<?php echo $cadastro[0]?>" alt="" style="width:100%">
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <button name="" id="" class="btn btn-primary" data-dismiss="modal" role="button">Fechar</button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+    <?php
+         }
+    ?>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-animation.js"></script>

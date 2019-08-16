@@ -2,45 +2,75 @@
 
     include '../includes/conexao.php';
 
+    $nome = $_POST['nome'];
+    $tipo = $_POST['tipo_pessoa'];    
+    $data_nasc = $_POST['data_nasc'];
+    $contato = $_POST['contato'];
+    $sexo = $_POST['sexo'];
+    $rua = $_POST['rua'];
+    $bairro = $_POST['bairro'];
+    $numero = $_POST['numero'];
+    $municipio = $_POST['municipio'];
+    $cep = $_POST['cep'];
+    $complemento = $_POST['complemento'];
+    $ponto_referencia = $_POST['ponto_referencia'];
+    $rg = $_POST['rg'];
+    $cpf = $_POST['cpf'];
+    $nis = $_POST['nis'];
+    $medicacoes = $_POST['medicacoes'];
+    $alergias = $_POST['alergias'];
+    $nome_familiar = $_POST['nome_familiar'];
+    $contato_familiar = $_POST['contato_familiar'];
 
-       $cadastro = array(
-            0 => $_POST['nome'],
-            1 => $_POST['data_nasc'],
-            2 => $_POST['contato'],
-            3 => $_POST['sexo'],
-            4 => $_POST['rua'],
-            5 => $_POST['bairro'],
-            6 => $_POST['numero'],
-            7 => $_POST['rg'],
-            8 => $_POST['cpf'],
-            9 => $_POST['nis'],
-            10 => $_POST['informacoes_medicas'],
-            11 => $_POST['nome_familiar'],
-            12 => $_POST['contato_familiar'],
-        );
 
-        $imagem = $_FILES['imagem']['tmp_name'];
-        $tamanho = $_FILES['imagem']['size'];
-        $tipo = $_FILES['imagem']['type'];
-        $nome = $_FILES['imagem']['name'];
+    $imagem = $_FILES['imagem']['tmp_name'];
+    $tamanhoImg = $_FILES['imagem']['size'];
+    $tipoImg = $_FILES['imagem']['type'];
+    $nomeImg = $_FILES['imagem']['name'];
 
-        if ( $imagem != "none" ){
-            $fp = fopen($imagem, "rb");
-            $conteudo = fread($fp, $tamanho);
-            $conteudo = addslashes($conteudo);
+    $xerox = $_FILES['xerox']['tmp_name'];
+    $tamanhoXerox = $_FILES['xerox']['size'];
+    $tipoXerox = $_FILES['xerox']['type'];
+    $nomeXerox = $_FILES['xerox']['name'];
 
-            //cadastrar junto com a imagem
-            $sql = "INSERT INTO tb_idoso
-            (nome, data_nasc, sexo, rua, bairro, numero, nis, rg, cpf, contato, informacoes_medicas,
-             contato_familiar, nome_familiar, img, tamanho_img, nome_img, tipo_img ) 
-            VALUES('$cadastro[0]','$cadastro[1]', '$cadastro[3]', '$cadastro[4]','$cadastro[5]',
-            '$cadastro[6]','$cadastro[9]','$cadastro[7]','$cadastro[8]','$cadastro[2]','$cadastro[10]',
-            '$cadastro[12]','$cadastro[11]','$conteudo','$tamanho', '$nome', '$tipo')";
+    $fpImg = fopen($imagem, "rb");
+    $conteudoImg = fread($fpImg, $tamanhoImg);
+    $conteudoImg = addslashes($conteudoImg);
 
-            $conexao->query($sql);
+    $fpXerox = fopen($xerox, "rb");
+    $conteudoXerox = fread($fpXerox, $tamanhoXerox);
+    $conteudoXerox = addslashes($conteudoXerox);
 
-        }
+    $sql = "INSERT INTO tb_idoso(nome, tipo, data_nasc, sexo, rua, bairro, numero, ponto_referencia, complemento, municipio, cep, nis, rg, cpf, contato, medicacoes, alergias, contato_familiar, nome_familiar, img, tamanho_img, nome_img, tipo_img, xerox, tamanho_xerox, nome_xerox, tipo_xerox, status) VALUES(
+        '$nome', '$tipo', '$data_nasc','$sexo','$rua','$bairro','$numero','$ponto_referencia','$complemento','$municipio','$cep','$nis','$rg','$cpf','$contato','$medicacoes','$alergias','$contato_familiar','$nome_familiar','$conteudoImg','$tamanhoImg','$nomeImg','$tipoImg','$conteudoXerox','$tamanhoXerox','$nomeXerox','$tipoXerox', 'ATIVO')";
+        
+    $conexao->query($sql);
 
-        header('location:../index.php?op=cadastro');
+
+    $sql = "SELECT * FROM tb_idoso WHERE nome = '$nome'";
+	$query = $conexao->query($sql);
+    $return = $query->fetch();
+    
+
+    foreach($_POST['doenca'] as $doenca){
+        $sql = "INSERT INTO tb_doente VALUES(0,$doenca,$return[0])";
+            
+        $conexao->query($sql);
+
+    }
+
+
+
+
+
+
+
+
+
+       
+
+   
+
+    header('location:../index.php?op=cadastro');
 
 ?>

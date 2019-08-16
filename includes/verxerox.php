@@ -12,8 +12,8 @@ $query = $conexao->query($sql);
 $return = $query->fetch();
 
 
-header("Content-type:".$return['tipo_img']);
+header("Content-type:".$return['tipo_xerox']);
 
-echo $return['img'];
+echo $return['xerox'];
 
  ?>

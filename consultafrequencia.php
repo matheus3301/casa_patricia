@@ -193,7 +193,7 @@
         <table class="table table-striped table-inverse table-responsive">
             <thead class="thead-inverse">
                 <tr>
-                    <th colspan="2" clas="text-center">Paciente</th>
+                    <th colspan="2" clas="text-center">Associado</th>
                     <th colspan="31" class="text-center"> <?php echo $meses[$mesNOFORMAT]."/".$anoAtual ?> </th>
                 </tr>
                 <tr>

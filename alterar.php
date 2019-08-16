@@ -10,20 +10,13 @@
 
 ?>
 
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Alterar - Casa de Patrícia</title>
+    <title>Cadastro - Casa de Patrícia</title>
 
     <link rel="shortcut icon" href="assets/img/logo.png" />
 
@@ -90,6 +83,27 @@
     .btn-file{
         width:100%;
     }
+    
+    .lbl-xerox::after{
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 3;
+        display: block;
+        padding: .375rem .75rem;
+        line-height: 1.5;
+        color: #495057;
+        content: "Browse";
+        background-color: #e9ecef;
+        border-left: 1px solid #ced4da;
+        border-radius: 0 .25rem .25rem 0;
+        box-sizing: border-box;
+    }
+
+    .custom-file-label{
+        content:"Buscar";
+    }
 </style>
 
 <script>
@@ -125,9 +139,9 @@
                 <div class="col-md-4 align-items-center align-content-center relative">
                     <div class="avatar">
                         <div class="avatar-bg center">
-                            <?php
+                        <?php
                                 if($return['img'] == null){ ?>
-                                    <img id="output" src="assets/img/man.png" alt="Foto de Perfil" class="img-perfil" style="width:100%;">
+                                    <img id="output" src="assets/img/family.png" alt="Foto de Perfil" class="img-perfil" style="width:100%;">
 
                                 <?php }else{ ?>
 
@@ -136,7 +150,6 @@
                              <?php             
                                 }
                             ?>
-                            
                         </div>
                     </div>
                 </div>
@@ -145,45 +158,57 @@
                     <h1 style="color: #070707;">Informações</h1>
                     <hr>
                     <div class="form-row">
-                        <div class="col-sm-12 col-md-8">
-                            <div class="form-group"><label style="color: #0a0a0a;">Nome</label><input class="form-control form-control-lg" type="text" autofocus="" name="nome" required="" value="<?php echo $return['nome'] ?>"></div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group"><label style="color: #0a0a0a;">Nome</label><input class="form-control form-control-lg" type="text" value="<?php echo $return['nome']; ?>" name="nome" required=""></div>
                         </div>
-                        <div class="col-sm-12 col-md-4">
+                        <div class="col-sm-12 col-md-3">
+                            
+                            <div class="form-group"><label style="color: #0a0a0a;">Tipo</label>
+                                
+                                
+                                <select class="form-control form-control-lg" name="tipo_pessoa" required="">
+                                <option value="">Selecione...</option>
+                                <option value="Idoso" <?php if($return['tipo'] == "Idoso"){ echo 'selected';}?>>Idoso</option>
+                                <option value="Deficiente" <?php if($return['tipo'] == "Deficiente"){ echo 'selected';}?>>Deficiente</option>
+                                
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-12 col-md-3">
                             <div class="form-group"><label style="color: #0a0a0a;">Foto</label><br>
                             <span class="btn btn-primary btn-lg form-btn btn-file" ></i>Buscar Foto <input type="file" name="imagem"  accept="image/*" onchange="loadFile(event)">
                             </span>
                         </div>
                         </div>
                     </div>
-
-
-                    <div class="form-row">
-                        <div class="col-sm-12 col-md-4">
-
-                            <?php
+                    <?php
                                 $date = new DateTime($return['data_nasc']);
                             
                             ?>
 
 
+                    <div class="form-row">
+                        <div class="col-sm-12 col-md-4">
                             <div class="form-group"><label style="color: #0a0a0a;">Data de Nascimento</label>
                             <input class="form-control form-control-lg dataMASK" type="text" name="data_nasc" required="" value="<?php echo $date->format('m/d/Y') ?>"></div>
                         </div>
-                        <div class="col-sm-12 col-md-4">
+                        <div class="col-sm-12 col-md-5">
                         <div class="form-group">
                             <label style="color: #0a0a0a;">Contato</label>
-                            <input value="<?php echo $return['contato'] ?>" placeholder="(00) 00000-0000" class="form-control form-control-lg telefone" type="text" inputmode="numeric" name="contato" required="">
+                            <input value="<?php echo $return['contato']; ?>" placeholder="(00) 00000-0000 (00) 00000-0000"  class="form-control form-control-lg telefone" type="text" inputmode="numeric" name="contato" required="">
                         
                         </div>
                         </div>
-                        <div class="col-sm-12 col-md-4">
+                        <div class="col-sm-12 col-md-3">
                             <div class="form-group"><label style="color: #0a0a0a;">Sexo</label>
                             
                               
                               <select class="form-control form-control-lg" name="sexo" required="">
                                 <option value="">Selecione...</option>
-                                <option value="M" <?php if($return['sexo'] == "M"){ echo 'selected';} ?>>Masculino</option>
-                                <option value="F" <?php if($return['sexo'] == "F"){ echo 'selected';} ?>>Feminino</option>
+                                <option value="M" <?php if($return['sexo'] == "M"){ echo 'selected';}?>>Masculino</option>
+                                <option value="F" <?php if($return['sexo'] == "F"){ echo 'selected';}?>>Feminino</option>
+                                <option value="N.Binário" <?php if($return['sexo'] == "N.Binário"){ echo 'selected';}?>>Não Binário</option>
                               </select>
                             </div>
                         
@@ -193,41 +218,134 @@
                     <!-- ENDEREÇO -->
                     <div class="form-row">
                         <div class="col-sm-12 col-md-6">
-                            <div class="form-group"><label style="color: #0a0a0a;">Rua</label><input value="<?php echo $return['rua'] ?>" class="form-control form-control-lg" type="text"  name="rua" required=""></div>
+                            <div class="form-group"><label style="color: #0a0a0a;">Rua</label><input value="<?php echo $return['rua']; ?>" class="form-control form-control-lg" type="text"  name="rua" required=""></div>
                         </div>
-                        <div class="col-sm-12 col-md-4">
-                            <div class="form-group"><label style="color: #0a0a0a;">Bairro/Localidade</label><input value="<?php echo $return['bairro'] ?>" class="form-control form-control-lg" type="text"  name="bairro" required=""></div>
-                        </div>
+                        
                         <div class="col-sm-12 col-md-2">
                             <div class="form-group"><label style="color: #0a0a0a;">Número</label>
-                            <input class="form-control form-control-lg" type="text" inputmode="numeric" name="numero" required="" value="<?php echo $return['numero'] ?>">
+                            <input value="<?php echo $return['numero']; ?>" class="form-control form-control-lg" type="text" inputmode="numeric" name="numero" required="">
                         </div>
                     </div>
+                    <div class="col-sm-12 col-md-4">
+                            <div class="form-group"><label style="color: #0a0a0a;">Bairro/Localidade</label><input value="<?php echo $return['bairro']; ?>" class="form-control form-control-lg" type="text"  name="bairro" required=""></div>
+                        </div>
+                    </div>
+                     <!-- ENDEREÇO -->
+                     <div class="form-row">
+                        <div class="col-sm-12 col-md-4">
+                            <div class="form-group"><label style="color: #0a0a0a;">Município</label><input value="<?php echo $return['municipio']; ?>" class="form-control form-control-lg" type="text"  name="municipio" required=""></div>
+                        </div>
+                        <div class="col-sm-12 col-md-4">
+                            <div class="form-group"><label style="color: #0a0a0a;">CEP</label><input value="<?php echo $return['cep']; ?>" class="form-control form-control-lg cep" type="text"  name="cep" required=""></div>
+                        </div>
+                        <div class="col-sm-12 col-md-4">
+                            <div class="form-group"><label style="color: #0a0a0a;">Complemento</label>
+                            <input value="<?php echo $return['complemento']; ?>" class="form-control form-control-lg" type="text"  name="complemento" required="">
+                        </div>
+                    </div>
+                    </div>
+                     <!-- ENDEREÇO -->
+                     <div class="form-row">
+                        <div class="col-sm-12 col-md-12">
+                            <div class="form-group"><label style="color: #0a0a0a;">Ponto de Referência</label><input value="<?php echo $return['ponto_referencia']; ?>" class="form-control form-control-lg" type="text"  name="ponto_referencia" required=""></div>
+                        </div>
+                        
                     </div>
 
                      <!-- DOCUMENTAÇÃO -->
                      <div class="form-row">
-                        <div class="col-sm-12 col-md-6">
+                        <div class="col-sm-12 col-md-4">
                             <div class="form-group"><label style="color: #0a0a0a;">RG</label>
-                            <input value="<?php echo $return['rg'] ?>" class="form-control form-control-lg" type="text" id="RG" name="rg" required=""></div>
+                            <input value="<?php echo $return['rg']; ?>" class="form-control form-control-lg" type="text" id="RG" name="rg" required=""></div>
                         </div>
-                        <div class="col-sm-12 col-md-3">
+                        <div class="col-sm-12 col-md-4">
                             <div class="form-group"><label style="color: #0a0a0a;">CPF</label>
-                            <input value="<?php echo $return['cpf'] ?>" class="form-control form-control-lg" type="text" id="CPF" name="cpf" required=""></div>
+                            <input value="<?php echo $return['cpf']; ?>" class="form-control form-control-lg" type="text" id="CPF" name="cpf" required=""></div>
                         </div>
-                        <div class="col-sm-12 col-md-3">
+                        <div class="col-sm-12 col-md-4">
                             <div class="form-group"><label style="color: #0a0a0a;">NIS</label>
-                            <input value="<?php echo $return['nis'] ?>" class="form-control form-control-lg" type="text" inputmode="numeric" name="nis" required="">
+                            <input value="<?php echo $return['nis']; ?>" class="form-control form-control-lg" type="text" inputmode="numeric" name="nis" required="">
                         </div>
                     </div>
                     </div>
+                     <!-- XEROX -->
+                     <div class="form-row">
+                        <div class="col-sm-12 col-md-12">
+                           
+                        <div class="form-group">
+                        <div class="custom-file form-control" >
+                            <input type="file" class="custom-file-input "  id="xerox" name="xerox" required >
+                            <label class="custom-file-label"  for="xerox">Xerox dos Documentos</label>
+                            
+                        </div>
+                        </div>
+                        </div>
+                       
+                        
+                    </div>
+                    
 
                     <!-- INFORMAÇÕES MÉDICAS -->
                     <div class="form-row">
                         <div class="col-sm-12 col-md-12">
+                            
                             <div class="form-group">
-                              <label style="color: #0a0a0a;" for="">Informações Médicas</label>
-                              <textarea class="form-control" name="informacoes_medicas" rows="3" required=""><?php echo $return['informacoes_medicas'] ?></textarea>
+                              <label style="color: #0a0a0a;" for=""><strong>Informações Médicas</strong></label>
+                              
+
+                              <div class="form-group">
+                            <label style="color: #0a0a0a;" for="">Tem alguma doença?</label>
+
+                                <?php
+
+                                    include 'includes/conexao.php';
+
+                                    $sth = $conexao->prepare("SELECT * FROM tb_doenca");
+                                    $sth->execute();
+
+                                    $resultDoenca = $sth->fetchAll();
+
+                                    foreach($resultDoenca as $doenca){
+
+                                        $sthDoente = $conexao->prepare("SELECT * FROM tb_doente WHERE tb_doenca_idtb_doenca = $doenca[0] AND tb_idoso_idtb_idoso = $return[0]");
+                                        $sthDoente->execute();
+
+                                        $resultDoente = $sthDoente->fetchAll();
+
+                                ?>
+
+                                <div class="form-check">
+                                  <label class="form-check-label">
+                                    <input <?php if($resultDoente != null){echo 'checked';} ?> type="checkbox" class="form-check-input" name="doenca[]" id="doenca" value="<?php echo $doenca[0];?>">
+                                    <?php echo $doenca['nome'];?>
+                                  </label>
+                                </div>
+
+
+                                <?php
+                                    }
+                                ?>
+
+                                
+
+                            </div>
+
+                              <div class="form-group">
+                                <label for="">Toma alguma medicação? Qual?</label>
+                                <input value="<?php echo $return['medicacoes']; ?>" type="text"
+                                  class="form-control" name="medicacoes" id="" aria-describedby="helpId" placeholder="">
+                                
+                              </div>
+
+                              <div class="form-group">
+                                <label for="">É alergico ou tem intolerância a algum alimento? Qual?</label>
+                                <input value="<?php echo $return['alergias']; ?>" type="text"
+                                  class="form-control" name="alergias" id="" aria-describedby="helpId" placeholder="">
+                                
+                              </div>
+
+
+                              <hr>
                             </div>
                         </div>
                     
@@ -235,13 +353,14 @@
 
                     <div class="form-row">
                         
+                        
                         <div class="col-sm-12 col-md-6">
-                            <div class="form-group"><label style="color: #0a0a0a;">Nome Familiar</label>
-                            <input value="<?php echo $return['nome_familiar'] ?>" class="form-control form-control-lg" required="" type="text"  name="nome_familiar"></div>
+                            <div class="form-group"><label style="color: #0a0a0a;">Responsável Familiar</label>
+                            <input value="<?php echo $return['nome_familiar']; ?>" class="form-control form-control-lg" required="" type="text"  name="nome_familiar"></div>
                         </div>
                         <div class="col-sm-12 col-md-6">
                             <div class="form-group"><label style="color: #0a0a0a;">Contato Familiar</label><br>
-                            <input value="<?php echo $return['contato_familiar'] ?>" placeholder="(00) 00000-0000" class="form-control form-control-lg telefone" type="text" required="" name="contato_familiar"></div>
+                            <input value="<?php echo $return['contato_familiar']; ?>" placeholder="(00) 00000-0000" class="form-control form-control-lg telefone" type="text" required="" name="contato_familiar"></div>
                         
                         </div>
                     </div>
@@ -251,8 +370,8 @@
                     <hr>
                     <div class="form-row">
                         <div class="col-md-12 content-right">
-                            <button class="btn btn-primary form-btn" type="submit" onClick="document.formCad.submit()">ALTERAR</button>
-                            <input class="btn btn-warning text-white form-btn" type="reset" value="LIMPAR TUDO"><br><br><br><br>
+                            <button class="btn btn-primary form-btn" type="submit" >ALTERAR</button>
+                            <br><br><br><br>
                         </div>
                     </div>
                 </div>
@@ -264,21 +383,32 @@
     <script src="assets/js/bs-animation.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
     <script src="assets/js/Pricing-Tables.js"></script>
-    <script src="assets/js/Profile-Edit-Form.js"></script>
+   
     <script src="assets/js/jquery.mask.min.js"></script>
 
 
     <script>
+        function verificarCampos(){
+
+            //if()
+            //document.formCad.submit();
+        }
+
         var $campoCPF = $("#CPF");
         $campoCPF.mask('000.000.000-00', {reverse: true});
 
-        var $campoDATA = $(".dataMASK");
-        $campoDATA.mask('00/00/0000', {reverse: true});
+        var $campoCPF = $(".cep");
+        $campoCPF.mask('00000-000', {reverse: true});
 
         
 
         var $campoTELEFONE = $('.telefone');
-        $campoTELEFONE.mask('(00) 00000-0000');
+        $campoTELEFONE.mask('(00) 00000-0000 (00) 00000-0000');
+
+
+        var $campoDATA = $(".dataMASK");
+        $campoDATA.mask('00/00/0000', {reverse: true});
+
     </script>
 </body>
 

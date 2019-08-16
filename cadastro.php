@@ -71,6 +71,27 @@
     .btn-file{
         width:100%;
     }
+    
+    .lbl-xerox::after{
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 3;
+        display: block;
+        padding: .375rem .75rem;
+        line-height: 1.5;
+        color: #495057;
+        content: "Browse";
+        background-color: #e9ecef;
+        border-left: 1px solid #ced4da;
+        border-radius: 0 .25rem .25rem 0;
+        box-sizing: border-box;
+    }
+
+    .custom-file-label{
+        content:"Buscar";
+    }
 </style>
 
 <script>
@@ -106,7 +127,7 @@
                 <div class="col-md-4 align-items-center align-content-center relative">
                     <div class="avatar">
                         <div class="avatar-bg center">
-                            <img id="output" src="assets/img/man.png" alt="Foto de Perfil" class="img-perfil" style="width:100%;">
+                            <img id="output" src="assets/img/family.png" alt="Foto de Perfil" class="img-perfil" style="width:100%;">
                         </div>
                     </div>
                 </div>
@@ -115,10 +136,24 @@
                     <h1 style="color: #070707;">Informações</h1>
                     <hr>
                     <div class="form-row">
-                        <div class="col-sm-12 col-md-8">
+                        <div class="col-sm-12 col-md-6">
                             <div class="form-group"><label style="color: #0a0a0a;">Nome</label><input class="form-control form-control-lg" type="text" autofocus="" name="nome" required=""></div>
                         </div>
-                        <div class="col-sm-12 col-md-4">
+                        <div class="col-sm-12 col-md-3">
+                            
+                            <div class="form-group"><label style="color: #0a0a0a;">Tipo</label>
+                                
+                                
+                                <select class="form-control form-control-lg" name="tipo_pessoa" required="">
+                                <option value="">Selecione...</option>
+                                <option value="Idoso">Idoso</option>
+                                <option value="Deficiente">Deficiente</option>
+                                
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-12 col-md-3">
                             <div class="form-group"><label style="color: #0a0a0a;">Foto</label><br>
                             <span class="btn btn-primary btn-lg form-btn btn-file" ></i>Buscar Foto <input type="file" name="imagem"  accept="image/*" onchange="loadFile(event)">
                             </span>
@@ -147,6 +182,7 @@
                                 <option value="">Selecione...</option>
                                 <option value="M">Masculino</option>
                                 <option value="F">Feminino</option>
+                                <option value="N.Binário">Não Binário</option>
                               </select>
                             </div>
                         
@@ -158,14 +194,36 @@
                         <div class="col-sm-12 col-md-6">
                             <div class="form-group"><label style="color: #0a0a0a;">Rua</label><input class="form-control form-control-lg" type="text"  name="rua" required=""></div>
                         </div>
-                        <div class="col-sm-12 col-md-4">
-                            <div class="form-group"><label style="color: #0a0a0a;">Bairro/Localidade</label><input class="form-control form-control-lg" type="text"  name="bairro" required=""></div>
-                        </div>
+                        
                         <div class="col-sm-12 col-md-2">
                             <div class="form-group"><label style="color: #0a0a0a;">Número</label>
                             <input class="form-control form-control-lg" type="text" inputmode="numeric" name="numero" required="">
                         </div>
                     </div>
+                    <div class="col-sm-12 col-md-4">
+                            <div class="form-group"><label style="color: #0a0a0a;">Bairro/Localidade</label><input class="form-control form-control-lg" type="text"  name="bairro" required=""></div>
+                        </div>
+                    </div>
+                     <!-- ENDEREÇO -->
+                     <div class="form-row">
+                        <div class="col-sm-12 col-md-4">
+                            <div class="form-group"><label style="color: #0a0a0a;">Município</label><input class="form-control form-control-lg" type="text"  name="municipio" required=""></div>
+                        </div>
+                        <div class="col-sm-12 col-md-4">
+                            <div class="form-group"><label style="color: #0a0a0a;">CEP</label><input class="form-control form-control-lg cep" type="text"  name="cep" required=""></div>
+                        </div>
+                        <div class="col-sm-12 col-md-4">
+                            <div class="form-group"><label style="color: #0a0a0a;">Complemento</label>
+                            <input class="form-control form-control-lg" type="text"  name="complemento" required="">
+                        </div>
+                    </div>
+                    </div>
+                     <!-- ENDEREÇO -->
+                     <div class="form-row">
+                        <div class="col-sm-12 col-md-12">
+                            <div class="form-group"><label style="color: #0a0a0a;">Ponto de Referência</label><input class="form-control form-control-lg" type="text"  name="ponto_referencia" required=""></div>
+                        </div>
+                        
                     </div>
 
                      <!-- DOCUMENTAÇÃO -->
@@ -184,15 +242,79 @@
                         </div>
                     </div>
                     </div>
+                     <!-- XEROX -->
+                     <div class="form-row">
+                        <div class="col-sm-12 col-md-12">
+                           
+                        <div class="form-group">
+                        <div class="custom-file form-control" >
+                            <input type="file" class="custom-file-input "  id="xerox" name="xerox" required >
+                            <label class="custom-file-label"  for="xerox">Xerox dos Documentos</label>
+                            
+                        </div>
+                        </div>
+                        </div>
+                       
+                        
+                    </div>
+                    
 
                     <!-- INFORMAÇÕES MÉDICAS -->
                     <div class="form-row">
                         <div class="col-sm-12 col-md-12">
+                            
                             <div class="form-group">
-                              <label style="color: #0a0a0a;" for="">Informações Médicas</label>
-                              <textarea class="form-control" name="informacoes_medicas" rows="3" required="">ALERGIAS:
-MEDICAÇÕES:
-                              </textarea>
+                              <label style="color: #0a0a0a;" for=""><strong>Informações Médicas</strong></label>
+                              
+
+                              <div class="form-group">
+                            <label style="color: #0a0a0a;" for="">Tem alguma doença?</label>
+
+                                <?php
+
+                                    include 'includes/conexao.php';
+
+                                    $sth = $conexao->prepare("SELECT * FROM tb_doenca");
+                                    $sth->execute();
+
+                                    $result = $sth->fetchAll();
+
+                                    foreach($result as $doenca){
+
+                                ?>
+
+                                <div class="form-check">
+                                  <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name="doenca[]" id="doenca" value="<?php echo $doenca[0];?>">
+                                    <?php echo $doenca['nome'];?>
+                                  </label>
+                                </div>
+
+
+                                <?php
+                                    }
+                                ?>
+
+                                
+
+                            </div>
+
+                              <div class="form-group">
+                                <label for="">Toma alguma medicação? Qual?</label>
+                                <input type="text"
+                                  class="form-control" name="medicacoes" id="" aria-describedby="helpId" placeholder="">
+                                
+                              </div>
+
+                              <div class="form-group">
+                                <label for="">É alergico ou tem intolerância a algum alimento? Qual?</label>
+                                <input type="text"
+                                  class="form-control" name="alergias" id="" aria-describedby="helpId" placeholder="">
+                                
+                              </div>
+
+
+                              <hr>
                             </div>
                         </div>
                     
@@ -200,8 +322,9 @@ MEDICAÇÕES:
 
                     <div class="form-row">
                         
+                        
                         <div class="col-sm-12 col-md-6">
-                            <div class="form-group"><label style="color: #0a0a0a;">Nome Familiar</label>
+                            <div class="form-group"><label style="color: #0a0a0a;">Responsável Familiar</label>
                             <input class="form-control form-control-lg" required="" type="text"  name="nome_familiar"></div>
                         </div>
                         <div class="col-sm-12 col-md-6">
@@ -242,6 +365,9 @@ MEDICAÇÕES:
 
         var $campoCPF = $("#CPF");
         $campoCPF.mask('000.000.000-00', {reverse: true});
+
+        var $campoCPF = $(".cep");
+        $campoCPF.mask('00000-000', {reverse: true});
 
         
 

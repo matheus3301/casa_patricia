@@ -242,11 +242,11 @@
                             <div class="modal-body"> 
                             <div class="container-hero">
                                 <div class="col-sm-6 col-md-6 plan price default wow fadeInDown">
-                                    <a href="gerarpdfcadastros.php">
+                                    <a href="gerarpdfmanual.php">
                                         <ul class="list-group">
                                             <li class="list-group-item heading" data-bs-hover-animate="pulse" style="height: 245px;">
                                                 <img src="assets/img/pdf.png" alt="Idosos" class="box-img">
-                                                <h1 class="box-txt">Relatório</h1><span class="price">Idosos Cadastrados</span>
+                                                <h1 class="box-txt">PDF</h1><span class="price">Ficha de Frequência Manual</span>
                                             </li>
                                         </ul>
                                     </a>

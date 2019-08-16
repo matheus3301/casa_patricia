@@ -82,6 +82,23 @@
     }
 </style>
 
+<?php
+    $meses = array(
+        '01' => 'Janeiro',
+        '02' =>'Fevereiro',
+        '03' =>'Março',
+        '04' =>'Abril',
+        '05' =>'Maio',
+        '06' =>'Junho',
+        '07' =>'Julho',
+        '08' =>'Agosto',
+        '09' =>'Setembro',
+        '10' =>'Outubro',
+        '11' =>'Novembro',
+        '12' =>'Dezembro'
+    );
+?>
+
 
 <body style="/*background-color: rgb(238,241,247);*/">
     <section class="pricing-table" style="padding: 0px;"></section>
@@ -119,6 +136,8 @@
         <?php
             if(isset($_GET['mes'])){
                 $mesAtual = $_GET['mes'];
+                $mesNOFORMAT = $_GET['mes'];
+
             }
 
             if(isset($_GET['ano'])){
@@ -175,7 +194,7 @@
             <thead class="thead-inverse">
                 <tr>
                     <th colspan="2" clas="text-center">Paciente</th>
-                    <th colspan="31" class="text-center"> <?php echo $mesAtual."/".$anoAtual ?> - Dias do Mês </th>
+                    <th colspan="31" class="text-center"> <?php echo $meses[$mesNOFORMAT]."/".$anoAtual ?> </th>
                 </tr>
                 <tr>
                     <th>#</th>

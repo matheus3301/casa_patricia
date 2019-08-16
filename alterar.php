@@ -196,7 +196,7 @@
                             <div class="form-group"><label style="color: #0a0a0a;">Rua</label><input value="<?php echo $return['rua'] ?>" class="form-control form-control-lg" type="text"  name="rua" required=""></div>
                         </div>
                         <div class="col-sm-12 col-md-4">
-                            <div class="form-group"><label style="color: #0a0a0a;">Bairro</label><input value="<?php echo $return['bairro'] ?>" class="form-control form-control-lg" type="text"  name="bairro" required=""></div>
+                            <div class="form-group"><label style="color: #0a0a0a;">Bairro/Localidade</label><input value="<?php echo $return['bairro'] ?>" class="form-control form-control-lg" type="text"  name="bairro" required=""></div>
                         </div>
                         <div class="col-sm-12 col-md-2">
                             <div class="form-group"><label style="color: #0a0a0a;">Número</label>

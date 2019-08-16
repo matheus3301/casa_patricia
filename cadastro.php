@@ -132,14 +132,14 @@
                             <div class="form-group"><label style="color: #0a0a0a;">Data de Nascimento</label>
                             <input class="form-control form-control-lg" type="date" name="data_nasc" required=""></div>
                         </div>
-                        <div class="col-sm-12 col-md-4">
+                        <div class="col-sm-12 col-md-5">
                         <div class="form-group">
                             <label style="color: #0a0a0a;">Contato</label>
-                            <input placeholder="(00) 00000-0000" class="form-control form-control-lg telefone" type="text" inputmode="numeric" name="contato" required="">
+                            <input placeholder="(00) 00000-0000 (00) 00000-0000" class="form-control form-control-lg telefone" type="text" inputmode="numeric" name="contato" required="">
                         
                         </div>
                         </div>
-                        <div class="col-sm-12 col-md-4">
+                        <div class="col-sm-12 col-md-3">
                             <div class="form-group"><label style="color: #0a0a0a;">Sexo</label>
                             
                               
@@ -159,7 +159,7 @@
                             <div class="form-group"><label style="color: #0a0a0a;">Rua</label><input class="form-control form-control-lg" type="text"  name="rua" required=""></div>
                         </div>
                         <div class="col-sm-12 col-md-4">
-                            <div class="form-group"><label style="color: #0a0a0a;">Bairro</label><input class="form-control form-control-lg" type="text"  name="bairro" required=""></div>
+                            <div class="form-group"><label style="color: #0a0a0a;">Bairro/Localidade</label><input class="form-control form-control-lg" type="text"  name="bairro" required=""></div>
                         </div>
                         <div class="col-sm-12 col-md-2">
                             <div class="form-group"><label style="color: #0a0a0a;">Número</label>
@@ -170,15 +170,15 @@
 
                      <!-- DOCUMENTAÇÃO -->
                      <div class="form-row">
-                        <div class="col-sm-12 col-md-6">
+                        <div class="col-sm-12 col-md-4">
                             <div class="form-group"><label style="color: #0a0a0a;">RG</label>
                             <input class="form-control form-control-lg" type="text" id="RG" name="rg" required=""></div>
                         </div>
-                        <div class="col-sm-12 col-md-3">
+                        <div class="col-sm-12 col-md-4">
                             <div class="form-group"><label style="color: #0a0a0a;">CPF</label>
                             <input class="form-control form-control-lg" type="text" id="CPF" name="cpf" required=""></div>
                         </div>
-                        <div class="col-sm-12 col-md-3">
+                        <div class="col-sm-12 col-md-4">
                             <div class="form-group"><label style="color: #0a0a0a;">NIS</label>
                             <input class="form-control form-control-lg" type="text" inputmode="numeric" name="nis" required="">
                         </div>
@@ -246,7 +246,7 @@ MEDICAÇÕES:
         
 
         var $campoTELEFONE = $('.telefone');
-        $campoTELEFONE.mask('(00) 00000-0000');
+        $campoTELEFONE.mask('(00) 00000-0000 (00) 00000-0000');
     </script>
 </body>
 

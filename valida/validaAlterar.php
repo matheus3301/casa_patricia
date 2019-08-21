@@ -3,51 +3,95 @@
     include '../includes/conexao.php';
     $id = $_GET['id'];
 
-       $cadastro = array(
-            0 => $_POST['nome'],
-            1 => $_POST['data_nasc'],
-            2 => $_POST['contato'],
-            3 => $_POST['sexo'],
-            4 => $_POST['rua'],
-            5 => $_POST['bairro'],
-            6 => $_POST['numero'],
-            7 => $_POST['rg'],
-            8 => $_POST['cpf'],
-            9 => $_POST['nis'],
-            10 => $_POST['informacoes_medicas'],
-            11 => $_POST['nome_familiar'],
-            12 => $_POST['contato_familiar'],
-        );
+    
+    $nome = $_POST['nome'];
+    $tipo = $_POST['tipo_pessoa'];    
+    $data_nasc = $_POST['data_nasc'];
+    $contato = $_POST['contato'];
+    $sexo = $_POST['sexo'];
+    $rua = $_POST['rua'];
+    $bairro = $_POST['bairro'];
+    $numero = $_POST['numero'];
+    $municipio = $_POST['municipio'];
+    $cep = $_POST['cep'];
+    $complemento = $_POST['complemento'];
+    $ponto_referencia = $_POST['ponto_referencia'];
+    $rg = $_POST['rg'];
+    $cpf = $_POST['cpf'];
+    $nis = $_POST['nis'];
+    $medicacoes = $_POST['medicacoes'];
+    $alergias = $_POST['alergias'];
+    $nome_familiar = $_POST['nome_familiar'];
+    $contato_familiar = $_POST['contato_familiar'];
 
-        $imagem = $_FILES['imagem']['tmp_name'];
-        $tamanho = $_FILES['imagem']['size'];
-        $tipo = $_FILES['imagem']['type'];
-        $nome = $_FILES['imagem']['name'];
 
-        if ( $nome != "" ){
-            $fp = fopen($imagem, "rb");
-            $conteudo = fread($fp, $tamanho);
-            $conteudo = addslashes($conteudo);
+    $imagem = $_FILES['imagem']['tmp_name'];
+    $tamanhoImg = $_FILES['imagem']['size'];
+    $tipoImg = $_FILES['imagem']['type'];
+    $nomeImg = $_FILES['imagem']['name'];
 
-            //cadastrar junto com a imagem
-            $sql = "UPDATE tb_idoso SET nome = '$cadastro[0]', data_nasc = '$cadastro[1]', contato = '$cadastro[2]', 
-            sexo = '$cadastro[3]', rua = '$cadastro[4]', bairro = '$cadastro[5]', numero = '$cadastro[6]', rg = '$cadastro[7]',
-            cpf = '$cadastro[8]',nis = '$cadastro[9]',informacoes_medicas = '$cadastro[10]',nome_familiar = '$cadastro[11]',contato_familiar = '$cadastro[12]',
-            img = '$conteudo', tipo_img = '$tipo', tamanho_img = '$tamanho', nome_img = '$nome' WHERE idtb_idoso = $id";
+    $xerox = $_FILES['xerox']['tmp_name'];
+    $tamanhoXerox = $_FILES['xerox']['size'];
+    $tipoXerox = $_FILES['xerox']['type'];
+    $nomeXerox = $_FILES['xerox']['name'];
 
+   
+
+    
+    
+    //atualização das informações básicas
+    $sql = "UPDATE tb_idoso SET nome = '$nome', data_nasc = '$data_nasc', contato = '$contato', 
+    sexo = '$sexo', rua = '$rua', bairro = '$bairro', numero = '$numero', rg = '$rg',
+    cpf = '$cpf',nis = '$nis',medicacoes = '$medicacoes',alergias = '$alergias', nome_familiar = '$nome_familiar',contato_familiar = '$contato_familiar',
+    cep = '$cep', municipio = '$municipio',complemento = '$complemento', ponto_referencia = '$ponto_referencia'
+    WHERE idtb_idoso = $id";
+
+    $conexao->query($sql);
+
+
+    //atualização das doenças
+
+    if(isset($_POST['doenca'])){
+        $conexao->query("DELETE FROM tb_doente WHERE tb_idoso_idtb_idoso = $id");
+        foreach($_POST['doenca'] as $doenca){
+            $sql = "INSERT INTO tb_doente VALUES(0,$doenca,$id)";
+                
             $conexao->query($sql);
 
-        }else{
-            $sql = "UPDATE tb_idoso SET nome = '$cadastro[0]', data_nasc = '$cadastro[1]', contato = '$cadastro[2]', 
-            sexo = '$cadastro[3]', rua = '$cadastro[4]', bairro = '$cadastro[5]', numero = '$cadastro[6]', rg = '$cadastro[7]',
-            cpf = '$cadastro[8]',nis = '$cadastro[9]',informacoes_medicas = '$cadastro[10]',nome_familiar = '$cadastro[11]',contato_familiar = '$cadastro[12]'
-            WHERE idtb_idoso = $id";
-
-            $conexao->query($sql);
-
-            echo "Comemora Brasileirinho";
         }
+    }
 
-        header('location:../index.php?op=alterar');
+    
+
+
+
+    //atualização da xerox
+    if($nomeXerox != ""){
+        $fpXerox = fopen($xerox, "rb");
+        $conteudoXerox = fread($fpXerox, $tamanhoXerox);
+        $conteudoXerox = addslashes($conteudoXerox);
+
+        $sql = "UPDATE tb_idoso SET nome_xerox = '$nomeXerox', tamanho_xerox = '$tamanhoXerox', tipo_xerox = '$tipoXerox', xerox = '$conteudoXerox' WHERE idtb_idoso = $id";
+    
+        $conexao->query($sql);
+    }
+
+
+    //atualização da foto de perfil
+    if($nomeImg != ""){
+        $fpImg = fopen($imagem, "rb");
+        $conteudoImg = fread($fpImg, $tamanhoImg);
+        $conteudoImg = addslashes($conteudoImg);
+
+        $sql = "UPDATE tb_idoso SET nome_img = '$nomeImg', tamanho_img = '$tamanhoImg', tipo_img = '$tipoImg', img = '$conteudoImg' WHERE idtb_idoso = $id";
+    
+        $conexao->query($sql);
+    }
+
+    
+
+    header('location:../index.php?op=alterar');
+
+
 
 ?>

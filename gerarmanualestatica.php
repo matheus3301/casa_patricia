@@ -2,7 +2,7 @@
 		
 		include 'includes/conexao.php';
 		
-		$sth = $conexao->prepare("SELECT * FROM tb_idoso ORDER BY idtb_idoso ASC");
+		$sth = $conexao->prepare("SELECT * FROM tb_idoso WHERE status = 'ATIVO' ORDER BY idtb_idoso ASC");
 		$sth->execute();
 		
         $result = $sth->fetchAll();

@@ -1,3 +1,33 @@
+<?php
+    $meses = array(
+        '01' => 'Janeiro',
+        '02' =>'Fevereiro',
+        '03' =>'Março',
+        '04' =>'Abril',
+        '05' =>'Maio',
+        '06' =>'Junho',
+        '07' =>'Julho',
+        '08' =>'Agosto',
+        '09' =>'Setembro',
+        '10' =>'Outubro',
+        '11' =>'Novembro',
+        '12' =>'Dezembro'
+    );
+
+    $mesSelected = $meses[$_GET['mes']];
+
+
+    $fuso = new DateTimeZone('America/Fortaleza');
+    $data = new DateTime();
+    $data->setTimezone($fuso);
+    $mesAtual =  $data->format('m');
+    $anoAtual =  $data->format('Y');
+
+    
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -87,7 +117,7 @@
                 <div class="container">
                     <a href="index.php"><img src="assets/img/logo.png" alt="Casa de Patrícia" class="header-img"></a>
                     
-                    <span class="navbar-brand" > <a href="index.php" class="text-white">Início </a> / Consulta</span>
+                    <span class="navbar-brand" > <a href="index.php" class="text-white">Início </a> / <a href="consulta.php" class="text-white">Consulta </a>/ Aniversariantes </span>
                     
                     
                 </div>
@@ -95,13 +125,48 @@
         </div>
     </div>
     <div class="container profile profile-view" data-aos="zoom-in" data-aos-once="true" id="profile">
-        <h1>Cadastros</h1>
+        <h1>Aniversariantes do Mês de <?php echo $mesSelected; ?></h1>
+    
+        <form class="form-inline">
+        <div class="form-group sm-6">    
+        <label for="" style="margin-right:15px">Mês:</label>
+                <select class="form-control" id="meses" style="margin-right:15px" >
+                    <option>selecione...</option>
+                    <option value="01" <?php if($_GET['mes'] == '01'){ echo 'selected';} ?>>Janeiro</option>
+                    <option value="02" <?php if($_GET['mes'] == '02'){ echo 'selected';} ?>>Fevereiro</option>
+                    <option value="03" <?php if($_GET['mes'] == '03'){ echo 'selected';} ?>>Março</option>
+                    <option value="04" <?php if($_GET['mes'] == '04'){ echo 'selected';} ?>>Abril</option>
+                    <option value="05" <?php if($_GET['mes'] == '05'){ echo 'selected';} ?>>Maio</option>
+                    <option value="06" <?php if($_GET['mes'] == '06'){ echo 'selected';} ?>>Junho</option>
+                    <option value="07" <?php if($_GET['mes'] == '07'){ echo 'selected';} ?>>Julho</option>
+                    <option value="08" <?php if($_GET['mes'] == '08'){ echo 'selected';} ?>>Agosto</option>
+                    <option value="09" <?php if($_GET['mes'] == '09'){ echo 'selected';} ?>>Setembro</option>
+                    <option value="10" <?php if($_GET['mes'] == '10'){ echo 'selected';} ?>>Outubro</option>
+                    <option value="11" <?php if($_GET['mes'] == '11'){ echo 'selected';} ?>>Novembro</option>
+                    <option value="12" <?php if($_GET['mes'] == '12'){ echo 'selected';} ?>>Dezembro</option>
+                </select>
+        
+        
+          
+         </div> 
+        <div class="form-group sm-6">
+            <button name="" onClick="trocaMes()" class="btn btn-primary" role="button">Consultar</button>
+        </div>
+        </form>
+        <br><br>
+        <script>
+            function trocaMes(){
+               const mes = $('#meses').val();
+               
 
+               window.location.href = "aniversariantes.php?mes="+mes;
+            }
+        </script>
 
         <?php
             include 'includes/conexao.php';
 
-            $sth = $conexao->prepare("SELECT * FROM tb_idoso ORDER BY idtb_idoso ASC");
+            $sth = $conexao->prepare("SELECT * FROM tb_idoso WHERE status = 'ATIVO' ORDER BY idtb_idoso ASC");
 			$sth->execute();
 
 			$result = $sth->fetchAll();
@@ -116,13 +181,7 @@
                     <th scope="col">Sexo</th>
                     <th scope="col">Contato</th>
                     <th scope="col">Data Nasc.</th>
-                    <th scope="col">RG</th>
-                    <th scope="col">CPF</th>
-                    <th scope="col">NIS</th>
-                    <th scope="col">Nome Familiar</th>
-                    <th scope="col">Contato Familiar</th>                    
-                    <th scope="col">Status</th>
-                    <th scope="col">Ações</th>
+                    
 
                 </tr>
                 </thead>
@@ -131,6 +190,9 @@
                     <?php
                         foreach($result as $cadastro){
 
+                            $dataAniversario = explode("-",$cadastro['data_nasc']);
+                            
+                            if($dataAniversario[1] == $_GET['mes']){
                         
                     ?>
                     <tr>
@@ -140,76 +202,7 @@
                         <td><?php echo $cadastro['sexo']; ?></td>
                         <td><?php echo $cadastro['contato']; ?></td>
                         <td><?php echo $cadastro['data_nasc']; ?></td>
-                        <td><?php echo $cadastro['rg']; ?></td>
-                        <td><?php echo $cadastro['cpf']; ?></td>
-                        <td><?php echo $cadastro['nis']; ?></td>
-                        <td><?php echo $cadastro['nome_familiar']; ?></td>
-                        <td><?php echo $cadastro['contato_familiar']; ?></td>
-                        <td><?php echo $cadastro['status']; ?></td>
-                        <td>
-                            <button  class="btn btn-success text-white"data-toggle="modal" data-target="#modal-documento<?php echo $cadastro[0]?>" role="button">Documentos</button>
-                            <a  class="btn btn-warning text-white" href="alterar.php?id=<?php echo $cadastro[0]?>" role="button">Alterar</a>
-                            <?php
-                                if($cadastro['status'] == 'ATIVO'){?>
-                                    <a  class="btn btn-danger text-white"data-toggle="modal" data-target="#modal-excluir<?php echo $cadastro[0]?>" role="button">Desvincular</a>
-                                <?php }else{ ?>
-
-                                    <a  class="btn btn-primary text-white"data-toggle="modal" data-target="#modal-vincular<?php echo $cadastro[0]?>" role="button">Revincular</a>
-
-                                    
-                            <?php    }
-
-                            ?>
-                            
-                            
-                        </td>
-                    </tr>
-
-                    <div class="modal fade" id="modal-excluir<?php echo $cadastro[0];?>">
-                        <div class="modal-dialog" >
-                            <div class="modal-content">
-                            <div class="modal-header">
-                            <h4 class="modal-title">
-                                Tem certeza?
-                            </h4>
-                            <button type="button" class="close" data-dismiss="modal"><b>x</b></button>
-                            </div>
-                            <div class="modal-body"> 
-
-                            <p>Tem certeza que deseja desvincular <?php echo $cadastro[1]?>?</p>
-                            <strong>O Associado não será aparecerá nos relatórios</strong>
-
-
-                            </div>
-                            <div class="modal-footer">
-                                <a href="valida/validaExcluir.php?id=<?php echo $cadastro[0]?>" class="btn btn btn-primary text-white ml-3">Excluir</a>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="modal fade" id="modal-vincular<?php echo $cadastro[0];?>">
-                        <div class="modal-dialog" >
-                            <div class="modal-content">
-                            <div class="modal-header">
-                            <h4 class="modal-title">
-                                Tem certeza?
-                            </h4>
-                            <button type="button" class="close" data-dismiss="modal"><b>x</b></button>
-                            </div>
-                            <div class="modal-body"> 
-
-                            <p>Tem certeza que deseja revincular <?php echo $cadastro[1]?>?</p>
-                            <strong>O Associado tornará a aparecer nos relatórios</strong>
-
-
-                            </div>
-                            <div class="modal-footer">
-                                <a href="valida/validaVincular.php?id=<?php echo $cadastro[0]?>" class="btn btn btn-primary text-white ml-3">Excluir</a>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
+                        
 
 
 
@@ -217,13 +210,11 @@
 
                             
                     <?php
-                        }
+                         } }
                     ?>
                     
                 </tbody>
         </table>
-
-        <a name="" id="" class="btn btn-primary" href="aniversariantes.php?mes=08" role="button">Aniversariantes do Mês</a>
 
     </div>
 

@@ -25,7 +25,7 @@
 
 	//Exibibir a página
 	$dompdf->stream(
-		"Cadastros - Casa de Patrícia", 
+		$tipo." Cadastrados - Casa de Patrícia", 
 		array(
 			"Attachment" => true //Para realizar o download somente alterar para true
 		)

@@ -248,7 +248,7 @@
                            
                         <div class="form-group">
                         <div class="custom-file form-control" >
-                            <input type="file" class="custom-file-input "  id="xerox" name="xerox" required >
+                            <input type="file" class="custom-file-input "  id="xerox" name="xerox" >
                             <label class="custom-file-label"  for="xerox">Xerox dos Documentos</label>
                             
                         </div>

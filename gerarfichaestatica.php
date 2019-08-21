@@ -10,8 +10,17 @@
 		$result = $sth->fetch();
 		
 
-		
+		$doencasExtenso = "";
 
+		$query = $conexao->query("SELECT tb_doenca.nome FROM tb_doente INNER JOIN tb_doenca ON tb_doente.tb_doenca_idtb_doenca = tb_doenca.idtb_doenca WHERE tb_doente.tb_idoso_idtb_idoso = $id"
+	);
+		
+		
+		$resultado = $query->fetchAll();
+
+		foreach($resultado as $doenca){
+			$doencasExtenso = $doencasExtenso . $doenca[0].", ";
+		}
 		
 		?>
 
@@ -43,10 +52,10 @@
 
 	
 
-	$formato = explode('/',$return[17]);
+	$formato = explode('/',$return['tipo_img']);
 	
 
-	gravaArquivo('includes/fotoficha.'.$formato[1],$return[14],'w');
+	gravaArquivo('includes/fotoficha.'.$formato[1],$return['img'],'w');
 
 	gravaArquivo('includes/ficha.html',
 		'<!DOCTYPE html>
@@ -137,20 +146,29 @@
 						
 						<table border="1" cellspacing="0" class="table">
 							<tr>
-								<td>Nome:</td>
-								<td>'.$result['nome'].'</td>
-								<td>Data de Nasc:</td>
-								<td>'.$result['data_nasc'].'</td>
+								<td colspan="2">Nome:'.$result['nome'].'</td>
+								
+								<td colspan="2">Data de Nascimento:'.$result['data_nasc'].'</td>
 							</tr>
 							<tr>
-								<td>Endereço:</td>
-								<td colspan="3">'.$result['rua'].', Nº'.$result['numero'].' , '.$result['bairro'].'</td>
+								
+								<td colspan="4">Endereço: '.$result['rua'].', Nº'.$result['numero'].' , '.$result['bairro'].'</td>
 							</tr>
 							<tr>
-								<td>RG:'.$result['rg'].'</td>
+								<td> Complemento:'.$result['complemento'].'</td>
+								<td colspan="2"> Município:'.$result['municipio'].'</td>
+								<td> CEP:'.$result['cep'].'</td>
+							</tr>
+							<tr>	
+								<td colspan="4">Ponto de Referência: '.$result['ponto_referencia'].'</td>
+							</tr>
+							
+							
+							<tr>
+								<td>Contato:'.$result['contato'].'</td>
 								<td>CPF:'.$result['cpf'].'</td>
 								<td>NIS:'.$result['nis'].'</td>
-								<td>Contato:'.$result['contato'].'</td>
+								<td>RG:'.$result['rg'].'</td>
 							</tr>
 							<tr>
 								<td>Nome Familiar:</td>
@@ -159,8 +177,16 @@
 								<td>'.$result['contato_familiar'].'</td>
 							</tr>
 							<tr>
-								<td colspan="4">
-									'.$result['informacoes_medicas'].'
+								<td colspan="4">Doenças: '.$doencasExtenso.'</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+								Medicações:
+									'.$result['medicacoes'].'
+								</td>
+								<td colspan="2">
+								Alergias:
+									'.$result['alergias'].'
 								</td>
 							</tr>
 						</table>

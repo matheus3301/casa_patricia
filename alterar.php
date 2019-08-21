@@ -183,7 +183,7 @@
                         </div>
                     </div>
                     <?php
-                                $date = new DateTime($return['data_nasc']);
+                                
                             
                             ?>
 
@@ -191,7 +191,7 @@
                     <div class="form-row">
                         <div class="col-sm-12 col-md-4">
                             <div class="form-group"><label style="color: #0a0a0a;">Data de Nascimento</label>
-                            <input class="form-control form-control-lg dataMASK" type="text" name="data_nasc" required="" value="<?php echo $date->format('m/d/Y') ?>"></div>
+                            <input class="form-control form-control-lg dataMASK" type="date" name="data_nasc" required="" value="<?php echo $return['data_nasc']; ?>"></div>
                         </div>
                         <div class="col-sm-12 col-md-5">
                         <div class="form-group">
@@ -274,7 +274,7 @@
                            
                         <div class="form-group">
                         <div class="custom-file form-control" >
-                            <input type="file" class="custom-file-input "  id="xerox" name="xerox" required >
+                            <input type="file" class="custom-file-input "  id="xerox" name="xerox"  >
                             <label class="custom-file-label"  for="xerox">Xerox dos Documentos</label>
                             
                         </div>
@@ -406,8 +406,8 @@
         $campoTELEFONE.mask('(00) 00000-0000 (00) 00000-0000');
 
 
-        var $campoDATA = $(".dataMASK");
-        $campoDATA.mask('00/00/0000', {reverse: true});
+        //var $campoDATA = $(".dataMASK");
+        //$campoDATA.mask('00-00-0000', {reverse: true});
 
     </script>
 </body>

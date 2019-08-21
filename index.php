@@ -43,8 +43,13 @@
 }
 
 .header-img{
-    width:100px;
+    width:20%;
 }
+
+.navbar-brand{
+    font-size:1.5em;
+}
+
 </style>
 
 <body>
@@ -54,7 +59,7 @@
             <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
                 <div class="container">
                     <img src="assets/img/logo.png" alt="Casa de Patrícia" class="header-img">
-                    <a class="navbar-brand" href="#">Sistema de Controle<span class="badge badge-success">ALPHA v2.0</span></a>
+                    <a class="navbar-brand" href="#">Sistema de Controle<span class="badge badge-success">ALPHA v2.1</span></a>
                     
                     
                 </div>
@@ -189,12 +194,12 @@
                                                 </div>
 
 
-                                                <div class="col-sm-6 col-md-3 plan price default wow fadeInDown">
-                                                    <a href="gerarpdfcadastros.php">
+                                                <div class="col-sm-6 col-md-3 plan price default wow fadeInDown" style="cursor:pointer">
+                                                    <a data-toggle="modal" data-target="#modal-relatorio">
                                                         <ul class="list-group">
                                                             <li class="list-group-item heading" data-bs-hover-animate="pulse" style="height: 245px;">
                                                                 <img src="assets/img/pdf.png" alt="Idosos" class="box-img">
-                                                                <h1 class="box-txt">Relatório</h1><span class="price">Idosos Cadastrados</span>
+                                                                <h1 class="box-txt">Relatório</h1><span class="price">Associados Cadastrados</span>
                                                             </li>
                                                         </ul>
                                                     </a>
@@ -248,16 +253,29 @@
                             <form>
                             <div class="modal-body"> 
                             <div class="container-hero">
-                                <div class="col-sm-6 col-md-6 plan price default">
-                                    <a href="gerarpdfmanual.php">
-                                        <ul class="list-group">
-                                            <li class="list-group-item heading" data-bs-hover-animate="pulse" style="height: 245px;">
-                                                <img src="assets/img/pdf.png" alt="Idosos" class="box-img">
-                                                <h1 class="box-txt">PDF</h1><span class="price">Ficha de Frequência Manual</span>
-                                            </li>
-                                        </ul>
-                                    </a>
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-6 plan price default">
+                                        <a href="gerarpdfmanual.php">
+                                            <ul class="list-group">
+                                                <li class="list-group-item heading" data-bs-hover-animate="pulse" style="height: 245px;">
+                                                    <img src="assets/img/pdf.png" alt="Idosos" class="box-img">
+                                                    <h1 class="box-txt">PDF</h1><span class="price text-dark">Ficha de Frequência Manual</span>
+                                                </li>
+                                            </ul>
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6 plan price default" onclick="window.open('includes/cadastroManual.pdf')" style="cursor:pointer">
+                                        
+                                            <ul class="list-group">
+                                                <li class="list-group-item heading" data-bs-hover-animate="pulse" style="height: 245px;">
+                                                    <img src="assets/img/pdf.png" alt="Idosos" class="box-img">
+                                                    <h1 class="box-txt">PDF</h1><span class="price text-dark">Folha de Cadastro Manual</span>
+                                                </li>
+                                            </ul>
+                                        
+                                    </div>
                                 </div>
+                                
                             
                             </div>
                             
@@ -290,7 +308,7 @@
                                 <?php
                                     include 'includes/conexao.php';
 
-                                    $sth = $conexao->prepare("SELECT * FROM tb_idoso ORDER BY nome ASC");
+                                    $sth = $conexao->prepare("SELECT * FROM tb_idoso WHERE status = 'ATIVO' ORDER BY nome ASC");
                                     $sth->execute();
                         
                                     $result = $sth->fetchAll();
@@ -339,7 +357,7 @@
                             <?php
                                     include 'includes/conexao.php';
 
-                                    $sth = $conexao->prepare("SELECT * FROM tb_idoso ORDER BY nome ASC");
+                                    $sth = $conexao->prepare("SELECT * FROM tb_idoso WHERE status = 'ATIVO' ORDER BY nome ASC");
                                     $sth->execute();
                         
                                     $result = $sth->fetchAll();
@@ -373,6 +391,66 @@
                             </div>
                             <div class="modal-footer">
                                  <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="darPresenca()">Presença</button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="modal-relatorio">
+                    <div class="modal-dialog" >
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">
+                                   Relatório
+                                </h4>
+                                <button type="button" class="close" data-dismiss="modal"><b>x</b></button>
+                            </div>
+                            <form>
+                            <div class="modal-body"> 
+                            <div class="container-hero">
+                            <div class="row">
+                                <div class="col-sm-4 col-md-4 plan price default text-dark">
+                                    <a href="gerarpdfcadastros.php?tipo=Idosos">
+                                        <ul class="list-group">
+                                            <li class="list-group-item heading" data-bs-hover-animate="pulse" style="height: 245px;">
+                                                <img src="assets/img/pdf.png" alt="Idosos" class="box-img">
+                                                <h1 class="box-txt">PDF</h1><span class="price text-dark">Relatório Idosos</span>
+                                            </li>
+                                        </ul>
+                                    </a>
+                                </div>
+
+                                <div class="col-sm-4 col-md-4 plan price default text-dark">
+                                    <a href="gerarpdfcadastros.php?tipo=Deficientes">
+                                        <ul class="list-group">
+                                            <li class="list-group-item heading" data-bs-hover-animate="pulse" style="height: 245px;">
+                                                <img src="assets/img/pdf.png" alt="Idosos" class="box-img">
+                                                <h1 class="box-txt">PDF</h1><span class="price text-dark">Relatório Deficientes</span>
+                                            </li>
+                                        </ul>
+                                    </a>
+                                </div>
+
+                                <div class="col-sm-4 col-md-4 plan price default text-dark">
+                                    <a href="gerarpdfcadastros.php?tipo=Todos">
+                                        <ul class="list-group">
+                                            <li class="list-group-item heading" data-bs-hover-animate="pulse" style="height: 245px;">
+                                                <img src="assets/img/pdf.png" alt="Idosos" class="box-img">
+                                                <h1 class="box-txt">PDF</h1><span class="price text-dark">Relatório de Todos</span>
+                                            </li>
+                                        </ul>
+                                    </a>
+                                </div>
+                                </div>
+                            </div>
+                            
+
+                                
+
+                            </div>
+                            <div class="modal-footer">
+                                 <button type="button" class="btn btn-primary" data-dismiss="modal" >Fechar</button>
                             </div>
                             </form>
                         </div>

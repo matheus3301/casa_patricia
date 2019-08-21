@@ -1,8 +1,21 @@
 <?php
 		
+		$tipo = $_GET['tipo'];
+
+		if($tipo == 'Idosos'){
+			$sql = "SELECT * FROM tb_idoso WHERE status = 'ATIVO' AND tipo = 'Idoso' ORDER BY idtb_idoso ASC";
+		}
+
+		if($tipo == 'Deficientes'){
+			$sql = "SELECT * FROM tb_idoso WHERE status = 'ATIVO' AND tipo = 'Deficiente' ORDER BY idtb_idoso ASC";
+		}
+
+		if($tipo == 'Todos'){
+			$sql = "SELECT * FROM tb_idoso WHERE status = 'ATIVO' ORDER BY idtb_idoso ASC";
+		}
+
 		
-		
-		$sth = $conexao->prepare("SELECT * FROM tb_idoso ORDER BY idtb_idoso ASC");
+		$sth = $conexao->prepare($sql);
 		$sth->execute();
 		
 		$result = $sth->fetchAll();
@@ -13,15 +26,16 @@
 
 			$dadosConsulta = $dadosConsulta."
 					<tr>
-							<td>".$cadastro[1]."</td>
-							<td>".$cadastro[3]."</td>
-							<td>".$cadastro[10]."</td>
-							<td>".$cadastro[2]."</td>
-							<td>".$cadastro[8]."</td>
-							<td>".$cadastro[9]."</td>
-							<td>".$cadastro[7]."</td>
-							<td>".$cadastro[13]."</td>
-							<td>".$cadastro[12]."</td>
+							<td>".$cadastro['nome']."</td>
+							<td>".$cadastro['sexo']."</td>
+							<td>".$cadastro['tipo']."</td>
+							<td>".$cadastro['contato']."</td>
+							<td>".$cadastro['data_nasc']."</td>
+							<td>".$cadastro['rg']."</td>
+							<td>".$cadastro['cpf']."</td>
+							<td>".$cadastro['nis']."</td>
+							<td>".$cadastro['nome_familiar']."</td>
+							<td>".$cadastro['contato_familiar']."</td>
                         
                     </tr>" ;
 		}
@@ -106,12 +120,13 @@
 				<tr>
 					<th>Nome</th>
 					<th>Sexo</th>
+					<th>Tipo</th>
 					<th>Contato</th>
 					<th>Data de Nasc.</th>
 					<th>RG</th>
 					<th>CPF</th>
 					<th>NIS</th>
-					<th>Nome Familiar</th>
+					<th>Responsável Familiar</th>
 					<th>Contato Familiar</th>
 				</tr>
 			</thead>

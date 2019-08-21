@@ -121,7 +121,7 @@
         <?php
             include 'includes/conexao.php';
 
-            $sth = $conexao->prepare("SELECT * FROM tb_idoso ORDER BY idtb_idoso ASC");
+            $sth = $conexao->prepare("SELECT * FROM tb_idoso WHERE status = 'ATIVO' ORDER BY idtb_idoso ASC");
 			$sth->execute();
 
 			$result = $sth->fetchAll();
@@ -147,11 +147,11 @@
 
         <form class="form-inline">
         <div class="form-group sm-6">
-        <label for="">Ano:</label>
-        <input type="number" class="form-control" name="" id="ano" value="<?php echo $anoAtual; ?>">
+        <label for="" style="margin-right:15px">Ano:</label>
+        <input style="margin-right:25px" type="number" class="form-control" name="" id="ano" value="<?php echo $anoAtual; ?>">
         
-        <label for="">Mês:</label>
-                <select class="form-control" id="meses" >
+        <label for="" style="margin-right:15px">Mês:</label>
+                <select class="form-control" id="meses" style="margin-right:15px" >
                     <option>selecione...</option>
                     <option value="01" <?php if($mesAtual == '01'){ echo 'selected';} ?>>Janeiro</option>
                     <option value="02" <?php if($mesAtual == '02'){ echo 'selected';} ?>>Fevereiro</option>
@@ -170,8 +170,11 @@
         
           
           
-        <div class="form-group sm-6">
+        <div class="form-group sm-4">
             <button name="" onClick="trocaMes()" class="btn btn-primary" role="button">Consultar</button>
+        </div>
+        <div class="form-group sm-2">
+            <button style="margin-left:25px" name="" onClick="window.print()" class="btn btn-gray" role="button"><img style="width:15px;" src="assets/img/printer.png" alt="">Imprimir</button>
         </div>
         
         <script>
@@ -204,6 +207,7 @@
                             echo("<th>$i</th>");
                         }
                     ?>
+                    <th>Total</th>
                 </tr>
                 </thead>
 
@@ -218,6 +222,7 @@
                        
                                   
                         <?php
+                            $totalPresenca = 0;
                             for($i = 1; $i <= 31; $i++ ){
                                 $dataIterada =  $anoAtual;
                                 $dataIterada = $dataIterada."-".$mesAtual;
@@ -231,11 +236,14 @@
                                 if($result == null){
                                     echo '<td><img src="assets/img/smalltimes.png"class="presenca"/></td>';
                                 }else{
-                                    echo '<td><img src="assets/img/smallcheck.png"class="presenca" alt="'.$result['hora'].'"/></td>';
+                                    echo '<td><img src="assets/img/smallcheck.png"class="presenca" alt="'.$result['hora'].'"/></td>';$totalPresenca++;
                                 }
 
-                            
+                                
                             }
+
+                            echo "<td><center>$totalPresenca</center></td>";
+
                         ?>        
 
                         </tr>  

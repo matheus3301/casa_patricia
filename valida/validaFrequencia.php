@@ -15,7 +15,7 @@
         
     try {
         $conexao->query("INSERT INTO tb_frequencia VALUES(0, $id, '$data', '$hora') ");
-        echo "Presença marcada em".$data;
+        echo "Presença marcada em: ".$data;
 
     } catch (Exception $ex) {
         echo "Erro ao dar presença";

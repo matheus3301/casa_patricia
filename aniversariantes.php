@@ -149,8 +149,11 @@
         
           
          </div> 
-        <div class="form-group sm-6">
+        <div class="form-group sm-4">
             <button name="" onClick="trocaMes()" class="btn btn-primary" role="button">Consultar</button>
+        </div>
+        <div class="form-group sm-2">
+            <button style="margin-left:25px" name="" onClick="window.print()" class="btn btn-gray" role="button"><img style="width:15px;" src="assets/img/printer.png" alt="">Imprimir</button>
         </div>
         </form>
         <br><br>

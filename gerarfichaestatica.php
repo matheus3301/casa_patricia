@@ -17,9 +17,17 @@
 		
 		
 		$resultado = $query->fetchAll();
+		$numDoencas = count($resultado);
 
+		$numDoencaAtual=0;
 		foreach($resultado as $doenca){
-			$doencasExtenso = $doencasExtenso . $doenca[0].", ";
+			if($numDoencaAtual == $numDoencas-1){
+				$doencasExtenso = $doencasExtenso . $doenca[0].". ";
+
+			}else{
+				$doencasExtenso = $doencasExtenso . $doenca[0].", ";
+			}
+			$numDoencaAtual++;
 		}
 		
 		?>
@@ -148,7 +156,7 @@
 							<tr>
 								<td colspan="2">Nome:'.$result['nome'].'</td>
 								
-								<td colspan="2">Data de Nascimento:'.$result['data_nasc'].'</td>
+								<td colspan="2">Data Nasc.:'.$result['data_nasc'].'</td>
 							</tr>
 							<tr>
 								
@@ -171,10 +179,10 @@
 								<td>RG:'.$result['rg'].'</td>
 							</tr>
 							<tr>
-								<td>Nome Familiar:</td>
-								<td>'.$result['nome_familiar'].'</td>
-								<td>Contato Familiar:</td>
-								<td>'.$result['contato_familiar'].'</td>
+								<td colspan="2">Responsável Familiar:'.$result['nome_familiar'].'</td>
+								
+								<td colspan="2">Contato Familiar:'.$result['contato_familiar'].'</td>
+								
 							</tr>
 							<tr>
 								<td colspan="4">Doenças: '.$doencasExtenso.'</td>

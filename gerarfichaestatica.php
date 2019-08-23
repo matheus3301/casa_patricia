@@ -89,7 +89,7 @@
 		
 		
 				.header-text{
-					font-size: 1em;
+					font-size: 1.2em;
 					text-align: center;
 					
 					position:absolute;
@@ -142,7 +142,7 @@
 				<div class="header">
 		
 					<img src="assets/img/logo.png" class="logo">
-					<center><span class="header-text" >ASSOCIAÇÃO SALÃO DE LEITURA ANTONIO SALES <br> -SALAS- <br> SÃO GONÇALO DO AMARANTE - CEARÁ</span></center>
+					<center><span class="header-text" style="float:right" >ASSOCIAÇÃO SALÃO DE LEITURA ANTÔNIO SALES <br> -SALAS- <br> SÃO GONÇALO DO AMARANTE - CEARÁ</span></center>
 				
 				
 		
@@ -154,9 +154,9 @@
 						
 						<table border="1" cellspacing="0" class="table">
 							<tr>
-								<td colspan="2">Nome:'.$result['nome'].'</td>
+								<td colspan="3">Nome:'.$result['nome'].'</td>
 								
-								<td colspan="2">Data Nasc.:'.$result['data_nasc'].'</td>
+								<td colspan="1">D.N.:'.$result['data_nasc'].'</td>
 							</tr>
 							<tr>
 								
@@ -173,7 +173,7 @@
 							
 							
 							<tr>
-								<td>Contato:'.$result['contato'].'</td>
+								<td>Cel.:'.$result['contato'].'</td>
 								<td>CPF:'.$result['cpf'].'</td>
 								<td>NIS:'.$result['nis'].'</td>
 								<td>RG:'.$result['rg'].'</td>
@@ -204,7 +204,7 @@
 							<span>Assinatura</span>
 						</center>
 						
-						<footer>
+						<footer style="font-size:12px">
 						<center>
 						_______________________________________________________________________________<br>
 						RUA SANTOS DUMONT, S/N CENTRO - SÃO GONÇALO DO AMARANTE - CEARÁ <br>

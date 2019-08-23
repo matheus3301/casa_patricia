@@ -59,7 +59,7 @@
             <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
                 <div class="container">
                     <img src="assets/img/logo.png" alt="Casa de Patrícia" class="header-img">
-                    <a class="navbar-brand" href="#">Sistema de Controle<span class="badge badge-success">ALPHA v2.1</span></a>
+                    <a class="navbar-brand" href="#">Sistema de Controle<span class="badge badge-success">ALPHA v2.2</span></a>
                     
                     
                 </div>
@@ -149,7 +149,7 @@
                                             <a href="cadastro.php">
                                                 <ul class="list-group">
                                                     <li class="list-group-item heading box-content" data-bs-hover-animate="pulse" style="height: 257px;">
-                                                        <img src="assets/img/handicapped.png" alt="Idosos" class="box-img">
+                                                        <img src="assets/img/mesclado.png" alt="Idosos" class="box-img">
                                                         <br><br>
                                                         <h1 class="box-txt">Cadastrar</h1>
                                                     </li>
@@ -162,7 +162,7 @@
                                             <a href="consulta.php">
                                                 <ul class="list-group">
                                                     <li class="list-group-item heading box-content" data-bs-hover-animate="pulse" style="height: 257px;">
-                                                        <img src="assets/img/idosos.png" alt="Idosos" class="box-img">
+                                                        <img src="assets/img/search.png" alt="Idosos" class="box-img">
                                                         <br><br>
                                                         <h1 class="box-txt">Consultar</h1>
                                                     </li>
@@ -227,7 +227,7 @@
                                                     <ul class="list-group">
                                                         <li class="list-group-item heading" data-bs-hover-animate="pulse" style="height: 245px;">
                                                             <img src="assets/img/plus.png" alt="Idosos" class="box-img">
-                                                            <h1 class="box-txt">Mais...</h1><span class="price">Em breve</span>
+                                                            <h1 class="box-txt">Mais...</h1><span class="price">Opções</span>
                                                         </ul>
                                                         </a>
                                                     </div>

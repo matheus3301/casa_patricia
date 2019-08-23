@@ -151,10 +151,10 @@
                             <a  class="btn btn-warning text-white" href="alterar.php?id=<?php echo $cadastro[0]?>" role="button">Alterar</a>
                             <?php
                                 if($cadastro['status'] == 'ATIVO'){?>
-                                    <a  class="btn btn-danger text-white"data-toggle="modal" data-target="#modal-excluir<?php echo $cadastro[0]?>" role="button">Desvincular</a>
+                                    <a  class="btn btn-danger text-white"data-toggle="modal" data-target="#modal-excluir<?php echo $cadastro[0]?>" role="button">Inativar</a>
                                 <?php }else{ ?>
 
-                                    <a  class="btn btn-primary text-white"data-toggle="modal" data-target="#modal-vincular<?php echo $cadastro[0]?>" role="button">Revincular</a>
+                                    <a  class="btn btn-primary text-white"data-toggle="modal" data-target="#modal-vincular<?php echo $cadastro[0]?>" role="button">Reativar</a>
 
                                     
                             <?php    }
@@ -182,7 +182,7 @@
 
                             </div>
                             <div class="modal-footer">
-                                <a href="valida/validaExcluir.php?id=<?php echo $cadastro[0]?>" class="btn btn btn-primary text-white ml-3">Excluir</a>
+                                <a href="valida/validaExcluir.php?id=<?php echo $cadastro[0]?>" class="btn btn btn-primary text-white ml-3">Inativar</a>
                             </div>
                             </div>
                         </div>
@@ -205,7 +205,7 @@
 
                             </div>
                             <div class="modal-footer">
-                                <a href="valida/validaVincular.php?id=<?php echo $cadastro[0]?>" class="btn btn btn-primary text-white ml-3">Excluir</a>
+                                <a href="valida/validaVincular.php?id=<?php echo $cadastro[0]?>" class="btn btn btn-primary text-white ml-3">Reativar</a>
                             </div>
                             </div>
                         </div>

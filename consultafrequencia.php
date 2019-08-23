@@ -207,7 +207,7 @@
                             echo("<th>$i</th>");
                         }
                     ?>
-                    <th>Total</th>
+                    <th> <center>Total de Presenças</center> </th>
                 </tr>
                 </thead>
 

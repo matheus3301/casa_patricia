@@ -398,7 +398,7 @@
         $campoCPF.mask('000.000.000-00', {reverse: true});
 
         var $campoCPF = $(".cep");
-        $campoCPF.mask('00000-000', {reverse: true});
+        $campoCPF.mask('00.000-000', {reverse: true});
 
         
 

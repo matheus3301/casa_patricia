@@ -114,7 +114,7 @@
 		<center><span class="header-text" >ASSOCIAÇÃO SALÃO DE LEITURA ANTONIO SALES <br> -SALAS- <br> SÃO GONÇALO DO AMARANTE - CEARÁ</span></center>
 			
 		</div>
-		
+		<h2>Relatório de '.$tipo.' Cadastrados</h2>
 		<table border="1" cellspacing="0" class="table">
 			<thead >
 				<tr>

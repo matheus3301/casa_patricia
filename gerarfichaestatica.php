@@ -59,6 +59,7 @@
 
 
 	$dataNascBr = date_format(date_create($result['data_nasc']), 'd/m/Y');
+	$dataExpBr = date_format(date_create($result['data_expedicao']), 'd/m/Y');
 
 	$formato = explode('/',$return['tipo_img']);
 	
@@ -178,8 +179,8 @@
 							<tr>
 								
 								<td>RG:'.$result['rg'].'</td>
-								<td>D. Exp:'.$result['data_expedicao'].'</td>
-								<td colspan="2">Org. Exp.:'.$result['orgao_expedidor'].'</td>
+								<td colspan="2">D. Exp:'.$dataExpBr.'</td>
+								<td >Org. Exp.:'.$result['orgao_expedidor'].'</td>
 							</tr>
 							
 							<tr>
@@ -198,13 +199,20 @@
 								<td colspan="4">Doenças: '.$doencasExtenso.'</td>
 							</tr>
 							<tr>
-								<td colspan="2">
+								<td colspan="4">
 								Medicações:
 									'.$result['medicacoes'].'
 								</td>
+								
+							</tr>
+							<tr>
 								<td colspan="2">
 								Alergias:
 									'.$result['alergias'].'
+								</td>
+								<td colspan="2">
+								Intolerâncias:
+									'.$result['intolerancia'].'
 								</td>
 							</tr>
 						</table>

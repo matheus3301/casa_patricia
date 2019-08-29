@@ -16,6 +16,28 @@
 			$sql = "SELECT * FROM tb_idoso WHERE status = 'ATIVO' ORDER BY idtb_idoso ASC";
 		}
 
+		$table_titles = array(
+			'nome' => 'Nome',
+			'tipo' => 'Tipo',
+			'data_nasc' => 'D. Nasc.',
+			'sexo' => 'Sexo',
+			'rua' => 'Rua',
+			'numero' => 'Nº',
+			'bairro' => 'Bairro',
+			'ponto_referencia' => 'P. de Referencia',
+			'complemento' => 'Complemento',
+			'municipio' => 'Município',
+			'cep' => 'CEP',
+			'nis' => 'NIS',
+			'rg' => 'RG',
+			'data_expedicao' => 'D. Expedição',
+			'orgao_emissor' => 'Org. Emissor',
+			'cpf' => 'CPF',
+			'contato' => 'Contato',
+			'nome_familiar' => 'Responsável Familiar',
+			'contato_familiar' => 'Contato Familiar'
+ 
+		);
 		
 		$sth = $conexao->prepare($sql);
 		$sth->execute();
@@ -27,12 +49,24 @@
         $tableHeader = "<tr>";
 
             foreach($opcoes as $campo){
-                $tableHeader = $tableHeader."<th>".$campo."</th>";        
+                $tableHeader = $tableHeader."<th>".$table_titles[$campo]."</th>";        
             }
 
         $tableHeader = $tableHeader."</tr>";
 		
 
+		foreach($result as $linhaAtual){
+			$dadosConsulta = $dadosConsulta."<tr>";
+			foreach($opcoes as $campo){
+				$dadosConsulta = $dadosConsulta."<td>";
+				$dadosConsulta = $dadosConsulta.$linhaAtual[$campo];
+				$dadosConsulta = $dadosConsulta."</td>";
+
+			}
+			$dadosConsulta = $dadosConsulta."</tr>";
+		}
+		
+			
 		
 
 		

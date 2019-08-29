@@ -23,6 +23,8 @@
     $alergias = $_POST['alergias'];
     $nome_familiar = $_POST['nome_familiar'];
     $contato_familiar = $_POST['contato_familiar'];
+    $data_expedicao = $_POST['data_expedicao'];
+    $orgao_expedidor = $_POST['orgao_expedidor'];
 
 
     $imagem = $_FILES['imagem']['tmp_name'];
@@ -43,7 +45,7 @@
     $sql = "UPDATE tb_idoso SET nome = '$nome', data_nasc = '$data_nasc', contato = '$contato', 
     sexo = '$sexo', rua = '$rua', bairro = '$bairro', numero = '$numero', rg = '$rg',
     cpf = '$cpf',nis = '$nis',medicacoes = '$medicacoes',alergias = '$alergias', nome_familiar = '$nome_familiar',contato_familiar = '$contato_familiar',
-    cep = '$cep', municipio = '$municipio',complemento = '$complemento', ponto_referencia = '$ponto_referencia'
+    cep = '$cep', municipio = '$municipio',complemento = '$complemento', ponto_referencia = '$ponto_referencia', orgao_expedidor = '$orgao_expedidor', data_expedicao = '$data_expedicao'
     WHERE idtb_idoso = $id";
 
     $conexao->query($sql);

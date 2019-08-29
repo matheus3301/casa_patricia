@@ -139,7 +139,7 @@
                         <td><?php echo $cadastro['tipo']; ?></td>
                         <td><?php echo $cadastro['sexo']; ?></td>
                         <td><?php echo $cadastro['contato']; ?></td>
-                        <td><?php echo $cadastro['data_nasc']; ?></td>
+                        <td><?php echo date_format(date_create($cadastro['data_nasc']), 'd/m/Y'); ?></td>
                         <td><?php echo $cadastro['rg']; ?></td>
                         <td><?php echo $cadastro['cpf']; ?></td>
                         <td><?php echo $cadastro['nis']; ?></td>
@@ -147,19 +147,23 @@
                         <td><?php echo $cadastro['contato_familiar']; ?></td>
                         <td><?php echo $cadastro['status']; ?></td>
                         <td>
-                            <button  class="btn btn-success text-white"data-toggle="modal" data-target="#modal-documento<?php echo $cadastro[0]?>" role="button">Documentos</button>
-                            <a  class="btn btn-warning text-white" href="alterar.php?id=<?php echo $cadastro[0]?>" role="button">Alterar</a>
                             <?php
                                 if($cadastro['status'] == 'ATIVO'){?>
+                                    <button  class="btn btn-success text-white"data-toggle="modal" data-target="#modal-documento<?php echo $cadastro[0]?>" role="button">Documentos</button>
+                                    <a  class="btn btn-warning text-white" href="alterar.php?id=<?php echo $cadastro[0]?>" role="button">Alterar</a>
                                     <a  class="btn btn-danger text-white"data-toggle="modal" data-target="#modal-excluir<?php echo $cadastro[0]?>" role="button">Inativar</a>
+                                    
                                 <?php }else{ ?>
 
-                                    <a  class="btn btn-primary text-white"data-toggle="modal" data-target="#modal-vincular<?php echo $cadastro[0]?>" role="button">Reativar</a>
+                                <button  class="btn btn-success text-white"data-toggle="modal" data-target="#modal-obs<?php echo $cadastro[0]?>" role="button">Observação</button>
+                                <a  class="btn btn-primary text-white"data-toggle="modal" data-target="#modal-vincular<?php echo $cadastro[0]?>" role="button">Reativar</a>
+                                    
 
                                     
-                            <?php    }
-
+                            <?php    
+                                }
                             ?>
+                            
                             
                             
                         </td>
@@ -174,17 +178,26 @@
                             </h4>
                             <button type="button" class="close" data-dismiss="modal"><b>x</b></button>
                             </div>
+                            <form action="valida/validaExcluir.php?id=<?php echo $cadastro[0]?>" method="POST">
                             <div class="modal-body"> 
 
                             <p>Tem certeza que deseja desvincular <?php echo $cadastro[1]?>?</p>
+                           
+                            
+                            <div class="form-group">
+                              <label for="motivo"> <strong> Motivo:</strong></label>
+                              <textarea class="form-control" name="motivo" id="motivo" rows="3" required=""></textarea>
+                            </div>
                             <strong>O Associado não será aparecerá nos relatórios</strong>
 
 
                             </div>
                             <div class="modal-footer">
-                                <a href="valida/validaExcluir.php?id=<?php echo $cadastro[0]?>" class="btn btn btn-primary text-white ml-3">Inativar</a>
+                                    <button type="submit" class="btn btn-danger text-white">Inativar</button>
                             </div>
+                            </form>
                             </div>
+                            
                         </div>
                     </div>
 
@@ -256,6 +269,29 @@
                         </div>
                     </div>
 
+                    <div class="modal fade" id="modal-obs<?php echo $cadastro[0];?>">
+                        <div class="modal-dialog" >
+                            <div class="modal-content">
+                            <div class="modal-header">
+                            <h4 class="modal-title">
+                                Inativação
+                            </h4>
+                            <button type="button" class="close" data-dismiss="modal"><b>x</b></button>
+                            </div>
+                            <div class="modal-body"> 
+                            <span><strong>Data de Inativação:</strong><?php echo date_format(date_create($cadastro['data_inativo']), 'd/m/Y'); ?></span>
+                            <br><br><strong>Motivo:</strong>
+                            <p><?php echo $cadastro['observacao'];?></p>
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <button name="" id="" class="btn btn-primary" data-dismiss="modal" role="button">Fechar</button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
 
 
 
@@ -267,7 +303,6 @@
     <script src="assets/js/bs-animation.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
     <script src="assets/js/Pricing-Tables.js"></script>
-    <script src="assets/js/Profile-Edit-Form.js"></script>
     <script src="assets/js/jquery.mask.min.js"></script>
     <script src="assets/js/colResizable-1.6.min.js"></script>
 

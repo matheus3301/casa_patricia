@@ -259,10 +259,23 @@
                             <input value="<?php echo $return['rg']; ?>" class="form-control form-control-lg" type="text" id="RG" name="rg" required=""></div>
                         </div>
                         <div class="col-sm-12 col-md-4">
+                            <div class="form-group"><label style="color: #0a0a0a;">Data de Expedição</label>
+                            <input value="<?php echo $return['data_expedicao']; ?>" class="form-control form-control-lg" type="date" name="data_expedicao" required=""></div>
+                        </div>
+                        <div class="col-sm-12 col-md-4">
+                            <div class="form-group"><label style="color: #0a0a0a;">Orgão Expedidor</label>
+                            <input value="<?php echo $return['orgao_expedidor']; ?>" class="form-control form-control-lg" type="text" name="orgao_expedidor" required="">
+                        </div>
+                    </div>
+                    </div>
+                    <!-- DOCUMENTAÇÃO -->
+                    <div class="form-row">
+                        
+                        <div class="col-sm-12 col-md-6">
                             <div class="form-group"><label style="color: #0a0a0a;">CPF</label>
                             <input value="<?php echo $return['cpf']; ?>" class="form-control form-control-lg" type="text" id="CPF" name="cpf" required=""></div>
                         </div>
-                        <div class="col-sm-12 col-md-4">
+                        <div class="col-sm-12 col-md-6">
                             <div class="form-group"><label style="color: #0a0a0a;">NIS</label>
                             <input value="<?php echo $return['nis']; ?>" class="form-control form-control-lg" type="text" inputmode="numeric" name="nis" required="">
                         </div>

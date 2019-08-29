@@ -103,97 +103,97 @@
 
                     <div class="form-check form-check-inline">
                     <label class="form-check-label">
-                        <input required class="form-check-input" type="checkbox" name="campos[]" value="Nome"> Nome
+                        <input required class="form-check-input" type="checkbox" name="campos[]" value="nome"> Nome
                     </label>
                     </div>
                     <div class="form-check form-check-inline">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="campos[]" value="Tipo"> Tipo
+                            <input class="form-check-input" type="checkbox" name="campos[]" value="tipo"> Tipo
                         </label>
                     </div>
                     <div class="form-check form-check-inline">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="campos[]" value="D.N"> Data de Nascimento
+                            <input class="form-check-input" type="checkbox" name="campos[]" value="data_nasc"> Data de Nascimento
                         </label>
                     </div>
                     <div class="form-check form-check-inline">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="campos[]" value="Sexo"> Sexo
+                            <input class="form-check-input" type="checkbox" name="campos[]" value="sexo"> Sexo
                         </label>
                     </div>
                     <div class="form-check form-check-inline">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="campos[]" value="Rua"> Rua
+                            <input class="form-check-input" type="checkbox" name="campos[]" value="rua"> Rua
                         </label>
                     </div>
                     <div class="form-check form-check-inline">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="campos[]" value="Nº"> Número
+                            <input class="form-check-input" type="checkbox" name="campos[]" value="numero"> Número
                         </label>
                     </div>
                     <div class="form-check form-check-inline">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="campos[]" value="Bairro"> Bairro
+                            <input class="form-check-input" type="checkbox" name="campos[]" value="bairro"> Bairro
                         </label>
                     </div>
                     <div class="form-check form-check-inline">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="campos[]" value="Ponto Referência"> Ponto de Referência
+                            <input class="form-check-input" type="checkbox" name="campos[]" value="ponto_referencia"> Ponto de Referência
                         </label>
                     </div>
                     <div class="form-check form-check-inline">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="campos[]" value="Complemento"> Complemento
+                            <input class="form-check-input" type="checkbox" name="campos[]" value="complemento"> Complemento
                         </label>
                     </div>
                     <div class="form-check form-check-inline">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="campos[]" value="Município"> Município
+                            <input class="form-check-input" type="checkbox" name="campos[]" value="municipio"> Município
                         </label>
                     </div>
                     <div class="form-check form-check-inline">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="campos[]" value="CEP"> CEP
+                            <input class="form-check-input" type="checkbox" name="campos[]" value="cep"> CEP
                         </label>
                     </div>
                     <div class="form-check form-check-inline">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="campos[]" value="NIS"> NIS
+                            <input class="form-check-input" type="checkbox" name="campos[]" value="nis"> NIS
                         </label>
                     </div>
                     <div class="form-check form-check-inline">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="campos[]" value="RG"> RG
+                            <input class="form-check-input" type="checkbox" name="campos[]" value="rg"> RG
                         </label>
                     </div>
                     <div class="form-check form-check-inline">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="campos[]" value="Data Expedição"> Data de Expedição
+                            <input class="form-check-input" type="checkbox" name="campos[]" value="data_expedicao"> Data de Expedição
                         </label>
                     </div>
                     <div class="form-check form-check-inline">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="campos[]" value="Orgão Emissor"> Orgão Emissor
+                            <input class="form-check-input" type="checkbox" name="campos[]" value="orgao_emissor"> Orgão Emissor
                         </label>
                     </div>
                     <div class="form-check form-check-inline">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="campos[]" value="CPF"> CPF
+                            <input class="form-check-input" type="checkbox" name="campos[]" value="cpf"> CPF
                         </label>
                     </div>
                     <div class="form-check form-check-inline">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="campos[]" value="Contato"> Contato
+                            <input class="form-check-input" type="checkbox" name="campos[]" value="contato"> Contato
                         </label>
                     </div>
                     <div class="form-check form-check-inline">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="campos[]" value="Nome Familiar"> Responsável Familiar
+                            <input class="form-check-input" type="checkbox" name="campos[]" value="nome_familiar"> Responsável Familiar
                         </label>
                     </div>
                     <div class="form-check form-check-inline">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="campos[]" value="Contato Familiar"> Contato Familiar
+                            <input class="form-check-input" type="checkbox" name="campos[]" value="contato_familiar"> Contato Familiar
                         </label>
                     </div>
                     <br><br>

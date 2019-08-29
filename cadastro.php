@@ -214,7 +214,7 @@
                         </div>
                         <div class="col-sm-12 col-md-4">
                             <div class="form-group"><label style="color: #0a0a0a;">Complemento</label>
-                            <input class="form-control form-control-lg" type="text"  name="complemento" required="">
+                            <input class="form-control form-control-lg" type="text"  name="complemento">
                         </div>
                     </div>
                     </div>
@@ -233,10 +233,23 @@
                             <input class="form-control form-control-lg" type="text" id="RG" name="rg" required=""></div>
                         </div>
                         <div class="col-sm-12 col-md-4">
+                            <div class="form-group"><label style="color: #0a0a0a;">Data de Expedição</label>
+                            <input class="form-control form-control-lg" type="date" name="data_expedicao" required=""></div>
+                        </div>
+                        <div class="col-sm-12 col-md-4">
+                            <div class="form-group"><label style="color: #0a0a0a;">Orgão Expedidor</label>
+                            <input class="form-control form-control-lg" type="text"  name="orgao_expedidor" required="">
+                        </div>
+                    </div>
+                    </div>
+                     <!-- DOCUMENTAÇÃO -->
+                     <div class="form-row">
+                        
+                        <div class="col-sm-12 col-md-6">
                             <div class="form-group"><label style="color: #0a0a0a;">CPF</label>
                             <input class="form-control form-control-lg" type="text" id="CPF" name="cpf" required=""></div>
                         </div>
-                        <div class="col-sm-12 col-md-4">
+                        <div class="col-sm-12 col-md-6">
                             <div class="form-group"><label style="color: #0a0a0a;">NIS</label>
                             <input class="form-control form-control-lg" type="text" inputmode="numeric" name="nis" required="">
                         </div>

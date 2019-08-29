@@ -21,6 +21,8 @@
     $alergias = $_POST['alergias'];
     $nome_familiar = $_POST['nome_familiar'];
     $contato_familiar = $_POST['contato_familiar'];
+    $data_expedicao = $_POST['data_expedicao'];
+    $orgao_expedidor = $_POST['orgao_expedidor'];
 
 
     $imagem = $_FILES['imagem']['tmp_name'];
@@ -41,8 +43,8 @@
     $conteudoXerox = fread($fpXerox, $tamanhoXerox);
     $conteudoXerox = addslashes($conteudoXerox);
 
-    $sql = "INSERT INTO tb_idoso(nome, tipo, data_nasc, sexo, rua, bairro, numero, ponto_referencia, complemento, municipio, cep, nis, rg, cpf, contato, medicacoes, alergias, contato_familiar, nome_familiar, img, tamanho_img, nome_img, tipo_img, xerox, tamanho_xerox, nome_xerox, tipo_xerox, status) VALUES(
-        '$nome', '$tipo', '$data_nasc','$sexo','$rua','$bairro','$numero','$ponto_referencia','$complemento','$municipio','$cep','$nis','$rg','$cpf','$contato','$medicacoes','$alergias','$contato_familiar','$nome_familiar','$conteudoImg','$tamanhoImg','$nomeImg','$tipoImg','$conteudoXerox','$tamanhoXerox','$nomeXerox','$tipoXerox', 'ATIVO')";
+    $sql = "INSERT INTO tb_idoso(nome, tipo, data_nasc, sexo, rua, bairro, numero, ponto_referencia, complemento, municipio, cep, nis, rg, cpf, contato, medicacoes, alergias, contato_familiar, nome_familiar, img, tamanho_img, nome_img, tipo_img, xerox, tamanho_xerox, nome_xerox, tipo_xerox, status, orgao_expedidor, data_expedicao) VALUES(
+        '$nome', '$tipo', '$data_nasc','$sexo','$rua','$bairro','$numero','$ponto_referencia','$complemento','$municipio','$cep','$nis','$rg','$cpf','$contato','$medicacoes','$alergias','$contato_familiar','$nome_familiar','$conteudoImg','$tamanhoImg','$nomeImg','$tipoImg','$conteudoXerox','$tamanhoXerox','$nomeXerox','$tipoXerox', 'ATIVO', '$orgao_expedidor','$data_expedicao')";
         
     $conexao->query($sql);
 

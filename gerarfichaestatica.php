@@ -170,13 +170,18 @@
 							<tr>	
 								<td colspan="4">Ponto de Referência: '.$result['ponto_referencia'].'</td>
 							</tr>
-							
+							<tr>
+								
+								<td>RG:'.$result['rg'].'</td>
+								<td>D. Exp:'.$result['data_expedicao'].'</td>
+								<td colspan="2">Org. Exp.:'.$result['orgao_expedidor'].'</td>
+							</tr>
 							
 							<tr>
-								<td>Cel.:'.$result['contato'].'</td>
+								<td colspan="2">Cel.:'.$result['contato'].'</td>
 								<td>CPF:'.$result['cpf'].'</td>
 								<td>NIS:'.$result['nis'].'</td>
-								<td>RG:'.$result['rg'].'</td>
+								
 							</tr>
 							<tr>
 								<td colspan="2">Responsável Familiar:'.$result['nome_familiar'].'</td>

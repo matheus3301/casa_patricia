@@ -107,22 +107,22 @@
 			$result = $sth->fetchAll();
         ?>
 
-        <table class="table table-striped table-inverse table-responsive w-auto">
+        <table class="table table-striped table-inverse table-responsive text-nowrap">
             <thead class="thead-inverse">
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Tipo</th>
-                    <th scope="col">Sexo</th>
-                    <th scope="col">Contato</th>
-                    <th scope="col">Data Nasc.</th>
-                    <th scope="col">RG</th>
-                    <th scope="col">CPF</th>
-                    <th scope="col">NIS</th>
-                    <th scope="col">Nome Familiar</th>
-                    <th scope="col">Contato Familiar</th>                    
-                    <th scope="col">Status</th>
-                    <th scope="col">Ações</th>
+                    <th scope="col" class="text-center">#</th>
+                    <th scope="col" class="text-center">Nome</th>
+                    <th scope="col" class="text-center">Tipo</th>
+                    <th scope="col" class="text-center">Sexo</th>
+                    <th scope="col" class="text-center">Contato</th>
+                    <th scope="col" class="text-center">Data Nasc.</th>
+                    <th scope="col" class="text-center">RG</th>
+                    <th scope="col" class="text-center">CPF</th>
+                    <th scope="col" class="text-center">NIS</th>
+                    <th scope="col" class="text-center">Nome Familiar</th>
+                    <th scope="col" class="text-center">Contato Familiar</th>                    
+                    <th scope="col" class="text-center">Status</th>
+                    <th scope="col" class="text-center">Ações</th>
 
                 </tr>
                 </thead>
@@ -222,6 +222,9 @@
                     
                 </tbody>
         </table>
+        <br><br>
+        <h2>Consultas Avançadas</h2>
+        <hr>
 
         <a name="" id="" class="btn btn-primary" href="aniversariantes.php?mes=08" role="button">Aniversariantes do Mês</a>
 
@@ -266,6 +269,8 @@
     <script src="assets/js/Pricing-Tables.js"></script>
     <script src="assets/js/Profile-Edit-Form.js"></script>
     <script src="assets/js/jquery.mask.min.js"></script>
+    <script src="assets/js/colResizable-1.6.min.js"></script>
+
 
 
     <script>
@@ -277,6 +282,8 @@
 
         var $campoTELEFONE = $('.telefone');
         $campoTELEFONE.mask('(00) 00000-0000');
+
+        
     </script>
 </body>
 

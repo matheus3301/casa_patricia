@@ -443,6 +443,20 @@
                                     </a>
                                 </div>
                                 </div>
+                                <div class="row">
+                                <div class="col-sm-12 col-md-12 plan price default text-dark">
+                                    <a href="selecionarcampos.php">
+                                        <center>
+                                        <ul class="list-group">
+                                            <li class="list-group-item heading" data-bs-hover-animate="pulse" style="height: 245px;">
+                                                <img src="assets/img/webpage.png" alt="Idosos" class="box-img">
+                                                <h1 class="box-txt">PDF</h1><span class="price text-dark">Relatório Personalizado</span>
+                                            </li>
+                                        </ul>
+                                        </center>
+                                    </a>
+                                </div>        
+                                </div>
                             </div>
                             
 
@@ -467,9 +481,15 @@
 
                 <script>
                     function gerarFicha(){
-                        const idPaciente = $('#paciente').val();
+                        var idPaciente = $('#paciente').val();
+                        
+                        if(idPaciente == "vazio"){
+                            alert("Selecione um associado");
+                        }else{
+                            window.open("gerarpdfficha.php?id="+idPaciente);
 
-                        window.open("gerarpdfficha.php?id="+idPaciente);
+                        }
+
                        
                     }
 

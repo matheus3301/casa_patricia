@@ -58,7 +58,7 @@
 	$return = $query->fetch();
 
 
-	
+	$dataNascBr = date_format(date_create($result['data_nasc']), 'd/m/Y');
 
 	$formato = explode('/',$return['tipo_img']);
 	
@@ -156,7 +156,7 @@
 							<tr>
 								<td colspan="3">Nome:'.$result['nome'].'</td>
 								
-								<td colspan="1">D.N.:'.$result['data_nasc'].'</td>
+								<td colspan="1">D.N.:'.$dataNascBr.'</td>
 							</tr>
 							<tr>
 								

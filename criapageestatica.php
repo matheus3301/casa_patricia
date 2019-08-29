@@ -26,16 +26,16 @@
 
 			$dadosConsulta = $dadosConsulta."
 					<tr>
-							<td>".$cadastro['nome']."</td>
-							<td>".$cadastro['sexo']."</td>
-							<td>".$cadastro['tipo']."</td>
-							<td>".$cadastro['contato']."</td>
-							<td>".$cadastro['data_nasc']."</td>
-							<td>".$cadastro['rg']."</td>
-							<td>".$cadastro['cpf']."</td>
-							<td>".$cadastro['nis']."</td>
-							<td>".$cadastro['nome_familiar']."</td>
-							<td>".$cadastro['contato_familiar']."</td>
+							<td><center>".$cadastro['nome']."</center></td>
+							<td><center>".$cadastro['sexo']."</center></td>
+							<td><center>".$cadastro['tipo']."</center></td>
+							<td><center>".$cadastro['contato']."</center></td>
+							<td><center>".date_format(date_create($cadastro['data_nasc']), 'd/m/Y')."</center></td>
+							<td><center>".$cadastro['rg']."</center></td>
+							<td><center>".$cadastro['cpf']."</center></td>
+							<td><center>".$cadastro['nis']."</center></td>
+							<td><center>".$cadastro['nome_familiar']."</center></td>
+							<td><center>".$cadastro['contato_familiar']."</center></td>
                         
                     </tr>" ;
 		}

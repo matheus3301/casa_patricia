@@ -214,7 +214,7 @@
                         </div>
                         <div class="col-sm-12 col-md-4">
                             <div class="form-group"><label style="color: #0a0a0a;">Complemento</label>
-                            <input class="form-control form-control-lg" type="text"  name="complemento">
+                            <input class="form-control form-control-lg" type="text"  name="complemento" required="">
                         </div>
                     </div>
                     </div>

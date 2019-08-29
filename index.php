@@ -409,40 +409,7 @@
                             <form>
                             <div class="modal-body"> 
                             <div class="container-hero">
-                            <div class="row">
-                                <div class="col-sm-4 col-md-4 plan price default text-dark">
-                                    <a href="gerarpdfcadastros.php?tipo=Idosos">
-                                        <ul class="list-group">
-                                            <li class="list-group-item heading" data-bs-hover-animate="pulse" style="height: 245px;">
-                                                <img src="assets/img/pdf.png" alt="Idosos" class="box-img">
-                                                <h1 class="box-txt">PDF</h1><span class="price text-dark">Relatório Idosos</span>
-                                            </li>
-                                        </ul>
-                                    </a>
-                                </div>
-
-                                <div class="col-sm-4 col-md-4 plan price default text-dark">
-                                    <a href="gerarpdfcadastros.php?tipo=Deficientes">
-                                        <ul class="list-group">
-                                            <li class="list-group-item heading" data-bs-hover-animate="pulse" style="height: 245px;">
-                                                <img src="assets/img/pdf.png" alt="Idosos" class="box-img">
-                                                <h1 class="box-txt">PDF</h1><span class="price text-dark">Relatório Deficientes</span>
-                                            </li>
-                                        </ul>
-                                    </a>
-                                </div>
-
-                                <div class="col-sm-4 col-md-4 plan price default text-dark">
-                                    <a href="gerarpdfcadastros.php?tipo=Todos">
-                                        <ul class="list-group">
-                                            <li class="list-group-item heading" data-bs-hover-animate="pulse" style="height: 245px;">
-                                                <img src="assets/img/pdf.png" alt="Idosos" class="box-img">
-                                                <h1 class="box-txt">PDF</h1><span class="price text-dark">Relatório de Todos</span>
-                                            </li>
-                                        </ul>
-                                    </a>
-                                </div>
-                                </div>
+                            
                                 <div class="row">
                                 <div class="col-sm-12 col-md-12 plan price default text-dark">
                                     <a href="selecionarcampos.php">

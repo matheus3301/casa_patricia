@@ -58,9 +58,14 @@
 		foreach($result as $linhaAtual){
 			$dadosConsulta = $dadosConsulta."<tr>";
 			foreach($opcoes as $campo){
-				$dadosConsulta = $dadosConsulta."<td>";
-				$dadosConsulta = $dadosConsulta.$linhaAtual[$campo];
-				$dadosConsulta = $dadosConsulta."</td>";
+				$dadosConsulta = $dadosConsulta."<td><center>";
+				if($campo != 'data_nasc'){
+					$dadosConsulta = $dadosConsulta.$linhaAtual[$campo];
+
+				}else{
+					$dadosConsulta = $dadosConsulta.date_format(date_create($linhaAtual['data_nasc']), 'd/m/Y');
+				}
+				$dadosConsulta = $dadosConsulta."</center></td>";
 
 			}
 			$dadosConsulta = $dadosConsulta."</tr>";

@@ -234,7 +234,7 @@
                         </div>
                         <div class="col-sm-12 col-md-4">
                             <div class="form-group"><label style="color: #0a0a0a;">Data de Expedição</label>
-                            <input class="form-control form-control-lg" type="text" name="data_expedicao" required=""></div>
+                            <input class="form-control form-control-lg" type="date" name="data_expedicao" required=""></div>
                         </div>
                         <div class="col-sm-12 col-md-4">
                             <div class="form-group"><label style="color: #0a0a0a;">Orgão Expedidor</label>

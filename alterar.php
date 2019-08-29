@@ -342,6 +342,12 @@
                                 
 
                             </div>
+                            <div class="form-group">
+                                <label for="">Outras Doenças? Quais?</label>
+                                <input type="text" value="<?php echo $return['outras_doencas'] ?>"
+                                  class="form-control" name="outras_doencas" id="" aria-describedby="helpId" placeholder="" >
+                                
+                              </div>
 
                               <div class="form-group">
                                 <label for="">Toma alguma medicação? Qual?</label>
@@ -351,9 +357,16 @@
                               </div>
 
                               <div class="form-group">
-                                <label for="">É alergico ou tem intolerância a algum alimento? Qual?</label>
-                                <input value="<?php echo $return['alergias']; ?>" type="text"
-                                  class="form-control" name="alergias" id="" aria-describedby="helpId" placeholder="">
+                                <label for="">É alergico a alguma coisa? O quê?</label>
+                                <input type="text" value="<?php echo $return['alergias']; ?>"
+                                  class="form-control" name="alergias" id="" aria-describedby="helpId" placeholder="" required="">
+                                
+                              </div>
+
+                              <div class="form-group">
+                                <label for="">Tem intolerância a algum alimento? Qual?</label>
+                                <input type="text" value="<?php echo $return['intolerancia']; ?>"
+                                  class="form-control" name="intolerancia" id="" aria-describedby="helpId" placeholder="" required="">
                                 
                               </div>
 

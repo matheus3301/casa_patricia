@@ -134,7 +134,7 @@
 						<center>
 						_______________________________________________________________________________<br>
 						RUA SANTOS DUMONT, S/N CENTRO - SÃO GONÇALO DO AMARANTE - CEARÁ <br>
-						CEP:62670-0000 - CONTATOS: (85) 999616816 - 989225141
+						CEP:62670-0000 - CONTATOS: (85) 99159-1577
 						
 						</center>
 						</footer>

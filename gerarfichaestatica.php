@@ -62,8 +62,13 @@
 
 	$formato = explode('/',$return['tipo_img']);
 	
+	if($return['img'] != null){
+		gravaArquivo('includes/fotoficha.'.$formato[1],$return['img'],'w');
+	}else{
+		copy('includes/default/fotoficha.png','includes/fotoficha.png');
+		$formato[1] = "png";
 
-	gravaArquivo('includes/fotoficha.'.$formato[1],$return['img'],'w');
+	}
 
 	gravaArquivo('includes/ficha.html',
 		'<!DOCTYPE html>

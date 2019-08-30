@@ -145,7 +145,10 @@
                         <td><?php echo $cadastro['nis']; ?></td>
                         <td><?php echo $cadastro['nome_familiar']; ?></td>
                         <td><?php echo $cadastro['contato_familiar']; ?></td>
-                        <td><?php echo $cadastro['status']; ?></td>
+                        <td><center><?php echo $cadastro['status'];if($cadastro['status'] == "ATIVO"){echo $cadastro['ja_saiu'];} ?>
+                        <br><button  class="btn btn-primary text-white"data-toggle="modal" data-target="#modal-obs<?php echo $cadastro[0]?>" role="button">Histórico</button>
+                         </center>   
+                        </td>
                         <td>
                             <?php
                                 if($cadastro['status'] == 'ATIVO'){?>
@@ -155,7 +158,6 @@
                                     
                                 <?php }else{ ?>
 
-                                <button  class="btn btn-success text-white"data-toggle="modal" data-target="#modal-obs<?php echo $cadastro[0]?>" role="button">Observação</button>
                                 <a  class="btn btn-primary text-white"data-toggle="modal" data-target="#modal-vincular<?php echo $cadastro[0]?>" role="button">Reativar</a>
                                     
 
@@ -202,7 +204,7 @@
                     </div>
 
                     <div class="modal fade" id="modal-vincular<?php echo $cadastro[0];?>">
-                        <div class="modal-dialog" >
+                    <div class="modal-dialog" >
                             <div class="modal-content">
                             <div class="modal-header">
                             <h4 class="modal-title">
@@ -210,23 +212,30 @@
                             </h4>
                             <button type="button" class="close" data-dismiss="modal"><b>x</b></button>
                             </div>
+                            <form action="valida/validaVincular.php?id=<?php echo $cadastro[0]?>" method="POST">
                             <div class="modal-body"> 
 
                             <p>Tem certeza que deseja revincular <?php echo $cadastro[1]?>?</p>
+                           
+                            
+                            <div class="form-group">
+                              <label for="motivo"> <strong> Motivo:</strong></label>
+                              <textarea class="form-control" name="motivo" id="motivo" rows="3" required=""></textarea>
+                            </div>
                             <strong>O Associado tornará a aparecer nos relatórios</strong>
 
 
                             </div>
                             <div class="modal-footer">
-                                <a href="valida/validaVincular.php?id=<?php echo $cadastro[0]?>" class="btn btn btn-primary text-white ml-3">Reativar</a>
+                                    <button type="submit" class="btn btn-danger text-white">Reativar</button>
                             </div>
+                            </form>
                             </div>
-                        </div>
-                    </div>
+                            
+                        </div>        
 
-
-
-                    
+                        
+                    </div>                    
 
                             
                     <?php
@@ -274,14 +283,27 @@
                             <div class="modal-content">
                             <div class="modal-header">
                             <h4 class="modal-title">
-                                Inativação
+                                Histórico do Associado
                             </h4>
                             <button type="button" class="close" data-dismiss="modal"><b>x</b></button>
                             </div>
                             <div class="modal-body"> 
-                            <span><strong>Data de Inativação:</strong><?php echo date_format(date_create($cadastro['data_inativo']), 'd/m/Y'); ?></span>
-                            <br><br><strong>Motivo:</strong>
-                            <p><?php echo $cadastro['observacao'];?></p>
+                            <?php
+                                $resultHist = $conexao->query("SELECT * FROM tb_historico WHERE tb_idoso_idtb_idoso ORDER BY idtb_historico DESC");
+                                $historicoAssociado = $resultHist->fetchAll();
+
+                                foreach($historicoAssociado as $historicoAtual){ ?>
+                                    <strong><?php echo $historicoAtual['tipo']; ?>:</strong><br>
+                                    <strong>Data:</strong><?php echo $historicoAtual['data']; ?><br>
+                                    <strong>Motivo:</strong><?php echo $historicoAtual['motivo']; ?><br>
+
+                                    
+                                    <hr>    
+                                <?php    
+                                
+                                }
+                                
+                                ?>
 
 
                             </div>

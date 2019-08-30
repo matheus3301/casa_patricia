@@ -327,14 +327,14 @@
                               </div>
 
                               <div class="form-group">
-                                <label for="">É alergico a alguma coisa? O quê?</label>
+                                <label for="">É alergico a alguma coisa? A quê?</label>
                                 <input type="text"
                                   class="form-control" name="alergias" id="" aria-describedby="helpId" placeholder="" required="">
                                 
                               </div>
 
                               <div class="form-group">
-                                <label for="">Tem intolerância a algum alimento? Qual?</label>
+                                <label for="">Tem intolerância? A quê?</label>
                                 <input type="text"
                                   class="form-control" name="intolerancia" id="" aria-describedby="helpId" placeholder="" required="">
                                 

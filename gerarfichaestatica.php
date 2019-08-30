@@ -110,6 +110,9 @@
 				position:absolute;
 				bottom:5px
 			}
+			table tr td{
+				padding-left:5px;
+			}
 		</style>
 		<body>
 			<nav style="width:100%">

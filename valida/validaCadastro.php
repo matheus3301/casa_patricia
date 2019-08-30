@@ -44,6 +44,11 @@
     $conteudoXerox = fread($fpXerox, $tamanhoXerox);
     $conteudoXerox = addslashes($conteudoXerox);
 
+
+    if($complemento == ""){
+        $complemento = '(sem complemento)';
+    }
+
     $sql = "INSERT INTO tb_idoso(nome, tipo, data_nasc, sexo, rua, bairro, numero, ponto_referencia, complemento, municipio, cep, nis, rg, cpf, contato, medicacoes, alergias, contato_familiar, nome_familiar, img, tamanho_img, nome_img, tipo_img, xerox, tamanho_xerox, nome_xerox, tipo_xerox, status, orgao_expedidor, data_expedicao, intolerancia, outras_doencas,ja_saiu) VALUES(
         '$nome', '$tipo', '$data_nasc','$sexo','$rua','$bairro','$numero','$ponto_referencia','$complemento','$municipio','$cep','$nis','$rg','$cpf','$contato','$medicacoes','$alergias','$contato_familiar','$nome_familiar','$conteudoImg','$tamanhoImg','$nomeImg','$tipoImg','$conteudoXerox','$tamanhoXerox','$nomeXerox','$tipoXerox', 'ATIVO', '$orgao_expedidor','$data_expedicao', '$intolerancia', '$outras_doencas','')";
         

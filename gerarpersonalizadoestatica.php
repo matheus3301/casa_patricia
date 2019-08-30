@@ -106,45 +106,46 @@
 			
 		</head>
 		
-		<body>
-			<style>
-			.header{
-				margin-bottom:40px;
-				width:100%;
-		
-				height:80px;
-			}
-			
-			.header-text{
-				font-size: 1em;
-				text-align: center;
-				
-				position:absolute;
-				top:0;
-				left:100px;
-				right:100px;
+		<style>
+			*{
+				margin:0;
+				padding:0;
+				margin-top:5px;
+				margin-left:5px;
+				margin-right:5px;
 				
 			}
-	
 			.logo{
-				height: 100px;
-				width:140px;
+				height:100px;width:150px;
+				position:absolute;
+				left:0;
+				top:0;
 			}
-			.table{
-				width:100%;
+			nav{
+				height:100px;
+			}	
+			.img-profile{
+					height:250px;
+					width:250px;
+					object-fit: cover;
+					border-radius:125px;
+					border: 3px solid #666;					
+			}
+			table{
+				margin-top: 25px;
+				width: 100%;
 			}
 			footer{
 				position:absolute;
-				bottom:0;
+				bottom:5px
 			}
-			
-			
 		</style>
-		<div class="header">
-		<img src="assets/img/logo.png" class="logo">
-		<center><span class="header-text" >ASSOCIAÇÃO SALÃO DE LEITURA ANTONIO SALES <br> -SALAS- <br> SÃO GONÇALO DO AMARANTE - CEARÁ</span></center>
-			
-		</div>
+		<body>
+			<nav style="width:100%">
+				<img src="assets/img/logo.png" class="logo"><center>
+				<span style="vertical-align: middle;">ASSOCIAÇÃO SALÃO DE LEITURA ANTÔNIO SALES<br> -SALAS- <br>SÃO GONÇALO DO AMARANTE - CEARÁ</span>
+			</center></nav>
+			<section><br>			
 		<h2>Relatório de '.$tipo.' Cadastrados</h2>
 		<table border="1" cellspacing="0" class="table">
 			<thead >
@@ -152,7 +153,7 @@
 			</thead>
 			<tbody>'.$dadosConsulta.'</tbody>
 			</table>
-			<footer>
+			<footer style="font-size:12px">
 						<center>
 						_______________________________________________________________________________<br>
 						RUA SANTOS DUMONT, S/N CENTRO - SÃO GONÇALO DO AMARANTE - CEARÁ <br>
@@ -160,9 +161,9 @@
 						
 						</center>
 						</footer>
-			
-			</body>
-			</html>'
+		</body>
+		</html>
+			'
 
 	,'w');
 ?>

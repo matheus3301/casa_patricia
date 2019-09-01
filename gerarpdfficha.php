@@ -21,8 +21,12 @@
 
 	$dompdf->load_html(file_get_contents('includes/ficha.html'));
 
+	$dompdf->setPaper('A4', 'portrait');
+
+
 	//Renderizar o html
 	$dompdf->render();
+
 
 	//Exibibir a página
 	$dompdf->stream(

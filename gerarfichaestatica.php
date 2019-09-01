@@ -77,88 +77,53 @@
 		<head>
 			<title>Ficha</title>
 		</head>
-		<body>
-			<style type="text/css">
-				.container{
-					width: 100%;
-					height: 100%;
-				}
-				.logo{
-					height: 100px;
-					width:140px;
-				}
-		
-		
-				.header{
-					width: 100%;
-				}
-		
-		
-				.header-text{
-					font-size: 1.2em;
-					text-align: center;
-					
-					position:absolute;
-					top:0;
-					left:100px;
-					right:100px;
-					
-				}
-		
-		
-				.content{
-					width: 100%;
-				}
-		
-				.left{
-					width: 100%;
-					margin-top: 40px;
-		
-				}
-				.right{
-					width: 50%;
-					margin-top: 40px;
-		
-				}
-		
-				.img-profile{
+		<style>
+			*{
+				margin:0;
+				padding:0;
+				margin-top:5px;
+				margin-left:5px;
+				margin-right:5px;
+				
+			}
+			.logo{
+				height:100px;width:150px;
+				position:absolute;
+				left:0;
+				top:0;
+			}
+			nav{
+				height:100px;
+			}	
+			.img-profile{
 					height:250px;
 					width:250px;
 					object-fit: cover;
 					border-radius:125px;
-					border: 3px solid #666;
-					
-				}
-		
-		
-				.table{
-					margin-top: 50px;
-					width: 100%;
-				}
-		
-				.table tr td {
-					font-size: 20px;
-				}
-				footer{
-					position:absolute;
-					bottom:0;
-				}
-			</style>
-			<div class="container">
-				<div class="header">
-		
-					<img src="assets/img/logo.png" class="logo">
-					<center><span class="header-text" style="float:right" >ASSOCIAÇÃO SALÃO DE LEITURA ANTÔNIO SALES <br> -SALAS- <br> SÃO GONÇALO DO AMARANTE - CEARÁ</span></center>
-				
-				
-		
-				
-					<div class="left">
-						<center>	
-							<img src="includes/fotoficha.'.$formato[1].'" class="img-profile">
-						</center>
-						
-						<table border="1" cellspacing="0" class="table">
+					border: 3px solid #666;					
+			}
+			table{
+				margin-top: 25px;
+				width: 100%;
+			}
+			footer{
+				position:absolute;
+				bottom:5px
+			}
+			table tr td{
+				padding-left:5px;
+			}
+		</style>
+		<body>
+			<nav style="width:100%">
+				<img src="assets/img/logo.png" class="logo"><center>
+				<span style="vertical-align: middle;">ASSOCIAÇÃO SALÃO DE LEITURA ANTÔNIO SALES<br> -SALAS- <br>SÃO GONÇALO DO AMARANTE - CEARÁ</span>
+			</center></nav>
+			<section><br><br><br>
+			<center>	
+				<img src="includes/fotoficha.'.$formato[1].'" class="img-profile">
+			</center><br>
+			<table border="1" cellspacing="0" class="table">
 							<tr>
 								<td colspan="3">Nome:'.$result['nome'].'</td>
 								
@@ -216,30 +181,20 @@
 								</td>
 							</tr>
 						</table>
-						<br><br><br><br>
+						<br><br><br>
 						<center>
 							<span>___________________________________</span><br>
 							<span>Assinatura</span>
 						</center>
-						
-						<footer style="font-size:12px">
+			</section>
+			<footer style="font-size:12px">
 						<center>
 						_______________________________________________________________________________<br>
 						RUA SANTOS DUMONT, S/N CENTRO - SÃO GONÇALO DO AMARANTE - CEARÁ <br>
-						CEP:62670-0000 - CONTATOS: (85) 99159-1577
+						CEP:62.670-0000 - CONTATO: (85) 99159-1577
 						
 						</center>
 						</footer>
-					</div>
-					<div class="right">
-						
-					</div>
-					
-		
-				
-		
-				</div>	
-				</div>
 		</body>
 		</html>'
 

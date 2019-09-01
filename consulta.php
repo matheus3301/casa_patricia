@@ -247,8 +247,16 @@
         <br><br>
         <h2>Consultas Avançadas</h2>
         <hr>
-
-        <a name="" id="" class="btn btn-primary" href="aniversariantes.php?mes=08" role="button">Aniversariantes do Mês</a>
+        <?php 
+            $fuso = new DateTimeZone('America/Fortaleza');
+            $data = new DateTime();
+            $data->setTimezone($fuso);
+            $mesAtual =  $data->format('m');
+            $anoAtual =  $data->format('Y');
+                                         
+        ?>                
+        
+        <a name="" id="" class="btn btn-primary" href="aniversariantes.php?mes=<?php echo $mesAtual;?>" role="button">Aniversariantes do Mês</a>
 
     </div>
 

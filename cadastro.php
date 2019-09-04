@@ -54,7 +54,7 @@
         width:100%;
         opacity: 0;
         outline: none;
-        cursor: inherit;
+        cursor: pointer;
         display: block;
 
     }

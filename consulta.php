@@ -297,7 +297,7 @@
                             </div>
                             <div class="modal-body"> 
                             <?php
-                                $resultHist = $conexao->query("SELECT * FROM tb_historico WHERE tb_idoso_idtb_idoso ORDER BY idtb_historico DESC");
+                                $resultHist = $conexao->query("SELECT * FROM tb_historico WHERE tb_idoso_idtb_idoso = $cadastro[0] ORDER BY idtb_historico DESC");
                                 $historicoAssociado = $resultHist->fetchAll();
 
                                 foreach($historicoAssociado as $historicoAtual){ ?>

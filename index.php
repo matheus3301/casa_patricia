@@ -59,7 +59,7 @@
             <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
                 <div class="container">
                     <img src="assets/img/logo.png" alt="Casa de Patrícia" class="header-img">
-                    <a class="navbar-brand" href="#">Sistema de Controle<span class="badge badge-success">ALPHA v4.2</span></a>
+                    <a class="navbar-brand" href="#">Sistema de Controle<span class="badge badge-success">ALPHA v4.5</span></a>
                     
                     
                 </div>

@@ -120,11 +120,11 @@
     <div class="container profile profile-view mb-5" data-aos="zoom-in" data-aos-once="true" id="profile">
         <h1>Eventos</h1>
         <div class="row">
-            <div class="col-sm-7">
+            <div class="col-sm-12 col-md-7">
                 <div id='calendar' ></div>
 
             </div>
-            <div class="col-sm-5 ">
+            <div class="col-sm-12 col-md-5 ">
 
             
                 <h3 class="">Todos Eventos <button type="button" class="btn btn-primary text-center btn-circle-content " data-toggle="modal" data-target="#modal-add">+</button></h3>
@@ -163,7 +163,7 @@
                     }
                 ?>
                 
-                <table class="table table-striped">
+                <table class="table table-striped table-responsive">
                     <thead>
                         <tr>
                         <th scope="col">Nome</th>
@@ -192,11 +192,15 @@
                         
 
                         <?php
-                            foreach($eventos as $eventoAtual){?>
+                            foreach($eventos as $eventoAtual){  
+                                $dataBr = date_format(date_create($eventoAtual['data']), 'd/m/Y');
+                                
+                                ?>
+
                                 <tr>
                                     <th ><?php echo $eventoAtual['nome']; ?></th>
                                     <td><?php echo $eventoAtual['descricao']; ?></td>
-                                    <td><?php echo $eventoAtual['nome']; ?></td>
+                                    <td><?php echo $dataBr; ?></td>
                                     <td><?php if($eventoAtual['tipo'] == 'I'){ echo "Interno";}else{echo "Externo";}
                                         ?></td>
                                     <td><button data-toggle="modal" data-target="#modal-delete<?php echo $eventoAtual['idtb_evento']; ?>" name="botaoExcluir" id="botaoExcluir" class="btn btn-danger"  role="button">Excluir</button></td>
@@ -221,7 +225,7 @@
 
                                             </div>
                                             <div class="modal-footer">
-                                                <a type="submit" class="btn btn-danger" href="valida/validaExcluirEvento.php?id=<?php echo $eventoAtual['idtb_evento']; ?>">Excluir</a>
+                                                <a class="btn btn-danger" href="valida/validaExcluirEvento.php?id=<?php echo $eventoAtual['idtb_evento']; ?>" role="button">Excluir</a>
                                             </div>
                                             </form>
                                         </div>

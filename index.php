@@ -170,27 +170,27 @@
                                             </a>
                                         </div>
                                         <div class="col-sm-4 plan price yellow wow fadeInDown" style="cursor:pointer">
-                                        <a data-toggle="modal" data-target="#modal-frequencia">
-                                                <ul class="list-group">
-                                                    <li class="list-group-item heading box-content" data-bs-hover-animate="pulse" style="height: 257px;">
-                                                        <img src="assets/img/test.png" alt="Idosos" class="box-img">
-                                                        <br><br>
-                                                        <h1 class="box-txt">Frequência do Dia</h1>
-                                                    </li>
-                                                </ul>
-                                            </a>
-                                        </div>
-                                        <div class="col-sm-6 col-md-3 plan price default wow fadeInDown">
-                                                <?php 
+                                        <?php 
                                                     $fuso = new DateTimeZone('America/Fortaleza');
                                                     $data = new DateTime();
                                                     $data->setTimezone($fuso);
                                                     $mesAtual =  $data->format('m');
                                                     $anoAtual =  $data->format('Y');
-
-                                                    $url = "consultafrequencia.php?mes=<?php echo $mesAtual;?>&ano=<?php echo $anoAtual;?>";
+                                                    $linkModal = 'data-toggle="modal" data-target="#modal-frequencia"';    
                                                 
                                                 ?>
+                                            <a href="consultafrequencia.php?mes=<?php echo $mesAtual;?>&ano=<?php echo $anoAtual;?>" >
+                                                <ul class="list-group">
+                                                    <li class="list-group-item heading box-content" data-bs-hover-animate="pulse" style="height: 257px;">
+                                                        <img src="assets/img/test.png" alt="Idosos" class="box-img">
+                                                        <br><br>
+                                                        <h1 class="box-txt">Controle de Frequência</h1>
+                                                    </li>
+                                                </ul>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm-6 col-md-3 plan price default wow fadeInDown">
+                                                
                                                 <a href="eventos.php">
                                                 <ul class="list-group">
                                                     <li class="list-group-item heading" data-bs-hover-animate="pulse" style="height: 245px;">

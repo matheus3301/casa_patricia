@@ -21,7 +21,7 @@
 </head>
 
 <style>
-.modal-backdrop{
+    .modal-backdrop{
     display:none;
 }
 .box-img{
@@ -80,6 +80,24 @@
     .presenca{
         width:25px;
     }
+            
+        input[type=checkbox] {
+        display:none;
+        }
+        input[type=checkbox] + label {
+            background-size:cover;
+            background-position:center;
+            background-repeat: no-repeat;
+            height: 25px;
+            width: 25px;
+            display:inline-block;
+        }
+        input[type=checkbox] + label {
+        background-image: url('assets/img/smalltimes.png');
+        }
+        input[type=checkbox]:checked + label {
+            background-image: url('assets/img/smallcheck.png');
+        }
 </style>
 
 <?php
@@ -107,10 +125,10 @@
             <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
                 <div class="container">
                     <a href="index.php"><img src="assets/img/logo.png" alt="Casa de Patrícia" class="header-img"></a>
-                    
-                    <span class="navbar-brand" > <a href="index.php" class="text-white">Início </a> / Frequência</span>
-                    
-                    
+
+                    <span class="navbar-brand"> <a href="index.php" class="text-white">Início </a> / Frequência</span>
+
+
                 </div>
             </nav>
         </div>
@@ -146,58 +164,62 @@
         ?>
 
         <form class="form-inline">
-        <div class="form-group sm-6">
-        <label for="" style="margin-right:15px">Ano:</label>
-        <input style="margin-right:25px" type="number" class="form-control" name="" id="ano" value="<?php echo $anoAtual; ?>">
-        
-        <label for="" style="margin-right:15px">Mês:</label>
-                <select class="form-control" id="meses" style="margin-right:15px" >
+            <div class="form-group sm-6">
+                <label for="" style="margin-right:15px">Ano:</label>
+                <input style="margin-right:25px" type="number" class="form-control" name="" id="ano" value="<?php echo $anoAtual; ?>">
+
+                <label for="" style="margin-right:15px">Mês:</label>
+                <select class="form-control" id="meses" style="margin-right:15px">
                     <option>selecione...</option>
-                    <option value="01" <?php if($mesAtual == '01'){ echo 'selected';} ?>>Janeiro</option>
-                    <option value="02" <?php if($mesAtual == '02'){ echo 'selected';} ?>>Fevereiro</option>
-                    <option value="03" <?php if($mesAtual == '03'){ echo 'selected';} ?>>Março</option>
-                    <option value="04" <?php if($mesAtual == '04'){ echo 'selected';} ?>>Abril</option>
-                    <option value="05" <?php if($mesAtual == '05'){ echo 'selected';} ?>>Maio</option>
-                    <option value="06" <?php if($mesAtual == '06'){ echo 'selected';} ?>>Junho</option>
-                    <option value="07" <?php if($mesAtual == '07'){ echo 'selected';} ?>>Julho</option>
-                    <option value="08" <?php if($mesAtual == '08'){ echo 'selected';} ?>>Agosto</option>
-                    <option value="09" <?php if($mesAtual == '09'){ echo 'selected';} ?>>Setembro</option>
-                    <option value="10" <?php if($mesAtual == '10'){ echo 'selected';} ?>>Outubro</option>
-                    <option value="11" <?php if($mesAtual == '11'){ echo 'selected';} ?>>Novembro</option>
-                    <option value="12" <?php if($mesAtual == '12'){ echo 'selected';} ?>>Dezembro</option>
+                    <option value="01" <?php if($mesAtual=='01' ){ echo 'selected' ;} ?>>Janeiro</option>
+                    <option value="02" <?php if($mesAtual=='02' ){ echo 'selected' ;} ?>>Fevereiro</option>
+                    <option value="03" <?php if($mesAtual=='03' ){ echo 'selected' ;} ?>>Março</option>
+                    <option value="04" <?php if($mesAtual=='04' ){ echo 'selected' ;} ?>>Abril</option>
+                    <option value="05" <?php if($mesAtual=='05' ){ echo 'selected' ;} ?>>Maio</option>
+                    <option value="06" <?php if($mesAtual=='06' ){ echo 'selected' ;} ?>>Junho</option>
+                    <option value="07" <?php if($mesAtual=='07' ){ echo 'selected' ;} ?>>Julho</option>
+                    <option value="08" <?php if($mesAtual=='08' ){ echo 'selected' ;} ?>>Agosto</option>
+                    <option value="09" <?php if($mesAtual=='09' ){ echo 'selected' ;} ?>>Setembro</option>
+                    <option value="10" <?php if($mesAtual=='10' ){ echo 'selected' ;} ?>>Outubro</option>
+                    <option value="11" <?php if($mesAtual=='11' ){ echo 'selected' ;} ?>>Novembro</option>
+                    <option value="12" <?php if($mesAtual=='12' ){ echo 'selected' ;} ?>>Dezembro</option>
                 </select>
-        </div>
-        
-          
-          
-        <div class="form-group sm-4">
-            <button name="" onClick="trocaMes()" class="btn btn-primary" role="button">Consultar</button>
-        </div>
-        <div class="form-group sm-2">
-            <button style="margin-left:25px" name="" onClick="window.print()" class="btn btn-gray" role="button"><img style="width:15px;" src="assets/img/printer.png" alt="">Imprimir</button>
-        </div>
-        
-        <script>
-            function trocaMes(){
-               const mes = $('#meses').val();
-               const ano = $('#ano').val();
-
-               window.location.href = "consultafrequencia.php?mes="+mes+"&ano="+ano;
-            }
-        </script>
-        
-        </form><hr>
+            </div>
 
 
-       
-        
 
-        
+            <div class="form-group sm-4">
+                <button name="" type="button" onClick="trocaMes()" class="btn btn-primary" role="button">Consultar</button>
+            </div>
+            
+
+            <script>
+                function trocaMes() {
+
+                    let mes = $('#meses').val();
+                    let ano = $('#ano').val();
+
+                    window.location.href = "consultafrequencia.php?mes="+mes+"&ano="+ano;
+                    
+
+                }
+            </script>
+
+        </form>
+        <hr>
+
+
+
+
+
+        <form action="valida/validaTabelaFrequencia.php?mes=<?php echo $mesAtual; ?>&ano=<?php echo $anoAtual; ?>" method="post">
         <table class="table table-striped table-inverse table-responsive">
             <thead class="thead-inverse">
                 <tr>
                     <th colspan="2" clas="text-center">Associado</th>
-                    <th colspan="31" class="text-center"> <?php echo $meses[$mesNOFORMAT]."/".$anoAtual ?> </th>
+                    <th colspan="31" class="text-center">
+                        <?php echo $meses[$mesNOFORMAT]."/".$anoAtual ?>
+                    </th>
                 </tr>
                 <tr>
                     <th>#</th>
@@ -207,36 +229,47 @@
                             echo("<th>$i</th>");
                         }
                     ?>
-                    <th> <center>Total de Presenças</center> </th>
+                    <th>
+                        <center>Total de Presenças</center>
+                    </th>
                 </tr>
-                </thead>
+            </thead>
 
-                <tbody>
-                    <?php
+            <tbody>
+                <?php   
+                        
                         foreach($result as $cadastro){
+                            $idIdoso = $cadastro[0];
+                            
                           $nomeReduzido = explode(" ", $cadastro[1]);                           
                     ?>
-                    <tr>
-                        <td scope="row"><?php echo $cadastro[0]; ?></td>
-                        <td><?php echo $nomeReduzido[0]." ";if(count($nomeReduzido) > 1){ echo $nomeReduzido[1];} ?></td>              
-                       
-                                  
-                        <?php
+                <tr>
+                    <td scope="row">
+                        <?php echo $cadastro[0]; ?>
+                    </td>
+                    <td>
+                        <?php echo $nomeReduzido[0]." ";if(count($nomeReduzido) > 1){ echo $nomeReduzido[1];} ?>
+                    </td>
+
+
+                    <?php
                             $totalPresenca = 0;
                             for($i = 1; $i <= 31; $i++ ){
                                 $dataIterada =  $anoAtual;
                                 $dataIterada = $dataIterada."-".$mesAtual;
                                 $dataIterada = $dataIterada."-".$i;
 
-                                $sth = $conexao->prepare("SELECT tb_idoso_idtb_idoso, hora FROM tb_frequencia WHERE data = '$dataIterada' AND tb_idoso_idtb_idoso = $cadastro[0]");
+                                $sth = $conexao->prepare("SELECT tb_idoso_idtb_idoso FROM tb_frequencia WHERE data = '$dataIterada' AND tb_idoso_idtb_idoso = $cadastro[0]");
                                 $sth->execute();
 
                                 $result = $sth->fetch();
 
                                 if($result == null){
-                                    echo '<td><img src="assets/img/smalltimes.png"class="presenca"/></td>';
+                                    echo "<td><input value='$dataIterada' type='checkbox' name='idoso$idIdoso"."[]' id='$cadastro[1]".'-'."$i '/>
+                                    <label for='$cadastro[1]".'-'."$i ' ></label></td>";
                                 }else{
-                                    echo '<td><img src="assets/img/smallcheck.png"class="presenca" alt="'.$result['hora'].'"/></td>';$totalPresenca++;
+                                    echo "<td><input value='$dataIterada'  checked type='checkbox' name='idoso$idIdoso"."[]' id='$cadastro[1]".'-'."$i '/>
+                                    <label for='$cadastro[1]".'-'."$i '></label></td>";$totalPresenca++;
                                 }
 
                                 
@@ -244,18 +277,24 @@
 
                             echo "<td><center>$totalPresenca</center></td>";
 
-                        ?>        
+                        ?>
 
-                        </tr>  
+                </tr>
 
 
-                            
-                    <?php
+
+
+                    
+
+                <?php
+                    
                         }
                     ?>
-                    
-                </tbody>
+
+            </tbody>
         </table>
+        <button type="submit" class="btn btn-primary" style="float:right">Salvar</button>
+        </form>
 
     </div>
     <script src="assets/js/jquery.min.js"></script>
@@ -263,11 +302,10 @@
     <script src="assets/js/bs-animation.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
     <script src="assets/js/Pricing-Tables.js"></script>
-    <script src="assets/js/Profile-Edit-Form.js"></script>
     <script src="assets/js/jquery.mask.min.js"></script>
 
 
-    
+
 </body>
 
 </html>

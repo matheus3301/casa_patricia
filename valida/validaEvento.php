@@ -1,7 +1,7 @@
 <?php
     include '../includes/conexao.php';
 
-    $nome=$_POST['nome'];
+    $nome=$_POST['nome_evento'];
     $data=$_POST['data'];
     $descricao=$_POST['descricao'];
     $tipo=$_POST['tipo'];

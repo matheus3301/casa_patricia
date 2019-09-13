@@ -124,10 +124,10 @@
                 <div id='calendar' ></div>
 
             </div>
-            <div class="col-sm-5 text-center">
+            <div class="col-sm-5 ">
 
             
-                <h3 class="">Eventos do Mês <button type="button" class="btn btn-primary text-center btn-circle-content " data-toggle="modal" data-target="#modal-add">+</button></h3>
+                <h3 class="">Todos Eventos <button type="button" class="btn btn-primary text-center btn-circle-content " data-toggle="modal" data-target="#modal-add">+</button></h3>
                 
                 <?php 
                     if(isset($_GET['op']) && $_GET['op'] == 'success'){?>
@@ -138,6 +138,23 @@
                         <span class="sr-only">Close</span>
                     </button>
                     <strong>Successo!</strong> Evento cadastrado.
+                </div>
+                </center>            
+
+
+                <?php    
+                    }
+                ?>
+
+                <?php 
+                    if(isset($_GET['op']) && $_GET['op'] == 'delete'){?>
+
+                <center><div class="alert alert-danger alert-dismissible fade show" role="alert" style="width:100%">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <strong>Successo!</strong> Evento deletado.
                 </div>
                 </center>            
 
@@ -160,13 +177,63 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th >7 de Setembro</th>
-                            <td>Os idosos participaram</td>
-                            <td>05/09/2019</td>
-                            <td>Externo</td>
-                            <td><a name="botaoExcluir" id="botaoExcluir" class="btn btn-danger" href="#" role="button">Excluir</a></td>
-                        </tr>
+                    <?php
+                        include 'includes/conexao.php';
+
+                        $query = $conexao->query("SELECT * FROM tb_evento");
+
+                        $eventos = $query->fetchAll();
+
+                        $cores = array(
+                            "I" => '#FFFF00',
+                            "E" => "#00FFFF"
+                        );
+                    ?>
+                        
+
+                        <?php
+                            foreach($eventos as $eventoAtual){?>
+                                <tr>
+                                    <th ><?php echo $eventoAtual['nome']; ?></th>
+                                    <td><?php echo $eventoAtual['descricao']; ?></td>
+                                    <td><?php echo $eventoAtual['nome']; ?></td>
+                                    <td><?php if($eventoAtual['tipo'] == 'I'){ echo "Interno";}else{echo "Externo";}
+                                        ?></td>
+                                    <td><button data-toggle="modal" data-target="#modal-delete<?php echo $eventoAtual['idtb_evento']; ?>" name="botaoExcluir" id="botaoExcluir" class="btn btn-danger"  role="button">Excluir</button></td>
+                                </tr>
+
+
+                                <div class="modal fade" id="modal-delete<?php echo $eventoAtual['idtb_evento']; ?>">
+                                    <div class="modal-dialog" >
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">
+                                                Tem certeza?
+                                                </h4>
+                                                <button type="button" class="close" data-dismiss="modal"><b>x</b></button>
+                                            </div>
+                                            <form action="valida/validaEvento.php" method="POST">
+                                            <div class="modal-body"> 
+                                                <p>Tem certeza que deseja excluir o evento: <?php echo $eventoAtual['nome']; ?>?</p>
+                                                
+                                                    
+                                            
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <a type="submit" class="btn btn-danger" href="valida/validaExcluirEvento.php?id=<?php echo $eventoAtual['idtb_evento']; ?>">Excluir</a>
+                                            </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>  
+
+                            <?php
+                                }
+
+
+                            ?>
+
                         
                     </tbody>
                     </table>
@@ -186,18 +253,7 @@
     <script src="assets/js/colResizable-1.6.min.js"></script>
 
 
-    <?php
-        include 'includes/conexao.php';
-
-        $query = $conexao->query("SELECT * FROM tb_evento");
-
-        $eventos = $query->fetchAll();
-
-        $cores = array(
-            "I" => '#FFFF00',
-            "E" => "#00FFFF"
-        );
-    ?>
+    
     <script>
 
   document.addEventListener('DOMContentLoaded', function() {
@@ -237,7 +293,7 @@
                 
                     <div class="form-group">
                         <label for="">Nome</label>
-                        <input type="text" name="nome" id="" class="form-control" placeholder="nome do evento" aria-describedby="helpId" required="">
+                        <input type="text" name="nome_evento" id="" class="form-control" placeholder="nome do evento" aria-describedby="helpId" required="">
                     </div>
                     <div class="form-group">
                         <label for="descricao">Descrição</label>

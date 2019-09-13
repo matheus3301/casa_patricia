@@ -180,6 +180,25 @@
                                                 </ul>
                                             </a>
                                         </div>
+                                        <div class="col-sm-6 col-md-3 plan price default wow fadeInDown">
+                                                <?php 
+                                                    $fuso = new DateTimeZone('America/Fortaleza');
+                                                    $data = new DateTime();
+                                                    $data->setTimezone($fuso);
+                                                    $mesAtual =  $data->format('m');
+                                                    $anoAtual =  $data->format('Y');
+
+                                                    $url = "consultafrequencia.php?mes=<?php echo $mesAtual;?>&ano=<?php echo $anoAtual;?>";
+                                                
+                                                ?>
+                                                <a href="eventos.php">
+                                                <ul class="list-group">
+                                                    <li class="list-group-item heading" data-bs-hover-animate="pulse" style="height: 245px;">
+                                                        <img src="assets/img/schedule.png" alt="Idosos" class="box-img">
+                                                        <h1 class="box-txt">Eventos</h1><span class="price">Calendário de Eventos</span>
+                                                    </ul>
+                                                    </a>
+                                                </div>
                                         
                                         
 
@@ -205,23 +224,7 @@
                                                     </a>
                                                 </div>
 
-                                                <div class="col-sm-6 col-md-3 plan price default wow fadeInDown">
-                                                <?php 
-                                                    $fuso = new DateTimeZone('America/Fortaleza');
-                                                    $data = new DateTime();
-                                                    $data->setTimezone($fuso);
-                                                    $mesAtual =  $data->format('m');
-                                                    $anoAtual =  $data->format('Y');
                                                 
-                                                ?>
-                                                <a href="consultafrequencia.php?mes=<?php echo $mesAtual;?>&ano=<?php echo $anoAtual;?>">
-                                                <ul class="list-group">
-                                                    <li class="list-group-item heading" data-bs-hover-animate="pulse" style="height: 245px;">
-                                                        <img src="assets/img/calendar.png" alt="Idosos" class="box-img">
-                                                        <h1 class="box-txt">Relatório</h1><span class="price">Frequência no Mês</span>
-                                                    </ul>
-                                                    </a>
-                                                </div>
                                                 <div class="col-sm-6 col-md-3 plan price default wow fadeInDown" style="cursor:pointer">
                                                 <a data-toggle="modal" data-target="#modal-mais">
                                                     <ul class="list-group">

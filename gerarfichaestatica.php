@@ -57,9 +57,70 @@
 	$query = $conexao->query($sql);
 	$return = $query->fetch();
 
+	if($result['data_nasc'] != '0000-00-00' ){
+		$dataNascBr = date_format(date_create($result['data_nasc']), 'd/m/Y');
 
-	$dataNascBr = date_format(date_create($result['data_nasc']), 'd/m/Y');
-	$dataExpBr = date_format(date_create($result['data_expedicao']), 'd/m/Y');
+	}else{
+		$dataNascBr = '(n. informado)';
+	}
+
+	if($result['data_expedicao']){
+		$dataExpBr = date_format(date_create($result['data_expedicao']), 'd/m/Y');
+
+	}else{
+		$dataExpBr = "(n. informado)";
+	}
+
+	if(!$result['rua'] || !$result['bairro']){
+		$enderecoExtenso = "(n. informado)";
+	}else{
+		$enderecoExtenso = $result['rua'].', Nº'.$result['numero'].' , '.$result['bairro'];
+
+	}
+
+	//VERIFICANDO SE NAO E NULO
+	if(!$result['complemento']){
+		$result['complemento'] = '(n. informado)';
+	}
+
+	if(!$result['municipio']){
+		$result['municipio'] = '(n. informado)';
+	}
+
+	if(!$result['cep']){
+		$result['cep'] = '(n. informado)';
+	}
+
+	if(!$result['ponto_referencia']){
+		$result['ponto_referencia'] = '(n. informado)';
+	}
+
+	if(!$result['rg']){
+		$result['rg'] = '(n. informado)';
+	}
+
+	if(!$result['orgao_expedidor']){
+		$result['orgao_expedidor'] = '(n. informado)';
+	}
+
+	if(!$result['contato']){
+		$result['contato'] = '(n. informado)';
+	}
+
+	if(!$result['cpf']){
+		$result['cpf'] = '(n. informado)';
+	}
+
+	if(!$result['nis']){
+		$result['nis'] = '(n. informado)';
+	}
+	if(!$result['nome_familiar']){
+		$result['nome_familiar'] = '(n. informado)';
+	}
+	if(!$result['contato_familiar']){
+		$result['contato_familiar'] = '(n. informado)';
+	}
+	
 
 	$formato = explode('/',$return['tipo_img']);
 	
@@ -131,7 +192,7 @@
 							</tr>
 							<tr>
 								
-								<td colspan="4">Endereço: '.$result['rua'].', Nº'.$result['numero'].' , '.$result['bairro'].'</td>
+								<td colspan="4">Endereço: '.$enderecoExtenso.'</td>
 							</tr>
 							<tr>
 								<td> Complemento:'.$result['complemento'].'</td>

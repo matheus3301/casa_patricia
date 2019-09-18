@@ -133,7 +133,7 @@
             </nav>
         </div>
     </div>
-    <div class="container profile profile-view" data-aos="zoom-in" data-aos-once="true" id="profile">
+    <div class="container profile profile-view mb-5" data-aos="zoom-in" data-aos-once="true" id="profile">
         <h1>Frequência no Mês</h1>
 
         <?php
@@ -163,7 +163,7 @@
             }
         ?>
 
-        <form class="form-inline">
+        <form class="form-inline mb-2">
             <div class="form-group sm-6">
                 <label for="" style="margin-right:15px">Ano:</label>
                 <input style="margin-right:25px" type="number" class="form-control" name="" id="ano" value="<?php echo $anoAtual; ?>">
@@ -206,13 +206,23 @@
             </script>
 
         </form>
-        <hr>
+        
 
 
 
 
 
         <form action="valida/validaTabelaFrequencia.php?mes=<?php echo $mesAtual; ?>&ano=<?php echo $anoAtual; ?>" method="post">
+        <?php if(isset($_GET['op']) && $_GET['op'] == 'sucess'){ ?>
+            <div class="alert alert-success alert-dismissible fade show" role="alert" style="width:100%">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <strong>Sucesso!</strong> a frequência foi atualizada com sucesso.
+            </div>
+
+        <?php } ?>
         <table class="table table-striped table-inverse table-responsive">
             <thead class="thead-inverse">
                 <tr>
@@ -295,6 +305,62 @@
         </table>
         <button type="submit" class="btn btn-primary" style="float:right">Salvar</button>
         </form>
+        <hr>
+        <h2>Eventos do Mês</h2>
+        <table class="table table-striped table-responsive">
+                    <thead>
+                        <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Data</th>
+                        <th scope="col">Tipo</th>
+                        
+
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                        include 'includes/conexao.php';
+
+                        $query = $conexao->query("SELECT * FROM tb_evento WHERE data BETWEEN '$anoAtual-$mesAtual-01' AND '$anoAtual-$mesAtual-31'");
+
+                        $eventos = $query->fetchAll();
+
+                        $cores = array(
+                            "I" => '#FFFF00',
+                            "E" => "#00FFFF"
+                        );
+                    ?>
+                        
+
+                        <?php
+                            foreach($eventos as $eventoAtual){  
+                                $dataBr = date_format(date_create($eventoAtual['data']), 'd/m/Y');
+                                
+                                ?>
+
+                                <tr>
+                                    <th ><?php echo $eventoAtual['nome']; ?></th>
+                                    <td><?php echo $eventoAtual['descricao']; ?></td>
+                                    <td><?php echo $dataBr; ?></td>
+                                    <td><?php if($eventoAtual['tipo'] == 'I'){ echo "Interno";}else{echo "Externo";}?></td>
+                                </tr>
+
+
+                               
+
+                            <?php
+                                }
+
+
+                            ?>
+
+                        
+                    </tbody>
+                    </table>
+
 
     </div>
     <script src="assets/js/jquery.min.js"></script>

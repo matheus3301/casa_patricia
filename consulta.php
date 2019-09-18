@@ -138,13 +138,13 @@
                         <td><?php echo $cadastro['nome']; ?></td>
                         <td><?php echo $cadastro['tipo']; ?></td>
                         <td><?php echo $cadastro['sexo']; ?></td>
-                        <td><?php echo $cadastro['contato']; ?></td>
-                        <td><?php echo date_format(date_create($cadastro['data_nasc']), 'd/m/Y'); ?></td>
-                        <td><?php echo $cadastro['rg']; ?></td>
-                        <td><?php echo $cadastro['cpf']; ?></td>
-                        <td><?php echo $cadastro['nis']; ?></td>
-                        <td><?php echo $cadastro['nome_familiar']; ?></td>
-                        <td><?php echo $cadastro['contato_familiar']; ?></td>
+                        <td><?php if($cadastro['contato']){echo $cadastro['contato'];}else{ echo "(n. informado)";}  ?></td>
+                        <td><?php if($cadastro['data_nasc'] != '0000-00-00'){echo date_format(date_create($cadastro['data_nasc']), 'd/m/Y');}else{echo "(n. informado)";} ?></td>
+                        <td><?php if($cadastro['rg']){echo $cadastro['rg'];}else{ echo "(n. informado)";} ?></td>
+                        <td><?php if($cadastro['cpf']){echo $cadastro['cpf'];}else{ echo "(n. informado)";} ?></td>
+                        <td><?php if($cadastro['nis']){echo $cadastro['nis'];}else{ echo "(n. informado)";} ?></td>
+                        <td><?php if($cadastro['nome_familiar']){echo $cadastro['nome_familiar'];}else{ echo "(n. informado)";}?></td>
+                        <td><?php if($cadastro['contato_familiar']){echo $cadastro['contato_familiar'];}else{ echo "(n. informado)";} ?></td>
                         <td><center><?php echo $cadastro['status'];if($cadastro['status'] == "ATIVO"){echo $cadastro['ja_saiu'];} ?>
                         <br><button  class="btn btn-primary text-white"data-toggle="modal" data-target="#modal-obs<?php echo $cadastro[0]?>" role="button">Histórico</button>
                          </center>   

@@ -137,7 +137,7 @@
                     <hr>
                     <div class="form-row">
                         <div class="col-sm-12 col-md-6">
-                            <div class="form-group"><label style="color: #0a0a0a;">Nome</label><input class="form-control form-control-lg" type="text" autofocus="" name="nome" required=""></div>
+                            <div class="form-group"><label style="color: #0a0a0a;">Nome</label><input required="" class="form-control form-control-lg" type="text" autofocus="" name="nome" ></div>
                         </div>
                         <div class="col-sm-12 col-md-3">
                             
@@ -165,12 +165,12 @@
                     <div class="form-row">
                         <div class="col-sm-12 col-md-4">
                             <div class="form-group"><label style="color: #0a0a0a;">Data de Nascimento</label>
-                            <input class="form-control form-control-lg" type="date" name="data_nasc" required=""></div>
+                            <input class="form-control form-control-lg" type="date" name="data_nasc" ></div>
                         </div>
                         <div class="col-sm-12 col-md-5">
                         <div class="form-group">
                             <label style="color: #0a0a0a;">Contato</label>
-                            <input placeholder="(00) 00000-0000 (00) 00000-0000" class="form-control form-control-lg telefone" type="text" inputmode="numeric" name="contato" required="">
+                            <input placeholder="(00) 00000-0000 (00) 00000-0000" class="form-control form-control-lg telefone" type="text" inputmode="numeric" name="contato" >
                         
                         </div>
                         </div>
@@ -192,25 +192,25 @@
                     <!-- ENDEREÇO -->
                     <div class="form-row">
                         <div class="col-sm-12 col-md-6">
-                            <div class="form-group"><label style="color: #0a0a0a;">Rua</label><input class="form-control form-control-lg" type="text"  name="rua" required=""></div>
+                            <div class="form-group"><label style="color: #0a0a0a;">Rua</label><input class="form-control form-control-lg" type="text"  name="rua" ></div>
                         </div>
                         
                         <div class="col-sm-12 col-md-2">
                             <div class="form-group"><label style="color: #0a0a0a;">Número</label>
-                            <input class="form-control form-control-lg" type="text" inputmode="numeric" name="numero" required="">
+                            <input class="form-control form-control-lg" type="text" inputmode="numeric" name="numero" >
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-4">
-                            <div class="form-group"><label style="color: #0a0a0a;">Bairro/Localidade</label><input class="form-control form-control-lg" type="text"  name="bairro" required=""></div>
+                            <div class="form-group"><label style="color: #0a0a0a;">Bairro/Localidade</label><input class="form-control form-control-lg" type="text"  name="bairro" ></div>
                         </div>
                     </div>
                      <!-- ENDEREÇO -->
                      <div class="form-row">
                         <div class="col-sm-12 col-md-4">
-                            <div class="form-group"><label style="color: #0a0a0a;">Município</label><input class="form-control form-control-lg" type="text"  name="municipio" required=""></div>
+                            <div class="form-group"><label style="color: #0a0a0a;">Município</label><input class="form-control form-control-lg" type="text"  name="municipio" ></div>
                         </div>
                         <div class="col-sm-12 col-md-4">
-                            <div class="form-group"><label style="color: #0a0a0a;">CEP</label><input class="form-control form-control-lg cep" type="text"  name="cep" required=""></div>
+                            <div class="form-group"><label style="color: #0a0a0a;">CEP</label><input class="form-control form-control-lg cep" type="text"  name="cep" ></div>
                         </div>
                         <div class="col-sm-12 col-md-4">
                             <div class="form-group"><label style="color: #0a0a0a;">Complemento</label>
@@ -221,7 +221,7 @@
                      <!-- ENDEREÇO -->
                      <div class="form-row">
                         <div class="col-sm-12 col-md-12">
-                            <div class="form-group"><label style="color: #0a0a0a;">Ponto de Referência</label><input class="form-control form-control-lg" type="text"  name="ponto_referencia" required=""></div>
+                            <div class="form-group"><label style="color: #0a0a0a;">Ponto de Referência</label><input class="form-control form-control-lg" type="text"  name="ponto_referencia" ></div>
                         </div>
                         
                     </div>
@@ -230,15 +230,15 @@
                      <div class="form-row">
                         <div class="col-sm-12 col-md-4">
                             <div class="form-group"><label style="color: #0a0a0a;">RG</label>
-                            <input class="form-control form-control-lg" type="text" id="RG" name="rg" required=""></div>
+                            <input class="form-control form-control-lg" type="text" id="RG" name="rg" ></div>
                         </div>
                         <div class="col-sm-12 col-md-4">
                             <div class="form-group"><label style="color: #0a0a0a;">Data de Expedição</label>
-                            <input class="form-control form-control-lg" type="date" name="data_expedicao" required=""></div>
+                            <input class="form-control form-control-lg" type="date" name="data_expedicao" ></div>
                         </div>
                         <div class="col-sm-12 col-md-4">
                             <div class="form-group"><label style="color: #0a0a0a;">Orgão Expedidor</label>
-                            <input class="form-control form-control-lg" type="text"  name="orgao_expedidor" required="">
+                            <input class="form-control form-control-lg" type="text"  name="orgao_expedidor" >
                         </div>
                     </div>
                     </div>
@@ -247,11 +247,11 @@
                         
                         <div class="col-sm-12 col-md-6">
                             <div class="form-group"><label style="color: #0a0a0a;">CPF</label>
-                            <input class="form-control form-control-lg" type="text" id="CPF" name="cpf" required=""></div>
+                            <input class="form-control form-control-lg" type="text" id="CPF" name="cpf" ></div>
                         </div>
                         <div class="col-sm-12 col-md-6">
                             <div class="form-group"><label style="color: #0a0a0a;">NIS</label>
-                            <input class="form-control form-control-lg" type="text" inputmode="numeric" name="nis" required="">
+                            <input class="form-control form-control-lg" type="text" inputmode="numeric" name="nis" >
                         </div>
                     </div>
                     </div>
@@ -322,21 +322,21 @@
                               <div class="form-group">
                                 <label for="">Toma alguma medicação? Qual?</label>
                                 <input type="text"
-                                  class="form-control" name="medicacoes" id="" aria-describedby="helpId" placeholder="" required="">
+                                  class="form-control" name="medicacoes" id="" aria-describedby="helpId" placeholder="" >
                                 
                               </div>
 
                               <div class="form-group">
                                 <label for="">É alergico a alguma coisa? A quê?</label>
                                 <input type="text"
-                                  class="form-control" name="alergias" id="" aria-describedby="helpId" placeholder="" required="">
+                                  class="form-control" name="alergias" id="" aria-describedby="helpId" placeholder="" >
                                 
                               </div>
 
                               <div class="form-group">
                                 <label for="">Tem intolerância? A quê?</label>
                                 <input type="text"
-                                  class="form-control" name="intolerancia" id="" aria-describedby="helpId" placeholder="" required="">
+                                  class="form-control" name="intolerancia" id="" aria-describedby="helpId" placeholder="" >
                                 
                               </div>
 
@@ -352,13 +352,23 @@
                         
                         <div class="col-sm-12 col-md-6">
                             <div class="form-group"><label style="color: #0a0a0a;">Responsável Familiar</label>
-                            <input class="form-control form-control-lg" required="" type="text"  name="nome_familiar"></div>
+                            <input class="form-control form-control-lg"  type="text"  name="nome_familiar"></div>
                         </div>
                         <div class="col-sm-12 col-md-6">
                             <div class="form-group"><label style="color: #0a0a0a;">Contato Familiar</label><br>
-                            <input placeholder="(00) 00000-0000" class="form-control form-control-lg telefone" type="text" required="" name="contato_familiar"></div>
+                            <input placeholder="(00) 00000-0000" class="form-control form-control-lg telefone" type="text"  name="contato_familiar"></div>
                         
                         </div>
+                    </div>
+
+                    <div class="form-row">
+                        
+                        
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group"><label style="color: #0a0a0a;">Responsável Familiar</label>
+                            <input class="form-control form-control-lg"  type="text"  name="nome_familiar"></div>
+                        </div>
+                        
                     </div>
 
 

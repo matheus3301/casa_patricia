@@ -19,6 +19,8 @@
 	
 
 	$dompdf->load_html(file_get_contents('includes/manual.html'));
+	$dompdf->setPaper('A4', 'landscape');
+
 
 	//Renderizar o html
 	$dompdf->render();
@@ -27,7 +29,7 @@
 	$dompdf->stream(
 		"Ficha de Frequência - Casa de Patrícia", 
 		array(
-			"Attachment" => true //Para realizar o download somente alterar para true
+			"Attachment" => false //Para realizar o download somente alterar para true
 		)
 	);
 ?>

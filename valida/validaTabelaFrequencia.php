@@ -35,7 +35,7 @@
         }
     }
     
-    header("location:../consultafrequencia.php?mes=$mes&ano=$ano");
+    header("location:../consultafrequencia.php?mes=$mes&ano=$ano&op=sucess");
 
 
     //REINSERIR AS NOVAS FREQUENCIAS PRA CADA 

@@ -272,7 +272,9 @@
         {
           title:"<?php echo $eventoAtual['nome']; ?>",
           start:"<?php echo $eventoAtual['data']; ?>",
-          color:"<?php echo $cores[$eventoAtual['tipo']]; ?>"
+          color:"<?php echo $cores[$eventoAtual['tipo']]; ?>",
+          
+          
         },   
       <?php } ?>]
 
@@ -303,18 +305,30 @@
                         <label for="descricao">Descrição</label>
                         <textarea class="form-control" name="descricao" id="descricao" rows="2"></textarea>
                     </div>
-                    <div class="form-group">
-                        <label for="data">Data</label>
-                        <input type="date" name="data" id="data" class="form-control" aria-describedby="helpId" required="">
+
+                    <div class="form-row">
+                        
+                        
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                            <label for="data">Data</label>
+                            <input type="date" name="data" id="data" class="form-control" aria-describedby="helpId" required="">
+                        </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                        <label for="tipo">Tipo</label>
+                            <select class="form-control" name="tipo" id="tipo" required="">
+                                <option value="">selecione...</option>
+                                <option value="I">Interno</option>
+                                <option value="E">Externo</option>
+                            </select>
+                            </div>
+                        
+                        </div>
                     </div>
-                    <div class="form-group">
-                      <label for="tipo">Tipo</label>
-                      <select class="form-control" name="tipo" id="tipo" required="">
-                        <option value="">selecione...</option>
-                        <option value="I">Interno</option>
-                        <option value="E">Externo</option>
-                      </select>
-                    </div>
+                    
+                   
                
 
             </div>

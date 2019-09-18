@@ -60,10 +60,13 @@
 			foreach($opcoes as $campo){
 				$dadosConsulta = $dadosConsulta."<td><center>";
 				if($campo != 'data_nasc'){
-					$dadosConsulta = $dadosConsulta.$linhaAtual[$campo];
+					if($linhaAtual[$campo]){$dadosConsulta = $dadosConsulta.$linhaAtual[$campo];}else{$dadosConsulta = $dadosConsulta."(n. informado)";}
+					
 
 				}else{
-					$dadosConsulta = $dadosConsulta.date_format(date_create($linhaAtual['data_nasc']), 'd/m/Y');
+					if($linhaAtual[$campo] != "0000-00-00"){$dadosConsulta = $dadosConsulta.date_format(date_create($linhaAtual['data_nasc']), 'd/m/Y');}else{$dadosConsulta = $dadosConsulta."(n. informado)";}
+
+					
 				}
 				$dadosConsulta = $dadosConsulta."</center></td>";
 

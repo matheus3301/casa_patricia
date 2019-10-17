@@ -396,7 +396,7 @@
                     <hr>
                     <div class="form-row">
                         <div class="col-md-12 content-right">
-                            <button class="btn btn-primary form-btn" type="submit" >ALTERAR</button>
+                            <button class="btn btn-primary form-btn" type="submit" >SALVAR</button>
                             <br><br><br><br>
                         </div>
                     </div>

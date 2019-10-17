@@ -361,15 +361,7 @@
                         </div>
                     </div>
 
-                    <div class="form-row">
-                        
-                        
-                        <div class="col-sm-12 col-md-6">
-                            <div class="form-group"><label style="color: #0a0a0a;">Responsável Familiar</label>
-                            <input class="form-control form-control-lg"  type="text"  name="nome_familiar"></div>
-                        </div>
-                        
-                    </div>
+                   
 
 
                     

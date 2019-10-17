@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="assets/css/Pricing-Tables.css">
     <link rel="stylesheet" href="assets/css/Profile-Edit-Form.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="assets/datatables.min.css" />
+
 </head>
 
 <style>
@@ -163,7 +165,7 @@
                     }
                 ?>
                 
-                <table class="table table-striped table-responsive">
+                <table class="table table-striped table-responsive" id="tabela">
                     <thead>
                         <tr>
                         <th scope="col">Nome</th>
@@ -255,6 +257,18 @@
     <script src="assets/js/Pricing-Tables.js"></script>
     <script src="assets/js/jquery.mask.min.js"></script>
     <script src="assets/js/colResizable-1.6.min.js"></script>
+    <script type="text/javascript" src="assets/datatables.min.js"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            $('#tabela').DataTable({
+                language:{
+                    url:'assets/Portuguese-Brasil.json'
+                }
+            });
+        });
+    </script>
 
 
     
@@ -339,6 +353,7 @@
         </div>
     </div>
 </div>
+
 </body>
 
 </html>

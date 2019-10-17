@@ -8,7 +8,7 @@
 	use Dompdf\Dompdf;
 
 	// include autoloader
-	require_once("includes/dompdf/autoload.inc.php");
+	require_once("vendor/autoload.php");
 
 	//Criando a Instancia
 	$dompdf = new DOMPDF();

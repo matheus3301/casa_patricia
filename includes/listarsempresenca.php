@@ -7,7 +7,7 @@
     $dataAtual =  $data->format('Y-m-d');
 
 
-    if()
+    
 
     $sth = $conexao->prepare("SELECT idtb_idoso, nome FROM `tb_idoso` WHERE (SELECT tb_idoso_idtb_idoso FROM tb_frequencia WHERE data = '$dataAtual') <> idtb_idoso
     ");

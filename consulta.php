@@ -18,44 +18,49 @@
     <link rel="stylesheet" href="assets/css/Pricing-Tables.css">
     <link rel="stylesheet" href="assets/css/Profile-Edit-Form.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+
+    <link rel="stylesheet" type="text/css" href="assets/datatables.min.css" />
+
 </head>
 
+
 <style>
-.modal-backdrop{
-    display:none;
-}
-.box-img{
-        
+    .modal-backdrop {
+        display: none;
+    }
+
+    .box-img {
+
         vertical-align: middle;
         height: 50%;
-        
+
         align-self: center;
     }
 
-    .box-txt{
-        flex:1;
-        
-        font-size:20px;
+    .box-txt {
+        flex: 1;
+
+        font-size: 20px;
     }
 
-    .box-content{
+    .box-content {
         display: flex;
         flex-direction: column;
-        
+
 
     }
 
-    .header-img{
-        width:70px;
+    .header-img {
+        width: 70px;
     }
-    
-    .btn-file input[type=file]{
+
+    .btn-file input[type=file] {
         position: absolute;
         top: 0;
         right: 0;
-        
+
         min-height: 100%;
-        width:100%;
+        width: 100%;
         opacity: 0;
         outline: none;
         cursor: inherit;
@@ -63,18 +68,18 @@
 
     }
 
-    .img-perfil{
+    .img-perfil {
         border-radius: 100%;
         border: 2px solid #009afa;
         object-fit: cover;
-        height:50px;
-        width:50px;
-        
-        
+        height: 50px;
+        width: 50px;
+
+
     }
 
-    .btn-file{
-        width:100%;
+    .btn-file {
+        width: 100%;
     }
 </style>
 
@@ -86,10 +91,10 @@
             <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
                 <div class="container">
                     <a href="index.php"><img src="assets/img/logo.png" alt="Casa de Patrícia" class="header-img"></a>
-                    
-                    <span class="navbar-brand" > <a href="index.php" class="text-white">Início </a> / Consulta</span>
-                    
-                    
+
+                    <span class="navbar-brand"> <a href="index.php" class="text-white">Início </a> / Consulta</span>
+
+
                 </div>
             </nav>
         </div>
@@ -99,15 +104,15 @@
 
 
         <?php
-            include 'includes/conexao.php';
+        include 'includes/conexao.php';
 
-            $sth = $conexao->prepare("SELECT * FROM tb_idoso ORDER BY idtb_idoso ASC");
-			$sth->execute();
+        $sth = $conexao->prepare("SELECT * FROM tb_idoso ORDER BY idtb_idoso ASC");
+        $sth->execute();
 
-			$result = $sth->fetchAll();
+        $result = $sth->fetchAll();
         ?>
 
-        <table class="table table-striped table-inverse table-responsive text-nowrap">
+        <table class="table table-striped table-inverse table-responsive text-nowrap" id="tabela">
             <thead class="thead-inverse">
                 <tr>
                     <th scope="col" class="text-center">#</th>
@@ -120,213 +125,245 @@
                     <th scope="col" class="text-center">CPF</th>
                     <th scope="col" class="text-center">NIS</th>
                     <th scope="col" class="text-center">Nome Familiar</th>
-                    <th scope="col" class="text-center">Contato Familiar</th>                    
+                    <th scope="col" class="text-center">Contato Familiar</th>
                     <th scope="col" class="text-center">Status</th>
                     <th scope="col" class="text-center">Ações</th>
 
                 </tr>
-                </thead>
+            </thead>
 
-                <tbody>
-                    <?php
-                        foreach($result as $cadastro){
+            <tbody>
+                <?php
+                foreach ($result as $cadastro) {
 
-                        
+
                     ?>
                     <tr>
-                        <?php if($cadastro['img'] != null){?> <td scope="row"><img class="img-perfil" src="includes/verimagem.php?id=<?php echo $cadastro[0];?>" alt="Imagem"></td> <?php }else{ ?> <td scope="row"><img class="img-perfil" src="assets/img/man.png" alt="Imagem"></td> <?php } ?>
+                        <?php if ($cadastro['img'] != null) { ?> <td scope="row"><img class="img-perfil" src="includes/verimagem.php?id=<?php echo $cadastro[0]; ?>" alt="Imagem"></td> <?php } else { ?> <td scope="row"><img class="img-perfil" src="assets/img/man.png" alt="Imagem"></td> <?php } ?>
                         <td><?php echo $cadastro['nome']; ?></td>
                         <td><?php echo $cadastro['tipo']; ?></td>
                         <td><?php echo $cadastro['sexo']; ?></td>
-                        <td><?php if($cadastro['contato']){echo $cadastro['contato'];}else{ echo "(n. informado)";}  ?></td>
-                        <td><?php if($cadastro['data_nasc'] != '0000-00-00'){echo date_format(date_create($cadastro['data_nasc']), 'd/m/Y');}else{echo "(n. informado)";} ?></td>
-                        <td><?php if($cadastro['rg']){echo $cadastro['rg'];}else{ echo "(n. informado)";} ?></td>
-                        <td><?php if($cadastro['cpf']){echo $cadastro['cpf'];}else{ echo "(n. informado)";} ?></td>
-                        <td><?php if($cadastro['nis']){echo $cadastro['nis'];}else{ echo "(n. informado)";} ?></td>
-                        <td><?php if($cadastro['nome_familiar']){echo $cadastro['nome_familiar'];}else{ echo "(n. informado)";}?></td>
-                        <td><?php if($cadastro['contato_familiar']){echo $cadastro['contato_familiar'];}else{ echo "(n. informado)";} ?></td>
-                        <td><center><?php echo $cadastro['status'];if($cadastro['status'] == "ATIVO"){echo $cadastro['ja_saiu'];} ?>
-                        <br><button  class="btn btn-primary text-white"data-toggle="modal" data-target="#modal-obs<?php echo $cadastro[0]?>" role="button">Histórico</button>
-                         </center>   
+                        <td><?php if ($cadastro['contato']) {
+                                    echo $cadastro['contato'];
+                                } else {
+                                    echo "(n. informado)";
+                                }  ?></td>
+                        <td><?php if ($cadastro['data_nasc'] != '0000-00-00') {
+                                    echo date_format(date_create($cadastro['data_nasc']), 'd/m/Y');
+                                } else {
+                                    echo "(n. informado)";
+                                } ?></td>
+                        <td><?php if ($cadastro['rg']) {
+                                    echo $cadastro['rg'];
+                                } else {
+                                    echo "(n. informado)";
+                                } ?></td>
+                        <td><?php if ($cadastro['cpf']) {
+                                    echo $cadastro['cpf'];
+                                } else {
+                                    echo "(n. informado)";
+                                } ?></td>
+                        <td><?php if ($cadastro['nis']) {
+                                    echo $cadastro['nis'];
+                                } else {
+                                    echo "(n. informado)";
+                                } ?></td>
+                        <td><?php if ($cadastro['nome_familiar']) {
+                                    echo $cadastro['nome_familiar'];
+                                } else {
+                                    echo "(n. informado)";
+                                } ?></td>
+                        <td><?php if ($cadastro['contato_familiar']) {
+                                    echo $cadastro['contato_familiar'];
+                                } else {
+                                    echo "(n. informado)";
+                                } ?></td>
+                        <td>
+                            <center><?php echo $cadastro['status'];
+                                        if ($cadastro['status'] == "ATIVO") {
+                                            echo $cadastro['ja_saiu'];
+                                        } ?>
+                                <br><button class="btn btn-primary text-white" data-toggle="modal" data-target="#modal-obs<?php echo $cadastro[0] ?>" role="button">Histórico</button>
+                            </center>
                         </td>
                         <td>
                             <?php
-                                if($cadastro['status'] == 'ATIVO'){?>
-                                    <button  class="btn btn-success text-white"data-toggle="modal" data-target="#modal-documento<?php echo $cadastro[0]?>" role="button">Documentos</button>
-                                    <a  class="btn btn-warning text-white" href="alterar.php?id=<?php echo $cadastro[0]?>" role="button">Alterar</a>
-                                    <a  class="btn btn-danger text-white"data-toggle="modal" data-target="#modal-excluir<?php echo $cadastro[0]?>" role="button">Inativar</a>
-                                    
-                                <?php }else{ ?>
+                                if ($cadastro['status'] == 'ATIVO') { ?>
+                                <button class="btn btn-success text-white" data-toggle="modal" data-target="#modal-documento<?php echo $cadastro[0] ?>" role="button">Documentos</button>
+                                <a class="btn btn-warning text-white" href="alterar.php?id=<?php echo $cadastro[0] ?>" role="button">Alterar</a>
+                                <a class="btn btn-danger text-white" data-toggle="modal" data-target="#modal-excluir<?php echo $cadastro[0] ?>" role="button">Inativar</a>
 
-                                <a  class="btn btn-primary text-white"data-toggle="modal" data-target="#modal-vincular<?php echo $cadastro[0]?>" role="button">Reativar</a>
-                                    
+                            <?php } else { ?>
 
-                                    
-                            <?php    
+                                <a class="btn btn-primary text-white" data-toggle="modal" data-target="#modal-vincular<?php echo $cadastro[0] ?>" role="button">Reativar</a>
+
+
+
+                            <?php
                                 }
-                            ?>
-                            
-                            
-                            
+                                ?>
+
+
+
                         </td>
                     </tr>
 
-                    <div class="modal fade" id="modal-excluir<?php echo $cadastro[0];?>">
-                        <div class="modal-dialog" >
+                    <div class="modal fade" id="modal-excluir<?php echo $cadastro[0]; ?>">
+                        <div class="modal-dialog">
                             <div class="modal-content">
-                            <div class="modal-header">
-                            <h4 class="modal-title">
-                                Tem certeza?
-                            </h4>
-                            <button type="button" class="close" data-dismiss="modal"><b>x</b></button>
-                            </div>
-                            <form action="valida/validaExcluir.php?id=<?php echo $cadastro[0]?>" method="POST">
-                            <div class="modal-body"> 
+                                <div class="modal-header">
+                                    <h4 class="modal-title">
+                                        Tem certeza?
+                                    </h4>
+                                    <button type="button" class="close" data-dismiss="modal"><b>x</b></button>
+                                </div>
+                                <form action="valida/validaExcluir.php?id=<?php echo $cadastro[0] ?>" method="POST">
+                                    <div class="modal-body">
 
-                            <p>Tem certeza que deseja desvincular <?php echo $cadastro[1]?>?</p>
-                           
-                            
-                            <div class="form-group">
-                              <label for="motivo"> <strong> Motivo:</strong></label>
-                              <textarea class="form-control" name="motivo" id="motivo" rows="3" required=""></textarea>
-                            </div>
-                            <strong>O Associado não será aparecerá nos relatórios</strong>
+                                        <p>Tem certeza que deseja desvincular <?php echo $cadastro[1] ?>?</p>
 
 
+                                        <div class="form-group">
+                                            <label for="motivo"> <strong> Motivo:</strong></label>
+                                            <textarea class="form-control" name="motivo" id="motivo" rows="3" required=""></textarea>
+                                        </div>
+                                        <strong>O Associado não será aparecerá nos relatórios</strong>
+
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-danger text-white">Inativar</button>
+                                    </div>
+                                </form>
                             </div>
-                            <div class="modal-footer">
-                                    <button type="submit" class="btn btn-danger text-white">Inativar</button>
-                            </div>
-                            </form>
-                            </div>
-                            
+
                         </div>
                     </div>
 
-                    <div class="modal fade" id="modal-vincular<?php echo $cadastro[0];?>">
-                    <div class="modal-dialog" >
+                    <div class="modal fade" id="modal-vincular<?php echo $cadastro[0]; ?>">
+                        <div class="modal-dialog">
                             <div class="modal-content">
-                            <div class="modal-header">
-                            <h4 class="modal-title">
-                                Tem certeza?
-                            </h4>
-                            <button type="button" class="close" data-dismiss="modal"><b>x</b></button>
-                            </div>
-                            <form action="valida/validaVincular.php?id=<?php echo $cadastro[0]?>" method="POST">
-                            <div class="modal-body"> 
+                                <div class="modal-header">
+                                    <h4 class="modal-title">
+                                        Tem certeza?
+                                    </h4>
+                                    <button type="button" class="close" data-dismiss="modal"><b>x</b></button>
+                                </div>
+                                <form action="valida/validaVincular.php?id=<?php echo $cadastro[0] ?>" method="POST">
+                                    <div class="modal-body">
 
-                            <p>Tem certeza que deseja revincular <?php echo $cadastro[1]?>?</p>
-                           
-                            
-                            <div class="form-group">
-                              <label for="motivo"> <strong> Motivo:</strong></label>
-                              <textarea class="form-control" name="motivo" id="motivo" rows="3" required=""></textarea>
-                            </div>
-                            <strong>O Associado tornará a aparecer nos relatórios</strong>
+                                        <p>Tem certeza que deseja revincular <?php echo $cadastro[1] ?>?</p>
 
 
-                            </div>
-                            <div class="modal-footer">
-                                    <button type="submit" class="btn btn-danger text-white">Reativar</button>
-                            </div>
-                            </form>
-                            </div>
-                            
-                        </div>        
+                                        <div class="form-group">
+                                            <label for="motivo"> <strong> Motivo:</strong></label>
+                                            <textarea class="form-control" name="motivo" id="motivo" rows="3" required=""></textarea>
+                                        </div>
+                                        <strong>O Associado tornará a aparecer nos relatórios</strong>
 
-                        
-                    </div>                    
 
-                            
-                    <?php
-                        }
-                    ?>
-                    
-                </tbody>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-danger text-white">Reativar</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                <?php
+                }
+                ?>
+
+            </tbody>
         </table>
         <br><br>
         <h2>Consultas Avançadas</h2>
         <hr>
-        <?php 
-            $fuso = new DateTimeZone('America/Fortaleza');
-            $data = new DateTime();
-            $data->setTimezone($fuso);
-            $mesAtual =  $data->format('m');
-            $anoAtual =  $data->format('Y');
-                                         
-        ?>                
-        
-        <a name="" id="" class="btn btn-primary" href="aniversariantes.php?mes=<?php echo $mesAtual;?>" role="button">Aniversariantes do Mês</a>
+        <?php
+        $fuso = new DateTimeZone('America/Fortaleza');
+        $data = new DateTime();
+        $data->setTimezone($fuso);
+        $mesAtual =  $data->format('m');
+        $anoAtual =  $data->format('Y');
+
+        ?>
+
+        <a name="" id="" class="btn btn-primary" href="aniversariantes.php?mes=<?php echo $mesAtual; ?>" role="button">Aniversariantes do Mês</a>
 
     </div>
 
 
     <?php
-         foreach($result as $cadastro){?>
+    foreach ($result as $cadastro) { ?>
 
-                <div class="modal fade" id="modal-documento<?php echo $cadastro[0];?>">
-                        <div class="modal-dialog" >
-                            <div class="modal-content">
-                            <div class="modal-header">
-                            <h4 class="modal-title">
-                                Documentos
-                            </h4>
-                            <button type="button" class="close" data-dismiss="modal"><b>x</b></button>
-                            </div>
-                            <div class="modal-body"> 
-
-                            <img src="includes/verxerox.php?id=<?php echo $cadastro[0]?>" alt="" style="width:100%">
-
-
-                            </div>
-                            <div class="modal-footer">
-                                <button name="" id="" class="btn btn-primary" data-dismiss="modal" role="button">Fechar</button>
-                            </div>
-                            </div>
-                        </div>
+        <div class="modal fade" id="modal-documento<?php echo $cadastro[0]; ?>">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">
+                            Documentos
+                        </h4>
+                        <button type="button" class="close" data-dismiss="modal"><b>x</b></button>
                     </div>
+                    <div class="modal-body">
 
-                    <div class="modal fade" id="modal-obs<?php echo $cadastro[0];?>">
-                        <div class="modal-dialog" >
-                            <div class="modal-content">
-                            <div class="modal-header">
-                            <h4 class="modal-title">
-                                Histórico do Associado
-                            </h4>
-                            <button type="button" class="close" data-dismiss="modal"><b>x</b></button>
-                            </div>
-                            <div class="modal-body"> 
-                            <?php
-                                $resultHist = $conexao->query("SELECT * FROM tb_historico WHERE tb_idoso_idtb_idoso = $cadastro[0] ORDER BY idtb_historico DESC");
-                                $historicoAssociado = $resultHist->fetchAll();
-
-                                foreach($historicoAssociado as $historicoAtual){ ?>
-                                    <strong><?php echo $historicoAtual['tipo']; ?>:</strong><br>
-                                    <strong>Data:</strong><?php echo $historicoAtual['data']; ?><br>
-                                    <strong>Motivo:</strong><?php echo $historicoAtual['motivo']; ?><br>
-
-                                    
-                                    <hr>    
-                                <?php    
-                                
-                                }
-                                
-                                ?>
+                        <img src="includes/verxerox.php?id=<?php echo $cadastro[0] ?>" alt="" style="width:100%">
 
 
-                            </div>
-                            <div class="modal-footer">
-                                <button name="" id="" class="btn btn-primary" data-dismiss="modal" role="button">Fechar</button>
-                            </div>
-                            </div>
-                        </div>
                     </div>
+                    <div class="modal-footer">
+                        <button name="" id="" class="btn btn-primary" data-dismiss="modal" role="button">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal-obs<?php echo $cadastro[0]; ?>">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">
+                            Histórico do Associado
+                        </h4>
+                        <button type="button" class="close" data-dismiss="modal"><b>x</b></button>
+                    </div>
+                    <div class="modal-body">
+                        <?php
+                            $resultHist = $conexao->query("SELECT * FROM tb_historico WHERE tb_idoso_idtb_idoso = $cadastro[0] ORDER BY idtb_historico DESC");
+                            $historicoAssociado = $resultHist->fetchAll();
+
+                            foreach ($historicoAssociado as $historicoAtual) { ?>
+                            <strong><?php echo $historicoAtual['tipo']; ?>:</strong><br>
+                            <strong>Data:</strong><?php echo $historicoAtual['data']; ?><br>
+                            <strong>Motivo:</strong><?php echo $historicoAtual['motivo']; ?><br>
+
+
+                            <hr>
+                        <?php
+
+                            }
+
+                            ?>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button name="" id="" class="btn btn-primary" data-dismiss="modal" role="button">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
 
 
     <?php
-         }
+    }
     ?>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
@@ -335,20 +372,30 @@
     <script src="assets/js/Pricing-Tables.js"></script>
     <script src="assets/js/jquery.mask.min.js"></script>
     <script src="assets/js/colResizable-1.6.min.js"></script>
+    <script type="text/javascript" src="assets/datatables.min.js"></script>
 
 
 
     <script>
         var $campoCPF = $("#CPF");
-        $campoCPF.mask('000.000.000-00', {reverse: true});
+        $campoCPF.mask('000.000.000-00', {
+            reverse: true
+        });
 
         var $campoRG = $("#RG");
         $campoRG.mask('00.000.000-0');
 
         var $campoTELEFONE = $('.telefone');
         $campoTELEFONE.mask('(00) 00000-0000');
-
-        
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#tabela').DataTable({
+                language:{
+                    url:'assets/Portuguese-Brasil.json'
+                }
+            });
+        });
     </script>
 </body>
 

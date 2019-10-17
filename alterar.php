@@ -159,14 +159,14 @@
                     <hr>
                     <div class="form-row">
                         <div class="col-sm-12 col-md-6">
-                            <div class="form-group"><label style="color: #0a0a0a;">Nome</label><input class="form-control form-control-lg" type="text" value="<?php echo $return['nome']; ?>" name="nome" required=""></div>
+                            <div class="form-group"><label style="color: #0a0a0a;">Nome</label><input class="form-control form-control-lg" type="text" value="<?php echo $return['nome']; ?>" name="nome"></div>
                         </div>
                         <div class="col-sm-12 col-md-3">
                             
                             <div class="form-group"><label style="color: #0a0a0a;">Tipo</label>
                                 
                                 
-                                <select class="form-control form-control-lg" name="tipo_pessoa" required="">
+                                <select class="form-control form-control-lg" name="tipo_pessoa">
                                 <option value="">Selecione...</option>
                                 <option value="Idoso" <?php if($return['tipo'] == "Idoso"){ echo 'selected';}?>>Idoso</option>
                                 <option value="Deficiente" <?php if($return['tipo'] == "Deficiente"){ echo 'selected';}?>>Deficiente</option>
@@ -191,12 +191,12 @@
                     <div class="form-row">
                         <div class="col-sm-12 col-md-4">
                             <div class="form-group"><label style="color: #0a0a0a;">Data de Nascimento</label>
-                            <input class="form-control form-control-lg dataMASK" type="date" name="data_nasc" required="" value="<?php echo $return['data_nasc']; ?>"></div>
+                            <input class="form-control form-control-lg dataMASK" type="date" name="data_nasc" value="<?php echo $return['data_nasc']; ?>"></div>
                         </div>
                         <div class="col-sm-12 col-md-5">
                         <div class="form-group">
                             <label style="color: #0a0a0a;">Contato</label>
-                            <input value="<?php echo $return['contato']; ?>" placeholder="(00) 00000-0000 (00) 00000-0000"  class="form-control form-control-lg telefone" type="text" inputmode="numeric" name="contato" required="">
+                            <input value="<?php echo $return['contato']; ?>" placeholder="(00) 00000-0000 (00) 00000-0000"  class="form-control form-control-lg telefone" type="text" inputmode="numeric" name="contato">
                         
                         </div>
                         </div>
@@ -204,7 +204,7 @@
                             <div class="form-group"><label style="color: #0a0a0a;">Sexo</label>
                             
                               
-                              <select class="form-control form-control-lg" name="sexo" required="">
+                              <select class="form-control form-control-lg" name="sexo">
                                 <option value="">Selecione...</option>
                                 <option value="M" <?php if($return['sexo'] == "M"){ echo 'selected';}?>>Masculino</option>
                                 <option value="F" <?php if($return['sexo'] == "F"){ echo 'selected';}?>>Feminino</option>
@@ -218,36 +218,36 @@
                     <!-- ENDEREÇO -->
                     <div class="form-row">
                         <div class="col-sm-12 col-md-6">
-                            <div class="form-group"><label style="color: #0a0a0a;">Rua</label><input value="<?php echo $return['rua']; ?>" class="form-control form-control-lg" type="text"  name="rua" required=""></div>
+                            <div class="form-group"><label style="color: #0a0a0a;">Rua</label><input value="<?php echo $return['rua']; ?>" class="form-control form-control-lg" type="text"  name="rua"></div>
                         </div>
                         
                         <div class="col-sm-12 col-md-2">
                             <div class="form-group"><label style="color: #0a0a0a;">Número</label>
-                            <input value="<?php echo $return['numero']; ?>" class="form-control form-control-lg" type="text" inputmode="numeric" name="numero" required="">
+                            <input value="<?php echo $return['numero']; ?>" class="form-control form-control-lg" type="text" inputmode="numeric" name="numero">
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-4">
-                            <div class="form-group"><label style="color: #0a0a0a;">Bairro/Localidade</label><input value="<?php echo $return['bairro']; ?>" class="form-control form-control-lg" type="text"  name="bairro" required=""></div>
+                            <div class="form-group"><label style="color: #0a0a0a;">Bairro/Localidade</label><input value="<?php echo $return['bairro']; ?>" class="form-control form-control-lg" type="text"  name="bairro"></div>
                         </div>
                     </div>
                      <!-- ENDEREÇO -->
                      <div class="form-row">
                         <div class="col-sm-12 col-md-4">
-                            <div class="form-group"><label style="color: #0a0a0a;">Município</label><input value="<?php echo $return['municipio']; ?>" class="form-control form-control-lg" type="text"  name="municipio" required=""></div>
+                            <div class="form-group"><label style="color: #0a0a0a;">Município</label><input value="<?php echo $return['municipio']; ?>" class="form-control form-control-lg" type="text"  name="municipio"></div>
                         </div>
                         <div class="col-sm-12 col-md-4">
-                            <div class="form-group"><label style="color: #0a0a0a;">CEP</label><input value="<?php echo $return['cep']; ?>" class="form-control form-control-lg cep" type="text"  name="cep" required=""></div>
+                            <div class="form-group"><label style="color: #0a0a0a;">CEP</label><input value="<?php echo $return['cep']; ?>" class="form-control form-control-lg cep" type="text"  name="cep"></div>
                         </div>
                         <div class="col-sm-12 col-md-4">
                             <div class="form-group"><label style="color: #0a0a0a;">Complemento</label>
-                            <input value="<?php echo $return['complemento']; ?>" class="form-control form-control-lg" type="text"  name="complemento" required="">
+                            <input value="<?php echo $return['complemento']; ?>" class="form-control form-control-lg" type="text"  name="complemento">
                         </div>
                     </div>
                     </div>
                      <!-- ENDEREÇO -->
                      <div class="form-row">
                         <div class="col-sm-12 col-md-12">
-                            <div class="form-group"><label style="color: #0a0a0a;">Ponto de Referência</label><input value="<?php echo $return['ponto_referencia']; ?>" class="form-control form-control-lg" type="text"  name="ponto_referencia" required=""></div>
+                            <div class="form-group"><label style="color: #0a0a0a;">Ponto de Referência</label><input value="<?php echo $return['ponto_referencia']; ?>" class="form-control form-control-lg" type="text"  name="ponto_referencia"></div>
                         </div>
                         
                     </div>
@@ -256,15 +256,15 @@
                      <div class="form-row">
                         <div class="col-sm-12 col-md-4">
                             <div class="form-group"><label style="color: #0a0a0a;">RG</label>
-                            <input value="<?php echo $return['rg']; ?>" class="form-control form-control-lg" type="text" id="RG" name="rg" required=""></div>
+                            <input value="<?php echo $return['rg']; ?>" class="form-control form-control-lg" type="text" id="RG" name="rg"></div>
                         </div>
                         <div class="col-sm-12 col-md-4">
                             <div class="form-group"><label style="color: #0a0a0a;">Data de Expedição</label>
-                            <input value="<?php echo $return['data_expedicao']; ?>" class="form-control form-control-lg" type="date" name="data_expedicao" required=""></div>
+                            <input value="<?php echo $return['data_expedicao']; ?>" class="form-control form-control-lg" type="date" name="data_expedicao"></div>
                         </div>
                         <div class="col-sm-12 col-md-4">
                             <div class="form-group"><label style="color: #0a0a0a;">Orgão Expedidor</label>
-                            <input value="<?php echo $return['orgao_expedidor']; ?>" class="form-control form-control-lg" type="text" name="orgao_expedidor" required="">
+                            <input value="<?php echo $return['orgao_expedidor']; ?>" class="form-control form-control-lg" type="text" name="orgao_expedidor">
                         </div>
                     </div>
                     </div>
@@ -273,11 +273,11 @@
                         
                         <div class="col-sm-12 col-md-6">
                             <div class="form-group"><label style="color: #0a0a0a;">CPF</label>
-                            <input value="<?php echo $return['cpf']; ?>" class="form-control form-control-lg" type="text" id="CPF" name="cpf" required=""></div>
+                            <input value="<?php echo $return['cpf']; ?>" class="form-control form-control-lg" type="text" id="CPF" name="cpf"></div>
                         </div>
                         <div class="col-sm-12 col-md-6">
                             <div class="form-group"><label style="color: #0a0a0a;">NIS</label>
-                            <input value="<?php echo $return['nis']; ?>" class="form-control form-control-lg" type="text" inputmode="numeric" name="nis" required="">
+                            <input value="<?php echo $return['nis']; ?>" class="form-control form-control-lg" type="text" inputmode="numeric" name="nis">
                         </div>
                     </div>
                     </div>
@@ -359,14 +359,14 @@
                               <div class="form-group">
                                 <label for="">É alergico a alguma coisa? O quê?</label>
                                 <input type="text" value="<?php echo $return['alergias']; ?>"
-                                  class="form-control" name="alergias" id="" aria-describedby="helpId" placeholder="" required="">
+                                  class="form-control" name="alergias" id="" aria-describedby="helpId" placeholder="">
                                 
                               </div>
 
                               <div class="form-group">
                                 <label for="">Tem intolerância a algum alimento? Qual?</label>
                                 <input type="text" value="<?php echo $return['intolerancia']; ?>"
-                                  class="form-control" name="intolerancia" id="" aria-describedby="helpId" placeholder="" required="">
+                                  class="form-control" name="intolerancia" id="" aria-describedby="helpId" placeholder="">
                                 
                               </div>
 
@@ -382,11 +382,11 @@
                         
                         <div class="col-sm-12 col-md-6">
                             <div class="form-group"><label style="color: #0a0a0a;">Responsável Familiar</label>
-                            <input value="<?php echo $return['nome_familiar']; ?>" class="form-control form-control-lg" required="" type="text"  name="nome_familiar"></div>
+                            <input value="<?php echo $return['nome_familiar']; ?>" class="form-control form-control-lg" type="text"  name="nome_familiar"></div>
                         </div>
                         <div class="col-sm-12 col-md-6">
                             <div class="form-group"><label style="color: #0a0a0a;">Contato Familiar</label><br>
-                            <input value="<?php echo $return['contato_familiar']; ?>" placeholder="(00) 00000-0000" class="form-control form-control-lg telefone" type="text" required="" name="contato_familiar"></div>
+                            <input value="<?php echo $return['contato_familiar']; ?>" placeholder="(00) 00000-0000" class="form-control form-control-lg telefone" type="text" name="contato_familiar"></div>
                         
                         </div>
                     </div>

@@ -85,7 +85,7 @@
         <div class="header-blue" style="height: 92px;">
             <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
                 <div class="container">
-                    <a href="index.php"><img src="assets/img/logo.png" alt="Casa de Patrícia" class="header-img"></a>
+                <a href="index.php"  class="text-white"><img src="assets/img/logo.png" alt="Casa de Patrícia" class="header-img"><br><center><strong> INÍCIO </strong></center></a>
                     
                     <span class="navbar-brand" > <a href="index.php" class="text-white">Início </a> / Consulta</span>
                     
@@ -196,6 +196,16 @@
                             <input class="form-check-input" type="checkbox" name="campos[]" value="contato_familiar"> Contato Familiar
                         </label>
                     </div>
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" name="campos[]" value="mae"> Nome da Mãe
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" name="campos[]" value="pai"> Nome do Pai
+                        </label>
+                    </div>
                     <br><br>
                     <h5>Selecione o Grupo...</h5>   
                     <div class="form-group">
@@ -204,7 +214,13 @@
                         <option value="">Selecione...</option>
                         <option value="Idosos">Idosos</option>
                         <option value="Deficientes">Deficientes</option>
-                        <option value="Todos">Todos</option>
+                        <option value="Todos Ativos">Todos Ativos</option>
+                        <option value="Todos Inativos">Todos Inativos</option>
+                        <option value="Deficientes Inativos">Deficientes Inativos</option>
+                        <option value="Idosos Inativos">Idosos Inativos</option>
+
+
+
 
                       </select>
                     </div>       

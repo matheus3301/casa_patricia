@@ -1,7 +1,7 @@
 <?php	
 
 	include 'includes/conexao.php';
-
+	$tipo = $_GET['tipo'];
 	include 'gerarmanualestatica.php';
 
 

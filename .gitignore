@@ -4,3 +4,8 @@ includes/manual.html
 includes/relatorio.html
 includes/fotoficha.*
 vendor
+uploads/calendar/*
+uploads/profile/*
+uploads/xerox/*
+
+

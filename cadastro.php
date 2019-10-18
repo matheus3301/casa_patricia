@@ -107,7 +107,7 @@
         <div class="header-blue" style="height: 92px;">
             <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
                 <div class="container">
-                    <a href="index.php"><img src="assets/img/logo.png" alt="Casa de Patrícia" class="header-img"></a>
+                <a href="index.php"  class="text-white"><img src="assets/img/logo.png" alt="Casa de Patrícia" class="header-img"><br><center><strong> INÍCIO </strong></center></a>
                     
                     <span class="navbar-brand" > <a href="index.php" class="text-white">Início </a> / Cadastro</span>
                     
@@ -187,6 +187,19 @@
                             </div>
                         
                         </div>
+                    </div>
+                    <!-- NOME PAI E MAE -->
+                    <div class="form-row">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group"><label style="color: #0a0a0a;">Nome do Pai</label><input class="form-control form-control-lg" type="text"  name="pai" ></div>
+                        </div>
+                        
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group"><label style="color: #0a0a0a;">Nome da Mãe</label>
+                            <input class="form-control form-control-lg" type="text"  name="mae" >
+                        </div>
+                    </div>
+                    
                     </div>
 
                     <!-- ENDEREÇO -->

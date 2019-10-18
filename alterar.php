@@ -140,12 +140,12 @@
                     <div class="avatar">
                         <div class="avatar-bg center">
                         <?php
-                                if($return['img'] == null){ ?>
+                                if($return['profile_src'] == null){ ?>
                                     <img id="output" src="assets/img/family.png" alt="Foto de Perfil" class="img-perfil" style="width:100%;">
 
                                 <?php }else{ ?>
 
-                                    <img id="output" src="includes/verimagem.php?id=<?php echo $return[0]; ?>" alt="Foto de Perfil" class="img-perfil" style="width:100%;">
+                                    <img id="output" src="<?php echo $return['profile_src']; ?>" alt="Foto de Perfil" class="img-perfil" style="width:100%;">
 
                              <?php             
                                 }

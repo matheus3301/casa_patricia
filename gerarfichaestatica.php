@@ -1,4 +1,22 @@
 <?php
+		function abreArquivo($nome){
+			$arquivo = $nome;
+			$obj = fopen($arquivo, 'r');
+			$tamanho = filesize($arquivo);
+			$dados = fread($obj, $tamanho);
+			echo $dados;
+			
+			fclose($obj);
+		}
+	
+		function gravaArquivo($nome,$texto,$tipo){
+			$arquivo = $nome;
+			$dados = $texto;
+			$obj = fopen($arquivo, $tipo);
+			fwrite($obj, $dados);
+			
+			fclose($obj);
+		}
 		
 		include 'includes/conexao.php';
 
@@ -34,24 +52,7 @@
 
 
 <?php
-	function abreArquivo($nome){
-		$arquivo = $nome;
-		$obj = fopen($arquivo, 'r');
-		$tamanho = filesize($arquivo);
-		$dados = fread($obj, $tamanho);
-		echo $dados;
-		
-		fclose($obj);
-	}
-
-	function gravaArquivo($nome,$texto,$tipo){
-		$arquivo = $nome;
-		$dados = $texto;
-		$obj = fopen($arquivo, $tipo);
-		fwrite($obj, $dados);
-		
-		fclose($obj);
-	}
+	
 
 	$sql = "SELECT * FROM tb_idoso WHERE idtb_idoso = $id";
 	$query = $conexao->query($sql);
@@ -122,13 +123,12 @@
 	}
 	
 
-	$formato = explode('/',$return['tipo_img']);
 	
-	if($return['img'] != null){
-		gravaArquivo('includes/fotoficha.'.$formato[1],$return['img'],'w');
+	if($return['profile_src'] != null){
+		$src = $return['profile_src'];
 	}else{
-		copy('includes/default/fotoficha.png','includes/fotoficha.png');
-		$formato[1] = "png";
+		
+		$src = 'includes/default/fotoficha.png';
 
 	}
 
@@ -182,7 +182,7 @@
 			</center></nav>
 			<section><br><br><br>
 			<center>	
-				<img src="includes/fotoficha.'.$formato[1].'" class="img-profile">
+				<img src="'.$src.'" class="img-profile">
 			</center><br>
 			<table border="1" cellspacing="0" class="table">
 							<tr>

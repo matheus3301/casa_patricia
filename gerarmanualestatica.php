@@ -2,7 +2,7 @@
 		
 		include 'includes/conexao.php';
 		
-		$sth = $conexao->prepare("SELECT * FROM tb_idoso WHERE status = 'ATIVO' ORDER BY idtb_idoso ASC");
+		$sth = $conexao->prepare("SELECT * FROM tb_idoso WHERE status = 'ATIVO' AND tipo = '$tipo' ORDER BY idtb_idoso ASC");
 		$sth->execute();
 		
         $result = $sth->fetchAll();
@@ -120,7 +120,7 @@
 			<span style="vertical-align: middle;">ASSOCIAÇÃO SALÃO DE LEITURA ANTÔNIO SALES<br> -SALAS- <br>SÃO GONÇALO DO AMARANTE - CEARÁ</span>
 		</center></nav>
 		<section><br>			
-	<h2>Ficha Frequência Manual</h2>
+	<h2>Ficha Frequência dos '.$tipo.'s</h2>
 	<center style="font-size:20px">FICHA DO MÊS:__________________________</center>
 	<table border="1" cellspacing="0" class="table">
 			<thead >

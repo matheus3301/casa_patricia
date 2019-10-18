@@ -115,7 +115,7 @@
         <div class="header-blue" style="height: 92px;">
             <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
                 <div class="container">
-                    <a href="index.php"><img src="assets/img/logo.png" alt="Casa de Patrícia" class="header-img"></a>
+                <a href="index.php"  class="text-white"><img src="assets/img/logo.png" alt="Casa de Patrícia" class="header-img"><br><center><strong> INÍCIO </strong></center></a>
                     
                     <span class="navbar-brand" > <a href="index.php" class="text-white">Início </a> / <a href="consulta.php" class="text-white">Consulta </a>/ Aniversariantes </span>
                     
@@ -199,7 +199,7 @@
                         
                     ?>
                     <tr>
-                        <?php if($cadastro['img'] != null){?> <td scope="row"><img class="img-perfil" src="includes/verimagem.php?id=<?php echo $cadastro[0];?>" alt="Imagem"></td> <?php }else{ ?> <td scope="row"><img class="img-perfil" src="assets/img/man.png" alt="Imagem"></td> <?php } ?>
+                        <?php if($cadastro['profile_src'] != null){?> <td scope="row"><img class="img-perfil" src="<?php echo $cadastro['profile_src'];?>" alt="Imagem"></td> <?php }else{ ?> <td scope="row"><img class="img-perfil" src="assets/img/man.png" alt="Imagem"></td> <?php } ?>
                         <td><?php echo $cadastro['nome']; ?></td>
                         <td><?php echo $cadastro['tipo']; ?></td>
                         <td><?php echo $cadastro['sexo']; ?></td>

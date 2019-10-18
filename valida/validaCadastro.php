@@ -31,6 +31,9 @@ $data_expedicao = $_POST['data_expedicao'];
 $orgao_expedidor = $_POST['orgao_expedidor'];
 $intolerancia = $_POST['intolerancia'];
 $outras_doencas = $_POST['outras_doencas'];
+$pai = $_POST['pai'];
+$mae = $_POST['mae'];
+
 
 
 if (is_uploaded_file($_FILES['imagem']['tmp_name'])) {
@@ -79,8 +82,8 @@ if (is_uploaded_file($_FILES['xerox']['tmp_name'])) {
 
 
 
-$sql = "INSERT INTO tb_idoso(nome, tipo, data_nasc, sexo, rua, bairro, numero, ponto_referencia, complemento, municipio, cep, nis, rg, cpf, contato, medicacoes, alergias, contato_familiar, nome_familiar, profile_src , xerox_src,  status, orgao_expedidor, data_expedicao, intolerancia, outras_doencas,ja_saiu) VALUES(
-        '$nome', '$tipo', '$data_nasc','$sexo','$rua','$bairro','$numero','$ponto_referencia','$complemento','$municipio','$cep','$nis','$rg','$cpf','$contato','$medicacoes','$alergias','$contato_familiar','$nome_familiar', '$src_profile', '$src_xerox' ,'ATIVO', '$orgao_expedidor','$data_expedicao', '$intolerancia', '$outras_doencas','')";
+$sql = "INSERT INTO tb_idoso(nome, tipo, data_nasc, sexo, rua, bairro, numero, ponto_referencia, complemento, municipio, cep, nis, rg, cpf, contato, medicacoes, alergias, contato_familiar, nome_familiar, profile_src , xerox_src,  status, orgao_expedidor, data_expedicao, intolerancia, outras_doencas,ja_saiu,pai,mae) VALUES(
+        '$nome', '$tipo', '$data_nasc','$sexo','$rua','$bairro','$numero','$ponto_referencia','$complemento','$municipio','$cep','$nis','$rg','$cpf','$contato','$medicacoes','$alergias','$contato_familiar','$nome_familiar', '$src_profile', '$src_xerox' ,'ATIVO', '$orgao_expedidor','$data_expedicao', '$intolerancia', '$outras_doencas','','$pai','$mae')";
 
 $conexao->query($sql);
 

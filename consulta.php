@@ -90,7 +90,7 @@
         <div class="header-blue" style="height: 92px;">
             <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
                 <div class="container">
-                    <a href="index.php"><img src="assets/img/logo.png" alt="Casa de Patrícia" class="header-img"></a>
+                    <a href="index.php"  class="text-white"><img src="assets/img/logo.png" alt="Casa de Patrícia" class="header-img"><br><center><strong> INÍCIO </strong></center></a>
 
                     <span class="navbar-brand"> <a href="index.php" class="text-white">Início </a> / Consulta</span>
 
@@ -119,13 +119,9 @@
                     <th scope="col" class="text-center">Nome</th>
                     <th scope="col" class="text-center">Tipo</th>
                     <th scope="col" class="text-center">Sexo</th>
-                    <th scope="col" class="text-center">Contato</th>
-                    <th scope="col" class="text-center">Data Nasc.</th>
                     <th scope="col" class="text-center">RG</th>
                     <th scope="col" class="text-center">CPF</th>
                     <th scope="col" class="text-center">NIS</th>
-                    <th scope="col" class="text-center">Nome Familiar</th>
-                    <th scope="col" class="text-center">Contato Familiar</th>
                     <th scope="col" class="text-center">Status</th>
                     <th scope="col" class="text-center">Ações</th>
 
@@ -143,16 +139,7 @@
                         <td><?php echo $cadastro['nome']; ?></td>
                         <td><?php echo $cadastro['tipo']; ?></td>
                         <td><?php echo $cadastro['sexo']; ?></td>
-                        <td><?php if ($cadastro['contato']) {
-                                    echo $cadastro['contato'];
-                                } else {
-                                    echo "(n. informado)";
-                                }  ?></td>
-                        <td><?php if ($cadastro['data_nasc'] != '0000-00-00') {
-                                    echo date_format(date_create($cadastro['data_nasc']), 'd/m/Y');
-                                } else {
-                                    echo "(n. informado)";
-                                } ?></td>
+                        
                         <td><?php if ($cadastro['rg']) {
                                     echo $cadastro['rg'];
                                 } else {
@@ -168,16 +155,7 @@
                                 } else {
                                     echo "(n. informado)";
                                 } ?></td>
-                        <td><?php if ($cadastro['nome_familiar']) {
-                                    echo $cadastro['nome_familiar'];
-                                } else {
-                                    echo "(n. informado)";
-                                } ?></td>
-                        <td><?php if ($cadastro['contato_familiar']) {
-                                    echo $cadastro['contato_familiar'];
-                                } else {
-                                    echo "(n. informado)";
-                                } ?></td>
+                       
                         <td>
                             <center><?php echo $cadastro['status'];
                                         if ($cadastro['status'] == "ATIVO") {

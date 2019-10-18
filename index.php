@@ -264,17 +264,27 @@ font-size:1.5em;
                             }
                         </script>
 
-                        <div class="col-sm-6 col-md-6 plan price default" onclick="abrirUrl('gerarpdfmanual.php');">
+                        <div class="col-sm-12 col-md-4 plan price default" onclick="abrirUrl('gerarpdfmanual.php?tipo=Idoso');">
                            
                                 <ul class="list-group">
                                     <li class="list-group-item heading" data-bs-hover-animate="pulse" style="height: 245px;">
                                         <img src="assets/img/pdf.png" alt="Idosos" class="box-img">
-                                        <h1 class="box-txt">PDF</h1><span class="price text-dark">Ficha de Frequência Manual</span>
+                                        <h1 class="box-txt">PDF</h1><span class="price text-dark">Ficha de Frequência Idosos</span>
                                     </li>
                                 </ul>
                             
                         </div>
-                        <div class="col-sm-6 col-md-6 plan price default" onclick="window.open('includes/cadastroManual.pdf')" style="cursor:pointer">
+                        <div class="col-sm-12 col-md-4 plan price default" onclick="abrirUrl('gerarpdfmanual.php?tipo=Deficiente');">
+                           
+                           <ul class="list-group">
+                               <li class="list-group-item heading" data-bs-hover-animate="pulse" style="height: 245px;">
+                                   <img src="assets/img/pdf.png" alt="Idosos" class="box-img">
+                                   <h1 class="box-txt">PDF</h1><span class="price text-dark">Ficha de Frequência Deficientes</span>
+                               </li>
+                           </ul>
+                       
+                   </div>
+                        <div class="col-sm-12 col-md-4 plan price default" onclick="window.open('includes/cadastroManual.pdf')" style="cursor:pointer">
                             
                                 <ul class="list-group">
                                     <li class="list-group-item heading" data-bs-hover-animate="pulse" style="height: 245px;">

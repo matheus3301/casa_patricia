@@ -5,15 +5,25 @@
 		$tipo = $_POST['tipo'];
 
 		if($tipo == 'Idosos'){
-			$sql = "SELECT * FROM tb_idoso WHERE status = 'ATIVO' AND tipo = 'Idoso' ORDER BY idtb_idoso ASC";
+			$sql = "SELECT * FROM tb_idoso WHERE status = 'ATIVO' AND tipo = 'Idoso' ORDER BY nome ASC";
 		}
 
 		if($tipo == 'Deficientes'){
-			$sql = "SELECT * FROM tb_idoso WHERE status = 'ATIVO' AND tipo = 'Deficiente' ORDER BY idtb_idoso ASC";
+			$sql = "SELECT * FROM tb_idoso WHERE status = 'ATIVO' AND tipo = 'Deficiente' ORDER BY nome ASC";
 		}
 
-		if($tipo == 'Todos'){
-			$sql = "SELECT * FROM tb_idoso WHERE status = 'ATIVO' ORDER BY idtb_idoso ASC";
+		if($tipo == 'Todos Ativos'){
+			$sql = "SELECT * FROM tb_idoso WHERE status = 'ATIVO' ORDER BY nome ASC";
+		}
+
+		if($tipo == 'Todos Inativos'){
+			$sql = "SELECT * FROM tb_idoso WHERE status = 'INATIVO' ORDER BY nome ASC";
+		}
+		if($tipo == 'Deficientes Inativos'){
+			$sql = "SELECT * FROM tb_idoso WHERE status = 'INATIVO' AND tipo = 'Deficiente' ORDER BY nome ASC";
+		}
+		if($tipo == 'Idosos Inativos'){
+			$sql = "SELECT * FROM tb_idoso WHERE status = 'INATIVO' AND tipo = 'Idoso' ORDER BY nome ASC";
 		}
 
 		$table_titles = array(
@@ -35,7 +45,10 @@
 			'cpf' => 'CPF',
 			'contato' => 'Contato',
 			'nome_familiar' => 'Responsável Familiar',
-			'contato_familiar' => 'Contato Familiar'
+			'contato_familiar' => 'Contato Familiar',
+			'pai' => 'Nome do Pai',
+			'mae' => 'Nome da Mãe',
+
  
 		);
 		

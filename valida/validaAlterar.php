@@ -30,6 +30,8 @@ $orgao_expedidor = $_POST['orgao_expedidor'];
 $intolerancia = $_POST['intolerancia'];
 $outras_doencas = $_POST['outras_doencas'];
 
+$pai = $_POST['pai'];
+$mae = $_POST['mae'];
 
 
 
@@ -39,7 +41,7 @@ $sql = "UPDATE tb_idoso SET nome = '$nome', data_nasc = '$data_nasc', contato = 
     sexo = '$sexo', rua = '$rua', bairro = '$bairro', numero = '$numero', rg = '$rg',
     cpf = '$cpf',nis = '$nis',medicacoes = '$medicacoes',alergias = '$alergias', nome_familiar = '$nome_familiar',contato_familiar = '$contato_familiar',
     cep = '$cep', municipio = '$municipio',complemento = '$complemento', ponto_referencia = '$ponto_referencia', orgao_expedidor = '$orgao_expedidor', data_expedicao = '$data_expedicao',
-    intolerancia = '$intolerancia', outras_doencas = '$outras_doencas'
+    intolerancia = '$intolerancia', outras_doencas = '$outras_doencas',pai = '$pai',mae = '$mae'
     WHERE idtb_idoso = $id";
 
 $conexao->query($sql);

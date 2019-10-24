@@ -157,7 +157,7 @@ $meses = array(
         <?php
         include 'includes/conexao.php';
 
-        $sth = $conexao->prepare("SELECT * FROM tb_idoso WHERE status = 'ATIVO' ORDER BY idtb_idoso ASC");
+        $sth = $conexao->prepare("SELECT * FROM tb_idoso WHERE status = 'ATIVO' AND tipo = 'Deficiente' OR tipo = 'Idoso' OR tipo = 'Idoso e Associado' ORDER BY idtb_idoso ASC");
         $sth->execute();
 
         $result = $sth->fetchAll();

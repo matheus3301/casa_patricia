@@ -122,6 +122,9 @@
 		$result['contato_familiar'] = '(n. informado)';
 	}
 	
+	if($result['tipo'] == 'Deficiente'){
+		$result['tipo'] = "Pessoa com Deficiência";
+	}
 
 	
 	if($return['profile_src'] != null){
@@ -180,7 +183,9 @@
 				<img src="assets/img/logo.png" class="logo"><center>
 				<span style="vertical-align: middle;">ASSOCIAÇÃO SALÃO DE LEITURA ANTÔNIO SALES<br> -SALAS- <br>SÃO GONÇALO DO AMARANTE - CEARÁ</span>
 			</center></nav>
-			<section><br><br><br>
+			<br><br>
+			<center><h1>Ficha de '.$result['tipo'].'</h1></center>
+			<section><br>
 			<center>	
 				<img src="'.$src.'" class="img-profile">
 			</center><br>

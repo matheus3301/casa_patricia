@@ -147,7 +147,11 @@
                                 <select class="form-control form-control-lg" name="tipo_pessoa" required="">
                                 <option value="">Selecione...</option>
                                 <option value="Idoso">Idoso</option>
+                                <option value="Idoso e Associado">Idoso e Associado</option>
                                 <option value="Deficiente">Deficiente</option>
+                                <option value="Associado">Associado</option>
+
+
                                 
                                 </select>
                             </div>

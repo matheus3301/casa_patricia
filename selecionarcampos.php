@@ -214,10 +214,14 @@
                         <option value="">Selecione...</option>
                         <option value="Idosos">Idosos</option>
                         <option value="Deficientes">Deficientes</option>
-                        <option value="Todos Ativos">Todos Ativos</option>
-                        <option value="Todos Inativos">Todos Inativos</option>
-                        <option value="Deficientes Inativos">Deficientes Inativos</option>
+                        <option value="Todos Ativos">Todos</option>
+                        <option value="Associados">Somente Associados</option>
+                        <option value="Idosos Associados">Somente Idosos Associados</option>
+                        <option value="Todos Associados">Todos Associados</option>
+
                         <option value="Idosos Inativos">Idosos Inativos</option>
+                        <option value="Deficientes Inativos">Deficientes Inativos</option>
+                        <option value="Todos Inativos">Todos Inativos</option>
 
 
 

@@ -37,7 +37,7 @@ $mae = $_POST['mae'];
 
 
 //atualização das informações básicas
-$sql = "UPDATE tb_idoso SET nome = '$nome', data_nasc = '$data_nasc', contato = '$contato', 
+$sql = "UPDATE tb_idoso SET tipo = '$tipo',nome = '$nome', data_nasc = '$data_nasc', contato = '$contato', 
     sexo = '$sexo', rua = '$rua', bairro = '$bairro', numero = '$numero', rg = '$rg',
     cpf = '$cpf',nis = '$nis',medicacoes = '$medicacoes',alergias = '$alergias', nome_familiar = '$nome_familiar',contato_familiar = '$contato_familiar',
     cep = '$cep', municipio = '$municipio',complemento = '$complemento', ponto_referencia = '$ponto_referencia', orgao_expedidor = '$orgao_expedidor', data_expedicao = '$data_expedicao',

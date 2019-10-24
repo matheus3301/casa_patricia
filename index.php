@@ -77,7 +77,7 @@ font-size:1.5em;
                     <span aria-hidden="true">&times;</span>
                     <span class="sr-only">Close</span>
                 </button>
-                <strong>Sucesso!</strong> Associado cadastrado com sucesso no sistema! :)
+                <strong>Sucesso!</strong> Pessoa cadastrada com sucesso no sistema! :)
             </div>
 
         
@@ -94,7 +94,7 @@ font-size:1.5em;
             <span aria-hidden="true">&times;</span>
             <span class="sr-only">Close</span>
         </button>
-        <strong>Sucesso!</strong> As informações do associado foram atualizadas! :)
+        <strong>Sucesso!</strong> As informações da Pessoa foram atualizadas! :)
     </div>
 
 
@@ -112,7 +112,7 @@ font-size:1.5em;
             <span aria-hidden="true">&times;</span>
             <span class="sr-only">Close</span>
         </button>
-        <strong>Sucesso!</strong> O associado foi desvinculado da associação :'(
+        <strong>Sucesso!</strong> A Pessoa foi desvinculada da associação :'(
     </div>               
 
 
@@ -128,7 +128,7 @@ font-size:1.5em;
             <span aria-hidden="true">&times;</span>
             <span class="sr-only">Close</span>
         </button>
-        <strong>Sucesso!</strong> O associado revinculado à associação :')
+        <strong>Sucesso!</strong> A Pessoa revinculada à associação :')
     </div>               
 
 
@@ -214,11 +214,11 @@ font-size:1.5em;
 
 
                                     <div class="col-sm-6 col-md-3 plan price default wow fadeInDown" style="cursor:pointer">
-                                        <a data-toggle="modal" data-target="#modal-relatorio">
+                                        <a href="selecionarcampos.php">
                                             <ul class="list-group">
                                                 <li class="list-group-item heading" data-bs-hover-animate="pulse" style="height: 245px;">
                                                     <img src="assets/img/pdf.png" alt="Idosos" class="box-img">
-                                                    <h1 class="box-txt">Relatório</h1><span class="price">Associados Cadastrados</span>
+                                                    <h1 class="box-txt">Relatório</h1><span class="price">Pessoas Cadastradas</span>
                                                 </li>
                                             </ul>
                                         </a>
@@ -336,7 +336,7 @@ font-size:1.5em;
                     ?>
                         
                             <div class="form-group">
-                            <label for="">Selecione o Associado:</label>
+                            <label for="">Selecione a Pessoa:</label>
                             <select class="form-control" id="paciente">
                                 <option value="vazio">selecione...</option>
                                 <?php
@@ -471,7 +471,7 @@ font-size:1.5em;
             var idPaciente = $('#paciente').val();
             
             if(idPaciente == "vazio"){
-                alert("Selecione um associado");
+                alert("Selecione uma Pessoa");
             }else{
                 window.open("gerarpdfficha.php?id="+idPaciente);
 
@@ -521,7 +521,7 @@ font-size:1.5em;
                     alert(msg);
                 });        
             }else{
-                alert("Selecione um associado para dar presença");
+                alert("Selecione uma Pessoa para dar presença");
             }
 
 

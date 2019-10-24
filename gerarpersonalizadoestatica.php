@@ -5,7 +5,7 @@
 		$tipo = $_POST['tipo'];
 
 		if($tipo == 'Idosos'){
-			$sql = "SELECT * FROM tb_idoso WHERE status = 'ATIVO' AND tipo = 'Idoso' ORDER BY nome ASC";
+			$sql = "SELECT * FROM tb_idoso WHERE status = 'ATIVO' AND (tipo = 'Idoso' OR tipo = 'Idoso e Associado') ORDER BY nome ASC";
 		}
 
 		if($tipo == 'Deficientes'){
@@ -23,7 +23,22 @@
 			$sql = "SELECT * FROM tb_idoso WHERE status = 'INATIVO' AND tipo = 'Deficiente' ORDER BY nome ASC";
 		}
 		if($tipo == 'Idosos Inativos'){
-			$sql = "SELECT * FROM tb_idoso WHERE status = 'INATIVO' AND tipo = 'Idoso' ORDER BY nome ASC";
+			$sql = "SELECT * FROM tb_idoso WHERE status = 'INATIVO' AND (tipo = 'Idoso' OR  tipo = 'Idoso e Associado' ) ORDER BY nome ASC";
+		}
+
+		if($tipo == 'Associados'){
+			$sql = "SELECT * FROM tb_idoso WHERE status = 'ATIVO' AND tipo = 'Associado' ORDER BY nome ASC";
+
+		}
+
+		if($tipo == 'Idosos Associados'){
+			$sql = "SELECT * FROM tb_idoso WHERE status = 'ATIVO' AND tipo = 'Idoso e Associado' ORDER BY nome ASC";
+
+		}
+
+		if($tipo == 'Todos Associados'){
+			$sql = "SELECT * FROM tb_idoso WHERE status = 'ATIVO' AND (tipo = 'Associado' OR tipo = 'Idoso e Associado')  ORDER BY nome ASC";
+
 		}
 
 		$table_titles = array(

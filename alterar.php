@@ -169,7 +169,9 @@
                                 <select class="form-control form-control-lg" name="tipo_pessoa">
                                 <option value="">Selecione...</option>
                                 <option value="Idoso" <?php if($return['tipo'] == "Idoso"){ echo 'selected';}?>>Idoso</option>
+                                <option value="Idoso e Associado" <?php if($return['tipo'] == "Idoso e Associado"){ echo 'selected';}?>>Idoso e Associado</option>
                                 <option value="Deficiente" <?php if($return['tipo'] == "Deficiente"){ echo 'selected';}?>>Deficiente</option>
+                                <option value="Associado" <?php if($return['tipo'] == "Associado"){ echo 'selected';}?>>Associado</option>
                                 
                                 </select>
                             </div>

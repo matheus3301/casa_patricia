@@ -161,8 +161,9 @@
 			}	
 			.img-profile{
 					height:250px;
+					width:250px;
 					object-fit: cover;
-					border-radius:5px;
+					border-radius:125px;
 					border: 3px solid #666;					
 			}
 			table{

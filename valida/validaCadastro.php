@@ -5,6 +5,8 @@ include 'correcaoImagem.php';
 
 include '../includes/conexao.php';
 
+include '../vendor/autoload.php';
+
 $src_profile = NULL;
 $src_xerox = NULL;
 
@@ -48,6 +50,7 @@ if (is_uploaded_file($_FILES['imagem']['tmp_name'])) {
     }
     if (move_uploaded_file($arquivo['tmp_name'], "../" . $src_profile)) {
         correctImageOrientation("../" . $src_profile);
+        
 
         echo "Sucesso";
     } else {

@@ -27,7 +27,7 @@
 	$dompdf->stream(
 		"Relatório Personalizado - Casa de Patrícia", 
 		array(
-			"Attachment" => false //Para realizar o download somente alterar para true
+			"Attachment" => true //Para realizar o download somente alterar para true
 		)
 	);
 

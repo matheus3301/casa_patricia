@@ -203,15 +203,16 @@
                         </div>
                         </div>
                         <div class="col-sm-12 col-md-3">
-                            <div class="form-group"><label style="color: #0a0a0a;">Sexo</label>
-                            
-                              
-                              <select class="form-control form-control-lg" name="sexo">
-                                <option value="">Selecione...</option>
-                                <option value="M" <?php if($return['sexo'] == "M"){ echo 'selected';}?>>Masculino</option>
-                                <option value="F" <?php if($return['sexo'] == "F"){ echo 'selected';}?>>Feminino</option>
-                                <option value="N.Binário" <?php if($return['sexo'] == "N.Binário"){ echo 'selected';}?>>Não Binário</option>
-                              </select>
+                        <div class="form-group"><label style="color: #0a0a0a;">Sexo</label>
+                                <input class="form-control form-control-lg" name="sexo" list="sexos" value="<?php echo $return['sexo']; ?>">
+                                <datalist id="sexos">
+                                    <option value="Masculino">
+                                    <option value="Feminino">
+                                    <option value="Não Binário">
+
+                                    
+                                </datalist>
+
                             </div>
                         
                         </div>

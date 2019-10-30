@@ -1,8 +1,16 @@
 <?php
 		
 		include 'includes/conexao.php';
+		$sql;
+		if($tipo == "Deficiente"){
+			$sql = "SELECT * FROM tb_idoso WHERE status = 'ATIVO' AND tipo = '$tipo' ORDER BY idtb_idoso ASC";
+		}
+		if($tipo == "Idoso"){
+			$sql = "SELECT * FROM tb_idoso WHERE status = 'ATIVO' AND (tipo = 'Idoso' OR tipo = 'Idoso e Associado') ORDER BY idtb_idoso ASC";
+			
+		}
 		
-		$sth = $conexao->prepare("SELECT * FROM tb_idoso WHERE status = 'ATIVO' AND tipo = '$tipo' ORDER BY idtb_idoso ASC");
+		$sth = $conexao->prepare($sql);
 		$sth->execute();
 		
         $result = $sth->fetchAll();

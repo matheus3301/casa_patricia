@@ -137,11 +137,11 @@
                     <hr>
                     <div class="form-row">
                         <div class="col-sm-12 col-md-6">
-                            <div class="form-group"><label style="color: #0a0a0a;">Nome</label><input required="" class="form-control form-control-lg" type="text" autofocus="" name="nome" ></div>
+                            <div class="form-group"><label style="color: #0a0a0a;">Nome*</label><input required="" class="form-control form-control-lg" type="text" autofocus="" name="nome" ></div>
                         </div>
                         <div class="col-sm-12 col-md-3">
                             
-                            <div class="form-group"><label style="color: #0a0a0a;">Tipo</label>
+                            <div class="form-group"><label style="color: #0a0a0a;">Tipo*</label>
                                 
                                 
                                 <select class="form-control form-control-lg" name="tipo_pessoa" required="">
@@ -179,7 +179,7 @@
                         </div>
                         </div>
                         <div class="col-sm-12 col-md-3">
-                            <div class="form-group"><label style="color: #0a0a0a;">Sexo</label>
+                            <div class="form-group"><label style="color: #0a0a0a;">Sexo*</label>
                             
                               
                               <select class="form-control form-control-lg" name="sexo" required="">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 25/10/2019 às 15:58
+-- Tempo de geração: 30/10/2019 às 17:58
 -- Versão do servidor: 10.1.35-MariaDB
 -- Versão do PHP: 7.2.9
 
@@ -106,7 +106,7 @@ CREATE TABLE `tb_idoso` (
   `nome` varchar(100) NOT NULL,
   `tipo` varchar(45) NOT NULL,
   `data_nasc` date DEFAULT NULL,
-  `sexo` varchar(10) NOT NULL,
+  `sexo` varchar(255) DEFAULT NULL,
   `rua` varchar(45) DEFAULT NULL,
   `bairro` varchar(45) DEFAULT NULL,
   `numero` varchar(45) DEFAULT NULL,
@@ -217,25 +217,25 @@ ALTER TABLE `tb_doente`
 -- AUTO_INCREMENT de tabela `tb_evento`
 --
 ALTER TABLE `tb_evento`
-  MODIFY `idtb_evento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idtb_evento` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `tb_frequencia`
 --
 ALTER TABLE `tb_frequencia`
-  MODIFY `idtb_frequencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `idtb_frequencia` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `tb_historico`
 --
 ALTER TABLE `tb_historico`
-  MODIFY `idtb_historico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `idtb_historico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de tabela `tb_idoso`
 --
 ALTER TABLE `tb_idoso`
-  MODIFY `idtb_idoso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `idtb_idoso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de tabela `tb_observacao`
